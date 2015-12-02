@@ -1,0 +1,42 @@
+/**
+ * These styles are applied to
+ * '/home' and it's child routes
+ */
+
+// Destination Search Form
+.journeyDestSearch {
+  .dname {
+    font-size: 1.75em;
+  }
+  .modal-footer hr {
+    border-width: none;
+    border-top: 0;
+    border-color: #fbd163;
+  }
+}
+
+.form-inline .center #destSearch {
+  width: 555px;
+}
+
+.form-group {
+  font-size: 1.25em;
+  select {
+    height: 45px;
+    text-align: center;
+    margin: 2px 0;
+  }
+}
+
+button {
+  height: 45px;
+  text-align: center;
+  margin: 2px 0;
+}
+
+input#exampleInputPassword3 {
+  width: 350px;
+  height: 45px;
+  text-align: right;
+  margin: 5px 0;
+}

@@ -1,4 +1,6 @@
 var elixir = require('laravel-elixir');
+elixir.config.css.outputFolder = 'assets/css'
+elixir.config.js.outputFolder = 'assets/js'
 
 /*
  |--------------------------------------------------------------------------
@@ -12,5 +14,13 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('app.scss');
+  // Home
+  mix.sass('Main.scss')
+  .coffee('Home.coffee');
+
+  // Versioning
+  mix.version([
+    'assets/css/Main.css',
+    'assets/js/Home.js'
+  ]);
 });
