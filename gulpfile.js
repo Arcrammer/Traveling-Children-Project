@@ -14,13 +14,20 @@ elixir.config.js.outputFolder = 'assets/js'
  */
 
 elixir(function(mix) {
+  // Bootstrap
+  mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', 'public/assets/js/bootstrap.min.js');
+
   // Home
   mix.sass('Main.scss')
   .coffee('Home.coffee');
 
   // Versioning
   mix.version([
+    // Styles
     'assets/css/Main.css',
+
+    // Scripts
+    'assets/js/bootstrap.min.js',
     'assets/js/Home.js'
   ]);
 });

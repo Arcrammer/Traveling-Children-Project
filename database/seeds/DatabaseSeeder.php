@@ -5,17 +5,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
-    public function run()
-    {
-        Model::unguard();
+  /**
+   * Run the database seeds.
+   *
+   * @return void
+   */
+  public function run()
+  {
+    Model::unguard();
 
-        // $this->call(UserTableSeeder::class);
+    $this->call(GenderSeeder::class);
+    $this->call(TravelerSeeder::class);
+    $this->call(StatesSeeder::class);
+    $this->call(TravelerAddressSeeder::class);
 
-        Model::reguard();
-    }
+    Model::reguard();
+  }
 }

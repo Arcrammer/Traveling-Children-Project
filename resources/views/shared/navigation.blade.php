@@ -16,9 +16,9 @@
 
     <div class="modal-body">
       <?php if($traveler->pic != NULL): ?>
-      <div class="pp_pic">
-        <img src="/assets/uploads/<?//= $traveler->pic ?>">
-      </div>
+        <div class="pp_pic">
+          <img src="/assets/uploads/<?//= $traveler->pic ?>">
+        </div>
       <?php endif ?>
       <p><b>First Name:</b> <?//= $traveler->first_name ?></p>
       <p><b>Last Name:</b> <?//= $traveler->last_name ?></p>
