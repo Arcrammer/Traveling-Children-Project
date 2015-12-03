@@ -17,7 +17,13 @@ class DatabaseSeeder extends Seeder
     $this->call(GenderSeeder::class);
     $this->call(TravelerSeeder::class);
     $this->call(StatesSeeder::class);
+    $this->call(CitiesSeeder::class);
     $this->call(TravelerAddressSeeder::class);
+    $this->call(DestinationSeeder::class);
+    $this->call(DestinationTypesSeeder::class);
+    $this->call(JourneysSeeder::class);
+    $this->call(TagsSeeder::class);    
+    $this->call(JourneyTagsSeeder::class);
 
     Model::reguard();
   }
