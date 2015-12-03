@@ -17,6 +17,7 @@ class CreateDestinationsTable extends Migration
       $table->increments('id');
       $table->integer('city')->unsigned();
       $table->integer('state')->unsigned();
+      $table->integer('type')->unsigned();
 
       // Foreign Keys
       $table->foreign('city')
@@ -25,6 +26,9 @@ class CreateDestinationsTable extends Migration
       $table->foreign('state')
         ->references('id')
         ->on('states');
+      $table->foreign('type')
+        ->references('id')
+        ->on('destination_types');
     });
   }
 

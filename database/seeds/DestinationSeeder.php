@@ -14,7 +14,8 @@ class DestinationSeeder extends Seeder
     for ($i=0; $i <= 10; $i++) {
       DB::table('destinations')->insert([
         'city' => rand(1, 6),
-        'state' => rand(1, 51)
+        'state' => rand(1, 51),
+        'type' => rand(1, 9)
       ]);
     }
   }
