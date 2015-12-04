@@ -2,6 +2,10 @@
 
 @section('title', 'Home')
 
+@section('extra_styles')
+<link rel="stylesheet" href="{{ elixir('assets/css/Home.css') }}">
+@endsection
+
 @section('extra_scripts')
 <script src="{{ elixir('assets/js/Home.js') }}"></script>
 @endsection

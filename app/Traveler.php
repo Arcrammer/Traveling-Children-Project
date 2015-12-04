@@ -22,6 +22,14 @@ class Traveler
     CanResetPassword;
 
   /**
+   * We're using the 'travelers' table
+   * rather than the default 'users'.
+   *
+   * @var string
+   */
+  public $table = 'travelers';
+
+  /**
    * The attributes that are mass assignable.
    *
    * @var array
@@ -55,15 +63,6 @@ class Traveler
    */
   protected function journeys() {
     return $this->hasMany('TravelingChildrenProject\Journey');
-  }
-
-  /**
-   * Each traveler has one address
-   *
-   * @return Illuminate\Database\Eloquent\Relations\HasOne
-   */
-  protected function address() {
-    return $this->hasOne('TravelingChildrenProject\TravelerAddress');
   }
 
   /**

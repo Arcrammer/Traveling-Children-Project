@@ -40,3 +40,11 @@ input#exampleInputPassword3 {
   text-align: right;
   margin: 5px 0;
 }
+
+// Sign-up Form
+.signup-form {
+  input[type="radio"] {
+    margin: 5px !important;
+    vertical-align: top !important;
+  }
+}

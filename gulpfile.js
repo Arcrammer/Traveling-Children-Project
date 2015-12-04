@@ -15,19 +15,23 @@ elixir.config.js.outputFolder = 'assets/js'
 
 elixir(function(mix) {
   // Bootstrap
-  mix.copy('node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js', 'public/assets/js/bootstrap.min.js');
+  mix.copy('resources/assets/css/bootstrap.css', 'public/assets/css/bootstrap.min.css');
 
   // Home
-  mix.sass('Main.scss')
+  mix.sass([
+    'Main.scss',
+    'Home.scss'
+  ], 'public/assets/css/Home.css')
   .coffee('Home.coffee');
 
   // Versioning
   mix.version([
     // Styles
     'assets/css/Main.css',
+    'assets/css/Home.css',
 
     // Scripts
-    'assets/js/bootstrap.min.js',
-    'assets/js/Home.js'
+    'assets/js/Home.js',
+    'assets/css/bootstrap.min.css'
   ]);
 });

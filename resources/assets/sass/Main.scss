@@ -1,4 +1,4 @@
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 /**
  * These styles are applied to every page
@@ -167,6 +167,11 @@ div#destButtons {
     opacity: .5;
     filter: alpha(opacity = 50);
   }
+
+  font-size: 2.5em;
+  opacity: 1;
+  padding: 3.5% !important;
+  margin-top: 0 !important;
 }
 
 button.close {
@@ -192,6 +197,15 @@ button.close {
   &.in {
     opacity: .875;
     filter: alpha(opacity = 50);
+  }
+}
+
+.modal-header {
+  padding: 0 15px 0 35px;
+
+  h4 {
+    line-height: 225%;
+    width: 75%;
   }
 }
 

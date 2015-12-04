@@ -11,13 +11,20 @@
 |
 */
 
+// Everything Else
 Route::get('/', 'welcome@home');
 
+// Controllers
+Route::controllers([
+  'auth' => '\TravelingChildrenProject\Http\Controllers\Auth\AuthController',
+  'password' => '\TravelingChildrenProject\Http\Controllers\Auth\PasswordController'
+]);
+
 // Redirections
-/**
- * These are primarily to prevent the
- * excessivly long links in our HTML
- */
 Route::get('/ChromeAdvert', function () {
+  /**
+   * These are primarily to prevent the
+   * excessivly long links in our HTML
+   */
   return redirect('https://www.google.com/intl/en/chrome/browser/desktop/index.html#brand=CHMB&utm_campaign=en&utm_source=en-ha-na-us-sk&utm_medium=ha');
 });

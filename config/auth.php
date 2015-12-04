@@ -28,7 +28,7 @@ return [
     |
     */
 
-    'model' => TravelingChildrenProject\User::class,
+    'model' => TravelingChildrenProject\Traveler::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -41,7 +41,7 @@ return [
     |
     */
 
-    'table' => 'users',
+    'table' => 'travelers',
 
     /*
     |--------------------------------------------------------------------------
