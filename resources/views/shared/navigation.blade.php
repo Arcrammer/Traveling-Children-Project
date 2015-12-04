@@ -302,8 +302,8 @@
         </li>
         @if (Auth::check())
           {{-- The user has authenticated --}}
-          <li data-toggle="tooltip" data-placement="bottom" title="Sign In to view Journey Blog">
-            <a href="#">Journey Blog</a>
+          <li>
+            <a href="/journeys">Journey Blog</a>
           </li>
           <li>
             <a
