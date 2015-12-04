@@ -13,6 +13,7 @@
 
 // Everything Else
 Route::get('/', 'welcome@home');
+Route::get('/journeys', 'journeys@blog');
 
 // Controllers
 Route::controllers([
