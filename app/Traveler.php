@@ -62,7 +62,7 @@ class Traveler
    * @return Illuminate\Database\Eloquent\Relations\HasMany
    */
   protected function journeys() {
-    return $this->hasMany('TravelingChildrenProject\Journey');
+    return $this->hasMany('TravelingChildrenProject\Journey', 'id');
   }
 
   /**

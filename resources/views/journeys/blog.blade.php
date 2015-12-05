@@ -37,7 +37,8 @@
 <div class="center welcome">
   <img src="/assets/images/Crest-YellowShirt.svg" class="crest hvr-grow-rotate" />
   <p class="lead center"><span>Welcome Traveler!</span> You have arrived at Traveling Children Project's Journey Blog! Here you can share your journey with other Travelers and also see where their travels have led them. <em style="font-weight:500;">Where has TC taken you? Click the button below to share your latest journeys here!</em></p>
-  <button type="button" style="margin:auto,0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal"><span class="hvr-icon-spin" style="color:#ef6831;text-align:center;line-height:50px;font-size:1.125em;"></span>
+  <button type="button" style="margin:auto 0;padding:0;" class="btn btn-primary btn-lg journeyModalButton journeyCreateButton" data-toggle="modal" data-target="#journeyModal">
+    <span class="hvr-icon-spin" style="color:#ef6831;text-align:center;vertical-align: top;font-size:1.125em;"></span>
   </button>
 </div> <!-- .center .welcome -->
 
@@ -45,26 +46,40 @@
 <div class="jp_section">
   <div class="journey_post">
     <div class="jp_wrapper">
-      <?php //foreach ($ten_posts as $post): ?>
-        <div class="journeyPost" data-journey-id="<?//= $post->id ?>">
-          <a class="x" href="journeys/delete/<?//= $post->id ?>">&times</a>
+      @foreach ($journeys->items() as $journey)
+        <div class="journeyPost" data-journey-id="{{ $journey->id }}">
+          <a class="x" href="journeys/delete/{{ $journey->id }}">&times</a>
           <div class="jpPadding">
-            <p class="jp_title"><?//= $post->title ?></p>
+            <p class="jp_title">{{ $journey->title }}</p>
           </div> <!-- .jpPadding -->
-          <?php //if($post->img != NULL): ?>
-            <div class="jp_img"><img src="/assets/uploads/<?//= $post->img ?>"></div>
-          <?php //endif ?>
+          @if ($journey->header_image_filename !== NULL)
+            <div class="jp_img">
+              <img src="/assets/journeys/header_images/{{ $journey->header_image_filename }}">
+            </div>
+          @endif
           <div class="jpPadding">
-            <p class="jp_fname_date"><em><a href="#"><b>Traveling <?//= $post->user->first_name ?></b></a> / <?//= $post->date ?></em></p>
-            <p class="jp_body"><?//= $post->body ?></a></p>
-            <p class="htags"><?//= $post->htags ?></p>
+            <p class="jp_fname_date">
+              <em>
+                <a href="#">
+                  <b>Traveling {{ $journey->creator->first_name }}</b>
+                </a> / {{ $journey->created_at->diffForHumans() }}
+              </em>
+            </p>
+            <p class="jp_body">
+              {!! file_get_contents(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename) !!}
+            </p>
+            <p class="htags">
+              @foreach ($journey->tags as $tag)
+              <span class="tag">#{{ $tag->tag }}</span>
+              @endforeach
+            </p>
             <!-- Modal Footer -->
             <hr class="jp_divider"></hr>
             <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
-            <a href="/journeys/delete/<?//= $post->id ?>" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+            <a href="/journeys/delete/{{ $journey->id }}" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
           </div> <!-- .jpPadding -->
         </div> <!-- .journeyPost -->
-      <?php //endforeach ?>
+      @endforeach
     </div> <!-- .jp_wrapper -->
   </div> <!-- .journey_post -->
 </div> <!-- .jp_section -->

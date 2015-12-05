@@ -11,8 +11,8 @@ class Journey extends Model
    *
    * @return Illuminate\Database\Eloquent\Relations\BelongsTo
    */
-  protected function traveler() {
-    return $this->belongsTo('TravelingChildrenProject\Traveler');
+  protected function creator() {
+    return $this->hasOne('TravelingChildrenProject\Traveler', 'id');
   }
 
   /**
@@ -21,6 +21,6 @@ class Journey extends Model
    * @return Illuminate\Database\Eloquent\Relations\HasMany
    */
   protected function tags() {
-    return $this->hasMany('TravelingChildrenProject\JourneyTag');
+    return $this->hasManyThrough('TravelingChildrenProject\Tag', 'TravelingChildrenProject\JourneyTag', 'journey', 'id');
   }
 }

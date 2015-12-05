@@ -24,11 +24,22 @@ elixir(function(mix) {
   ], 'public/assets/css/Home.css')
   .coffee('Home.coffee');
 
+  // Journeys
+  mix.sass([
+    'Main.scss',
+    'Journeys.scss'
+  ], 'public/assets/css/Journeys.css');
+
+  // Errors
+  mix.sass('Errors.scss', 'public/assets/css/Journeys.css');
+
   // Versioning
   mix.version([
     // Styles
     'assets/css/Main.css',
     'assets/css/Home.css',
+    'assets/css/Journeys.css',
+    'assets/css/Errors.css',
 
     // Scripts
     'assets/js/Home.js',

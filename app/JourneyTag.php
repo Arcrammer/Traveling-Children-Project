@@ -12,6 +12,6 @@ class JourneyTag extends Model
    * @return Illuminate\Database\Eloquent\Relations\BelongsTo
    */
   protected function journey() {
-    return $this->belongsTo('TravelingChildrenProject\Journey');
+    return $this->belongsTo('TravelingChildrenProject\Journey', 'journey');
   }
 }

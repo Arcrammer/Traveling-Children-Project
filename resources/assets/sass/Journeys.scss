@@ -4,6 +4,9 @@
  '/journeys/create')
  */
 
+ // Import 'Main.scss'
+ @import 'Main.scss';
+
 // Forms
 .form-control:focus {
   border-color: #f69568;
@@ -33,6 +36,14 @@ form.journey-form input[type="text"] {
 
 .modal-header form h4 input[placeholder] {
   color: $orange;
+}
+
+.journeyCreateButton {
+  border-radius: 100%;
+  height: 75px;
+  margin: auto;
+  padding: 0;
+  width: 75px;
 }
 
 // Posts
