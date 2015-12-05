@@ -79,7 +79,8 @@ li #facebook-signup a {
 div#destButtons {
   max-width: 90%; }
   div#destButtons a {
-    padding: 10px;
+    display: block;
+    padding: 0;
     color: #9dddf9;
     font-size: .75em; }
     div#destButtons a:hover {
