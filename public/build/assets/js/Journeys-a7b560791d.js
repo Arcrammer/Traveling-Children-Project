@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var bodyField, buttons, createJourneyButton, dateField, htagsField, journeyID, journeys, submitButton, titleField;
+    var bodyField, createButton, dateField, editButtons, htagsField, journeyID, journeys, submitButton, titleField;
     $('.grid').masonry(function() {
       return {
         itemSelector: '.grid-item',
@@ -8,14 +8,14 @@
       };
     });
     journeys = $('.journeyPost');
-    buttons = $('.journeyEditButton');
+    editButtons = $('.journeyEditButton');
     submitButton = $('input[type="submit"]')[0];
     titleField = $('input[name="title"]')[0];
     dateField = $('input[name="date"]')[0];
     bodyField = $('textarea[name="body"]')[0];
     htagsField = $('input[name="htags"]')[0];
     journeyID = null;
-    buttons.click(function() {
+    editButtons.click(function() {
       var button, journeyPost;
       button = this;
       journeyPost = journeys[$(buttons).index(button)];
@@ -30,8 +30,8 @@
         $('.journey-form')[0].setAttribute('action', '/journeys/edit/' + journeyID);
       });
     });
-    createJourneyButton = $('.journeyCreateButton')[0];
-    $(createJourneyButton).click(function() {
+    createButton = $('.journeyCreateButton')[0];
+    $(createButton).click(function() {
       submitButton.value = 'Create';
     });
   });

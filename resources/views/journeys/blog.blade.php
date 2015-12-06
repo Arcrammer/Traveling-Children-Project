@@ -9,29 +9,31 @@
 @endsection
 @section('content')
 
-<!-- Journey Form Modal -->
+<!-- Journey Creation Modal -->
 <div class="modal fade" id="journeyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
+        <form id="journey-form" action="/journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
+        </form>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <form id="journey-form" action="/journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
-        </form>
-        <h4>
-          <input form="journey-form" type="text" name="title" value="TC Journey to " placeholder="Enter Journey Post Title…" style="background:none;border:none;width:300px;color:#ee6730;" required>
-        </h4>
+        <h4>TC Journey to...</h4>
+        <input form="journey-form" class="journey-title" type="text" name="title" placeholder="Enter Journey Post Title…" required>
       </div> <!-- .modal-header -->
       <div class="modal-body">
-        <input form="journey-form" type="date" name="date" class="form-control" value="" autocomplete="on" required>
-        <br />
-        <textarea rows="10" name="body" class="form-control" value="" placeholder="Body..." required></textarea>
-        <br />
-        <input form="journey-form" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required>
-        <br />
-        <input form="journey-form" type="file" name="img" class="input-group" value="" accept="image/*">
-        <br />
+        <label for="date">When did this journey happen?</label>
+        <input form="journey-form" id="date" type="date" name="date" class="form-control" autocomplete="on" required>
+
+        <label for="body">What did you do there?</label>
+        <textarea id="body" rows="10" name="body" class="form-control" placeholder="Body..." required></textarea>
+
+        <label for="tags">Choose some tags to help others easily find this journey.</label>
+        <input form="journey-form" id="tags" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required>
+
+        <label for="photo">Is there a photo you took while you were there??</label>
+        <input form="journey-form" id="photo" type="file" name="img" class="input-group" accept="image/*">
       </div> <!-- .modal-body -->
       <div class="modal-footer">
         <input form="journey-form" style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning journeyUpdateButton" value="Create">

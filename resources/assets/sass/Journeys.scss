@@ -34,8 +34,117 @@ form.journey-form input[type="text"] {
   width: 535px !important;
 }
 
-.modal-header form h4 input[placeholder] {
-  color: $orange;
+#journeyModal {
+  .close {
+    height: 65px;
+    letter-spacing: 0.5px;
+    line-height: 75%;
+
+    span {
+      display: inline-block;
+      height: 35px
+    }
+  }
+
+  .modal-header {
+    h4 {
+      float: left;
+      letter-spacing: 0.35px;
+      width: 30%;
+    }
+
+    input {
+      background: none;
+      border: none;
+      float: left;
+      line-height: 435%;
+      text-indent: 25px;
+      width: 55%;
+    }
+  }
+
+  .modal-body,
+  .modal-footer {
+    padding: 0 (15px / 600px * 100%);
+
+    label {
+      color: #444;
+      font-weight: 500;
+      margin-top: 3.5%;
+      margin-left: 5%;
+    }
+
+    input {
+      background-color: white;
+      padding: 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &[type="file"] {
+        background-color: transparent;
+        line-height: 100%;
+        margin-left: 2.5%;
+        margin-bottom: 5%;
+        text-indent: 0;
+      }
+
+      &[type="submit"] {
+        background-color: transparent;
+        font-size: 1.15em;
+        margin: 5% 2.5%;
+        outline: none;
+        padding: 1% 2.5%;
+        text-indent: 0;
+        transition: all 175ms;
+
+        &:hover,
+        &:focus {
+          background-color: $orange;
+          color: white;
+        }
+
+        &:active {
+          background-color: $orange / 2;
+          color: grey;
+        }
+      }
+    }
+
+    textarea {
+      padding-top: 15px;
+    }
+  }
+
+  input {
+    color: $orange;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input, textarea {
+    text-indent: 15px
+  }
+
+  // Placeholders
+  ::-webkit-input-placeholder {
+    color: $orange;
+  }
+
+  :-moz-placeholder {
+    color: $orange;
+  }
+
+  ::-moz-placeholder {
+    color: $orange;
+  }
+
+  :-ms-input-placeholder {
+    color: $orange;
+  }
 }
 
 .journeyCreateButton {
@@ -62,7 +171,7 @@ form.journey-form input[type="text"] {
 
   span {
     display: block;
-    padding-top: 5px;    
+    padding-top: 5px;
   }
 }
 

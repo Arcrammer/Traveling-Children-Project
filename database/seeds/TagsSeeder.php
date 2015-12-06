@@ -12,15 +12,15 @@ class TagsSeeder extends Seeder
   public function run()
   {
     $tags = [
-      'Traveling Christian',
-      'Happy Travels',
+      'TravelingChristian',
+      'HappyTravels',
       'Fall',
       'Pumpkin',
-      'Amusement Park',
-      'Harry Potter',
-      'Reading Goals',
+      'AmusementPark',
+      'HarryPotter',
+      'ReadingGoals',
       'Science',
-      'Orlando Science Center',
+      'OrlandoScienceCenter',
       'Zipline'
     ];
 

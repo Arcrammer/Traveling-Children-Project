@@ -6,7 +6,7 @@ $(document).ready ->
 
   # Get the edit form input elements
   journeys = $('.journeyPost')
-  buttons = $('.journeyEditButton')
+  editButtons = $('.journeyEditButton')
   submitButton = $('input[type="submit"]')[0]
   titleField = $('input[name="title"]')[0]
   dateField = $('input[name="date"]')[0]
@@ -14,7 +14,7 @@ $(document).ready ->
   htagsField = $('input[name="htags"]')[0]
   journeyID = null
 
-  buttons.click ->
+  editButtons.click ->
     # The 'Edit' button was clicked
     button = this
     journeyPost = journeys[$(buttons).index(button)]
@@ -46,8 +46,8 @@ $(document).ready ->
   # still says 'Update', so we'll change it back to
   # 'Create' every time they switch between the two
   #
-  createJourneyButton = $('.journeyCreateButton')[0]
-  $(createJourneyButton).click ->
+  createButton = $('.journeyCreateButton')[0]
+  $(createButton).click ->
     submitButton.value = 'Create'
     return
   return

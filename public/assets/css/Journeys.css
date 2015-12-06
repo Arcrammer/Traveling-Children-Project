@@ -6,8 +6,7 @@ body {
   background-attachment: fixed; }
 
 .master .container {
-  width: 100%;
-  background: mediumslateblue; }
+  width: 100%; }
   .master .container * {
     box-shadow: none; }
 
@@ -385,8 +384,7 @@ body {
   background-attachment: fixed; }
 
 .master .container {
-  width: 100%;
-  background: mediumslateblue; }
+  width: 100%; }
   .master .container * {
     box-shadow: none; }
 
@@ -769,7 +767,91 @@ div.modal-header .journeyPostTitle input[placeholder] {
 form.journey-form input[type="text"] {
   width: 535px !important; }
 
-.modal-header form h4 input[placeholder] {
+#journeyModal .close {
+  height: 65px;
+  letter-spacing: 0.5px;
+  line-height: 75%; }
+  #journeyModal .close span {
+    display: inline-block;
+    height: 35px; }
+
+#journeyModal .modal-header h4 {
+  float: left;
+  letter-spacing: 0.35px;
+  width: 30%; }
+
+#journeyModal .modal-header input {
+  background: none;
+  border: none;
+  float: left;
+  line-height: 435%;
+  text-indent: 25px;
+  width: 55%; }
+
+#journeyModal .modal-body,
+#journeyModal .modal-footer {
+  padding: 0 2.5%; }
+  #journeyModal .modal-body label,
+  #journeyModal .modal-footer label {
+    color: #444;
+    font-weight: 500;
+    margin-top: 3.5%;
+    margin-left: 5%; }
+  #journeyModal .modal-body input,
+  #journeyModal .modal-footer input {
+    background-color: white;
+    padding: 0; }
+    #journeyModal .modal-body input:first-of-type,
+    #journeyModal .modal-footer input:first-of-type {
+      margin-top: 0; }
+    #journeyModal .modal-body input[type="file"],
+    #journeyModal .modal-footer input[type="file"] {
+      background-color: transparent;
+      line-height: 100%;
+      margin-left: 2.5%;
+      margin-bottom: 5%;
+      text-indent: 0; }
+    #journeyModal .modal-body input[type="submit"],
+    #journeyModal .modal-footer input[type="submit"] {
+      background-color: transparent;
+      font-size: 1.15em;
+      margin: 5% 2.5%;
+      outline: none;
+      padding: 1% 2.5%;
+      text-indent: 0;
+      transition: all 175ms; }
+      #journeyModal .modal-body input[type="submit"]:hover, #journeyModal .modal-body input[type="submit"]:focus,
+      #journeyModal .modal-footer input[type="submit"]:hover,
+      #journeyModal .modal-footer input[type="submit"]:focus {
+        background-color: #ee6730;
+        color: white; }
+      #journeyModal .modal-body input[type="submit"]:active,
+      #journeyModal .modal-footer input[type="submit"]:active {
+        background-color: #773418;
+        color: grey; }
+  #journeyModal .modal-body textarea,
+  #journeyModal .modal-footer textarea {
+    padding-top: 15px; }
+
+#journeyModal input {
+  color: #ee6730; }
+
+#journeyModal textarea {
+  resize: vertical; }
+
+#journeyModal input, #journeyModal textarea {
+  text-indent: 15px; }
+
+#journeyModal ::-webkit-input-placeholder {
+  color: #ee6730; }
+
+#journeyModal :-moz-placeholder {
+  color: #ee6730; }
+
+#journeyModal ::-moz-placeholder {
+  color: #ee6730; }
+
+#journeyModal :-ms-input-placeholder {
   color: #ee6730; }
 
 .journeyCreateButton {
