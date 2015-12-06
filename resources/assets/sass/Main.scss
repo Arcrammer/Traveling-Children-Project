@@ -18,8 +18,15 @@ body {
   background-attachment: fixed;
 }
 
-.container * {
-  box-shadow: none;
+.master {
+  .container {
+    width: 100%;
+    background: mediumslateblue;
+
+    * {
+      box-shadow: none;
+    }
+  }
 }
 
 // Homeless Stuff

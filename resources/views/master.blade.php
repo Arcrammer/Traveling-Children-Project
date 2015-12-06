@@ -24,7 +24,7 @@
     <!-- Navigation -->
     @include('shared.navigation')
 
-    <div class="container">
+    <div class="master container">
       @yield('content')
     </div> <!-- .container -->
 

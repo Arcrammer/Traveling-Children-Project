@@ -5,8 +5,11 @@ body {
   background: #9dddf9 url("/assets/images/Laces.png") repeat left top;
   background-attachment: fixed; }
 
-.container * {
-  box-shadow: none; }
+.master .container {
+  width: 100%;
+  background: mediumslateblue; }
+  .master .container * {
+    box-shadow: none; }
 
 .center {
   text-align: center;

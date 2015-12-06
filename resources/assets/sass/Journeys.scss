@@ -87,6 +87,10 @@ form.journey-form input[type="text"] {
 
   margin: 25px / 940px * 100%;
   width: 263.33333333px / 940px * 100%;
+
+  img {
+    width: 100% !important;
+  }
 }
 
 .jpPadding {
@@ -141,3 +145,25 @@ form.journey-form input[type="text"] {
 .jp_divider {
   border-color: #fbd163;
 }
+
+/* Media Queries */
+@media only screen
+  and (max-width: 900px) {
+    .container,
+    .jp_wrapper {
+      width: 100%;
+    }
+
+    .jp_wrapper {
+      margin-top: 5%;
+    }
+
+    .journeyPost {
+      width: 420px / 940px * 100%;
+    }
+
+    .crest {
+      padding-top: 35px;
+      width: 35% !important;
+    }
+  }

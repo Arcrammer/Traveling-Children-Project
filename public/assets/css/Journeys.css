@@ -5,8 +5,11 @@ body {
   background: #9dddf9 url("/assets/images/Laces.png") repeat left top;
   background-attachment: fixed; }
 
-.container * {
-  box-shadow: none; }
+.master .container {
+  width: 100%;
+  background: mediumslateblue; }
+  .master .container * {
+    box-shadow: none; }
 
 .center {
   text-align: center;
@@ -381,8 +384,11 @@ body {
   background: #9dddf9 url("/assets/images/Laces.png") repeat left top;
   background-attachment: fixed; }
 
-.container * {
-  box-shadow: none; }
+.master .container {
+  width: 100%;
+  background: mediumslateblue; }
+  .master .container * {
+    box-shadow: none; }
 
 .center {
   text-align: center;
@@ -808,6 +814,8 @@ form.journey-form input[type="text"] {
   border-radius: 4px;
   margin: 2.6595744681%;
   width: 28.0141843968%; }
+  .journeyPost img {
+    width: 100% !important; }
 
 .jpPadding {
   padding: 15px; }
@@ -850,5 +858,18 @@ form.journey-form input[type="text"] {
 
 .jp_divider {
   border-color: #fbd163; }
+
+/* Media Queries */
+@media only screen and (max-width: 900px) {
+  .container,
+  .jp_wrapper {
+    width: 100%; }
+  .jp_wrapper {
+    margin-top: 5%; }
+  .journeyPost {
+    width: 44.6808510638%; }
+  .crest {
+    padding-top: 35px;
+    width: 35% !important; } }
 
 /*# sourceMappingURL=Journeys.css.map */
