@@ -8,6 +8,10 @@ use TravelingChildrenProject\Http\Requests;
 use TravelingChildrenProject\Http\Controllers\Controller;
 use TravelingChildrenProject\Journey;
 
+/**
+ * TODO: Disallow spaces in tags
+ */
+
 class Journeys extends Controller
 {
   /**

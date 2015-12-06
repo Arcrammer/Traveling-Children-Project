@@ -1,5 +1,12 @@
 @extends('master')
 @section('title', 'Journeys')
+@section('extra_styles')
+<link rel="stylesheet" href="{{ elixir('assets/css/Journeys.css') }}">
+@endsection
+@section('extra_scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
+<script src="{{ elixir('assets/js/Journeys.js') }}"></script>
+@endsection
 @section('content')
 
 <!-- Journey Form Modal -->
@@ -43,45 +50,40 @@
 </div> <!-- .center .welcome -->
 
 <!-- Journey Blog Posts -->
-<div class="jp_section">
-  <div class="journey_post">
-    <div class="jp_wrapper">
-      @foreach ($journeys->items() as $journey)
-        <div class="journeyPost" data-journey-id="{{ $journey->id }}">
-          <a class="x" href="journeys/delete/{{ $journey->id }}">&times</a>
-          <div class="jpPadding">
-            <p class="jp_title">{{ $journey->title }}</p>
-          </div> <!-- .jpPadding -->
-          @if ($journey->header_image_filename !== NULL)
-            <div class="jp_img">
-              <img src="/assets/journeys/header_images/{{ $journey->header_image_filename }}">
-            </div>
-          @endif
-          <div class="jpPadding">
-            <p class="jp_fname_date">
-              <em>
-                <a href="#">
-                  <b>Traveling {{ $journey->creator->first_name }}</b>
-                </a> / {{ $journey->created_at->diffForHumans() }}
-              </em>
-            </p>
-            <p class="jp_body">
-              {!! file_get_contents(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename) !!}
-            </p>
-            <p class="htags">
-              @foreach ($journey->tags as $tag)
-              <span class="tag">#{{ $tag->tag }}</span>
-              @endforeach
-            </p>
-            <!-- Modal Footer -->
-            <hr class="jp_divider"></hr>
-            <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
-            <a href="/journeys/delete/{{ $journey->id }}" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
-          </div> <!-- .jpPadding -->
-        </div> <!-- .journeyPost -->
-      @endforeach
-    </div> <!-- .jp_wrapper -->
-  </div> <!-- .journey_post -->
-</div> <!-- .jp_section -->
+<div class="jp_wrapper grid">
+  @foreach ($journeys->items() as $journey)
+    <div class="journeyPost" data-journey-id="{{ $journey->id }}">
+      <div class="jpPadding">
+        <p class="jp_title">TC Journey to {{ $journey->title }}</p>
+      </div> <!-- .jpPadding -->
+      @if ($journey->header_image_filename !== NULL)
+        <div class="jp_img">
+          <img src="/assets/journeys/header_images/{{ $journey->header_image_filename }}">
+        </div>
+      @endif
+      <div class="jpPadding">
+        <p class="jp_fname_date">
+          <em>
+            <a href="#">
+              <b>Traveling {{ $journey->creator->first_name }}</b>
+            </a> / {{ $journey->created_at->diffForHumans() }}
+          </em>
+        </p>
+        <p class="jp_body">
+          {!! file_get_contents(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename) !!}
+        </p>
+        <p class="htags">
+          @foreach ($journey->tags as $tag)
+          <span class="tag">#{{ $tag->tag }}</span>
+          @endforeach
+        </p>
+        <!-- Modal Footer -->
+        <hr class="jp_divider"></hr>
+        <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
+        <a href="/journeys/delete/{{ $journey->id }}" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+      </div> <!-- .jpPadding -->
+    </div> <!-- .journeyPost -->
+  @endforeach
+</div> <!-- .jp_wrapper -->
 
 @endsection

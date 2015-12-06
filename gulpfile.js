@@ -28,7 +28,8 @@ elixir(function(mix) {
   mix.sass([
     'Main.scss',
     'Journeys.scss'
-  ], 'public/assets/css/Journeys.css');
+  ], 'public/assets/css/Journeys.css')
+  .coffee('Journeys.coffee');
 
   // Errors
   mix.sass('Errors.scss', 'public/assets/css/Journeys.css');
@@ -43,6 +44,7 @@ elixir(function(mix) {
 
     // Scripts
     'assets/js/Home.js',
+    'assets/js/Journeys.js',
     'assets/css/bootstrap.min.css'
   ]);
 });

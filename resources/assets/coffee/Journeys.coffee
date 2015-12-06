@@ -1,4 +1,9 @@
 $(document).ready ->
+  # Grid
+  $('.grid').masonry ->
+    itemSelector: '.grid-item',
+    columnWidth: 200
+
   # Get the edit form input elements
   journeys = $('.journeyPost')
   buttons = $('.journeyEditButton')
