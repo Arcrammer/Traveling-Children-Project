@@ -20,6 +20,7 @@ class CreateJourneysTable extends Migration
       $table->timestamp('date');
       $table->string('description_filename');
       $table->string('header_image_filename')->nullable();
+      $table->softDeletes();
       $table->timestamps();
 
       // Foreign Keys

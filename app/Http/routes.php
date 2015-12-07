@@ -14,6 +14,8 @@
 // Everything Else
 Route::get('/', 'welcome@home');
 Route::get('/journeys', 'journeys@blog');
+Route::get('/journeys/delete/{id}', 'journeys@delete');
+Route::post('/journeys', 'journeys@persist');
 
 // Controllers
 Route::controllers([

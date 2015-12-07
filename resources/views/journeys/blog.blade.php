@@ -14,8 +14,9 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <form id="journey-form" action="/journeys/create" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
+        <form id="journey-form" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
         </form>
+        {{ csrf_field() }}
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -30,10 +31,10 @@
         <textarea id="body" rows="10" name="body" class="form-control" placeholder="Body..." required></textarea>
 
         <label for="tags">Choose some tags to help others easily find this journey.</label>
-        <input form="journey-form" id="tags" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#Hashtagserwttwttw" required>
+        <input form="journey-form" id="tags" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#One #Two #Red #Blue" required>
 
         <label for="photo">Is there a photo you took while you were there??</label>
-        <input form="journey-form" id="photo" type="file" name="img" class="input-group" accept="image/*">
+        <input form="journey-form" id="photo" type="file" name="header_image" class="input-group" accept="image/*">
       </div> <!-- .modal-body -->
       <div class="modal-footer">
         <input form="journey-form" style="font-size:1.5em;border-radius:6px;" type="submit" class="btn btn-warning journeyUpdateButton" value="Create">
@@ -54,6 +55,7 @@
 <!-- Journey Blog Posts -->
 <div class="jp_wrapper grid">
   @foreach ($journeys->items() as $journey)
+    {{-- {{ dd($journey->creator) }} --}}
     <div class="journeyPost" data-journey-id="{{ $journey->id }}">
       <div class="jpPadding">
         <p class="jp_title">TC Journey to {{ $journey->title }}</p>
