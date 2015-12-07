@@ -31,7 +31,7 @@
         <textarea id="body" rows="10" name="body" class="form-control" placeholder="Body..." autocomplete="off" required></textarea>
 
         <label for="tags">Choose some tags to help others easily find this journey.</label>
-        <input form="journey-form" id="tags" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#One #Two #Red #Blue" autocomplete="off" required>
+        <input form="journey-form" id="tags" type="text" name="tags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#One #Two #Red #Blue" autocomplete="off" required>
 
         <label for="photo">Is there a photo you took while you were there??</label>
         <input form="journey-form" id="photo" type="file" name="header_image" class="input-group" accept="image/*">

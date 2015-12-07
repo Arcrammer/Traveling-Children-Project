@@ -9,9 +9,10 @@ use Input;
 use TravelingChildrenProject\Http\Requests;
 use TravelingChildrenProject\Http\Controllers\Controller;
 use TravelingChildrenProject\Journey;
+use TravelingChildrenProject\JourneyTag;
+use TravelingChildrenProject\Tag;
 
 /**
- * TODO: Disallow spaces in tags
  * TODO: Allow CRUD for journeys
  */
 
@@ -97,7 +98,36 @@ class Journeys extends Controller
     }
 
     // Persist the record to the database
-    Journey::create($journeyData);
+    $created = Journey::create($journeyData);
+
+    if ($created) {
+      // Prepare their tags for persistance
+      $tags = preg_split('/#/', Input::get('tags'), NULL, PREG_SPLIT_NO_EMPTY);
+      foreach ($tags as $tag) {
+        print_r($tag);
+        // Strip spaces
+        str_replace(' ', '', $tag);
+
+        // Add the tag to 'journey_tags'
+        // if it isn't there already
+        $itExists = Tag::where(['tag' => $tag])->first();
+        if ($itExists) {
+          // Remember the name for later
+          $tag_id = $itExists->id;
+        } else {
+          // It doesn't exist, so
+          // we'll create it now
+          $tag_id = Tag::create(['tag' => $tag])->id;
+        }
+
+        // Save it to the 'journey_tags' join table
+        JourneyTag::create([
+          'journey' => $created->id,
+          'tag' => $tag_id
+        ]);
+      }
+    }
+
     return redirect('/journeys');
   }
 }
