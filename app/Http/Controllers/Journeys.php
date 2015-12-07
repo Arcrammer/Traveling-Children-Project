@@ -33,7 +33,10 @@ class Journeys extends Controller
    * @return Illuminate\Http\Response
    */
   protected function delete($id) {
-    if (Auth::check()) {
+    if (Journey::find($id)->creator->id == Auth::id()) {
+      // The user currently authenticated user
+      // is the creator of the post they're
+      // trying to delete; Soft delete it
       Journey::destroy($id);
     }
     return redirect('/journeys');
