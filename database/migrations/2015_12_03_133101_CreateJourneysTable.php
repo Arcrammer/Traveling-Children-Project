@@ -17,7 +17,7 @@ class CreateJourneysTable extends Migration
       $table->increments('id');
       $table->integer('traveler')->unsigned();
       $table->string('title');
-      $table->timestamp('date');
+      $table->date('date');
       $table->string('description_filename');
       $table->string('header_image_filename')->nullable();
       $table->softDeletes();

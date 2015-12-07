@@ -50,6 +50,6 @@ class Journey extends Model
    * @return Illuminate\Database\Eloquent\Relations\HasMany
    */
   protected function tags() {
-    return $this->hasManyThrough('TravelingChildrenProject\Tag', 'TravelingChildrenProject\JourneyTag', 'journey', 'id');
+    return $this->belongsToMany('TravelingChildrenProject\Tag', 'journey_tags', 'journey', 'tag');
   }
 }

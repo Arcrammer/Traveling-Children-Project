@@ -1,6 +1,6 @@
 (function() {
   $(document).ready(function() {
-    var bodyField, createButton, dateField, editButtons, htagsField, journeyID, journeys, submitButton, titleField;
+    var bodyField, createButton, dateField, editButtons, journeyID, journeys, submitButton, tagsField, titleField;
     $('.grid').masonry(function() {
       return {
         itemSelector: '.grid-item',
@@ -9,23 +9,22 @@
     });
     journeys = $('.journeyPost');
     editButtons = $('.journeyEditButton');
-    submitButton = $('input[type="submit"]')[0];
-    titleField = $('input[name="title"]')[0];
-    dateField = $('input[name="date"]')[0];
-    bodyField = $('textarea[name="body"]')[0];
-    htagsField = $('input[name="htags"]')[0];
+    submitButton = $('input[type="submit"]');
+    titleField = $('input[name="title"]');
+    dateField = $('input[name="date"]');
+    bodyField = $('textarea[name="body"]');
+    tagsField = $('input#tags');
     journeyID = null;
     editButtons.click(function() {
       var button, journeyPost;
       button = this;
-      journeyPost = journeys[$(buttons).index(button)];
+      journeyPost = journeys[$(editButtons).index(button)];
       journeyID = $(journeyPost).data('journey-id');
       $.get('/journeys/show/' + journeyID, function(travelerPost) {
-        travelerPost = JSON.parse(travelerPost)[0];
         titleField.value = travelerPost['title'];
         dateField.value = travelerPost['date'];
         bodyField.value = travelerPost['body'];
-        htagsField.value = travelerPost['htags'];
+        tagsField.value = tags;
         submitButton.value = 'Update';
         $('.journey-form')[0].setAttribute('action', '/journeys/edit/' + journeyID);
       });

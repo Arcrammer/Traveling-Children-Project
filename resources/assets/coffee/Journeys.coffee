@@ -7,28 +7,27 @@ $(document).ready ->
   # Get the edit form input elements
   journeys = $('.journeyPost')
   editButtons = $('.journeyEditButton')
-  submitButton = $('input[type="submit"]')[0]
-  titleField = $('input[name="title"]')[0]
-  dateField = $('input[name="date"]')[0]
-  bodyField = $('textarea[name="body"]')[0]
-  htagsField = $('input[name="htags"]')[0]
+  submitButton = $('input[type="submit"]')
+  titleField = $('input[name="title"]')
+  dateField = $('input[name="date"]')
+  bodyField = $('textarea[name="body"]')
+  tagsField = $('input#tags')
   journeyID = null
 
   editButtons.click ->
     # The 'Edit' button was clicked
     button = this
-    journeyPost = journeys[$(buttons).index(button)]
+    journeyPost = journeys[$(editButtons).index(button)]
     journeyID = $(journeyPost).data('journey-id')
 
     # Ask the server for journey data as JSON
     $.get '/journeys/show/' + journeyID, (travelerPost) ->
       # The server has sent the JSON; Fill
       # the edit forms' fields with it
-      travelerPost = JSON.parse(travelerPost)[0]
       titleField.value = travelerPost['title']
       dateField.value = travelerPost['date']
       bodyField.value = travelerPost['body']
-      htagsField.value = travelerPost['htags']
+      tagsField.value = tags
 
       # Change the form submission button text
       submitButton.value = 'Update'

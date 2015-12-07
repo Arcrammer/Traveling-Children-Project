@@ -6,7 +6,7 @@ body {
   background-attachment: fixed; }
 
 .master .container {
-  width: 100%; }
+  width: 80%; }
   .master .container * {
     box-shadow: none; }
 
@@ -384,7 +384,12 @@ img.socialBadges {
   border-color: #fbd163; }
 
 .form-inline .center #destSearch {
-  width: 555px; }
+  width: 100%; }
+
+#destSearchBtn {
+  display: block;
+  margin: 5% auto;
+  width: 30%; }
 
 .form-group {
   font-size: 1.25em; }
@@ -407,5 +412,19 @@ input#exampleInputPassword3 {
 .signup-form input[type="radio"] {
   margin: 5px !important;
   vertical-align: top !important; }
+
+/* Media Queries */
+@media only screen and (max-width: 900px) {
+  .navbar {
+    border-radius: 0; }
+    .navbar .navbar-toggle {
+      padding: 30px; }
+  #destSearchBtn {
+    margin: 2.5% auto;
+    padding: 25px;
+    width: 33.3333333333%; }
+  #destButtons button {
+    margin: 0.3346753816%;
+    width: 32.6639825701%; } }
 
 /*# sourceMappingURL=Home.css.map */

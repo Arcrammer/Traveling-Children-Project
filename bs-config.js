@@ -20,8 +20,8 @@ module.exports = {
         }
     },
     "files": [
-      "public/build/assets/*",
-      "resources/views/*"
+      "public/build/assets/****",
+      "resources/views/**"
     ],
     "watchOptions": {},
     "server": false,

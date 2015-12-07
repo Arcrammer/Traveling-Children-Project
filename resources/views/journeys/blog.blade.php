@@ -21,17 +21,17 @@
           <span aria-hidden="true">&times;</span>
         </button>
         <h4>TC Journey to...</h4>
-        <input form="journey-form" class="journey-title" type="text" name="title" placeholder="Enter Journey Post Title…" required>
+        <input form="journey-form" class="journey-title" type="text" name="title" placeholder="Enter Journey Post Title…" autocomplete="off" required>
       </div> <!-- .modal-header -->
       <div class="modal-body">
         <label for="date">When did this journey happen?</label>
-        <input form="journey-form" id="date" type="date" name="date" class="form-control" autocomplete="on" required>
+        <input form="journey-form" id="date" type="date" name="date" class="form-control" autocomplete="on" autocomplete="off" required>
 
         <label for="body">What did you do there?</label>
-        <textarea id="body" rows="10" name="body" class="form-control" placeholder="Body..." required></textarea>
+        <textarea id="body" rows="10" name="body" class="form-control" placeholder="Body..." autocomplete="off" required></textarea>
 
         <label for="tags">Choose some tags to help others easily find this journey.</label>
-        <input form="journey-form" id="tags" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#One #Two #Red #Blue" required>
+        <input form="journey-form" id="tags" type="htags" name="htags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#One #Two #Red #Blue" autocomplete="off" required>
 
         <label for="photo">Is there a photo you took while you were there??</label>
         <input form="journey-form" id="photo" type="file" name="header_image" class="input-group" accept="image/*">
@@ -55,7 +55,6 @@
 <!-- Journey Blog Posts -->
 <div class="jp_wrapper grid">
   @foreach ($journeys->items() as $journey)
-    {{-- {{ dd($journey->creator) }} --}}
     <div class="journeyPost" data-journey-id="{{ $journey->id }}">
       <div class="jpPadding">
         <p class="jp_title">TC Journey to {{ $journey->title }}</p>
@@ -81,10 +80,11 @@
           <span class="tag">#{{ $tag->tag }}</span>
           @endforeach
         </p>
-        <!-- Modal Footer -->
-        <hr class="jp_divider"></hr>
-        <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
-        <a href="/journeys/delete/{{ $journey->id }}" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+        @if ($journey->traveler == Auth::id())
+          <hr class="jp_divider">
+          <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
+          <a href="/journeys/delete/{{ $journey->id }}" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+        @endif
       </div> <!-- .jpPadding -->
     </div> <!-- .journeyPost -->
   @endforeach

@@ -6,7 +6,7 @@ body {
   background-attachment: fixed; }
 
 .master .container {
-  width: 100%; }
+  width: 80%; }
   .master .container * {
     box-shadow: none; }
 
@@ -384,7 +384,7 @@ body {
   background-attachment: fixed; }
 
 .master .container {
-  width: 100%; }
+  width: 80%; }
   .master .container * {
     box-shadow: none; }
 

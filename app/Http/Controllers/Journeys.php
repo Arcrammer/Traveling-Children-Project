@@ -28,6 +28,18 @@ class Journeys extends Controller
   }
 
   /**
+   * Return joruney data as JSON
+   *
+   * @return Illuminate\Http\Response
+   */
+  protected function show($id) {
+    $journey = Journey::find($id);
+    $journey->body = file_get_contents(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename);
+    $journey->tags = $journey->tags;
+    return $journey;
+  }
+
+  /**
    * Remove a journey post
    *
    * @return Illuminate\Http\Response
@@ -58,9 +70,9 @@ class Journeys extends Controller
     // Save the uploaded header image to
     // the filesystem if there was one
     if (Input::hasFile('header_image')) {
-      $headerImageFilename = md5(uniqid(rand(), true)) . '.html';
-      $headerImagePath = base_path().'/public/assets/journeys/header_images/'.$headerImageFilename;
-      Input::file('header_image')->move($headerImagePath);
+      $headerImageFilename = md5(uniqid(rand(), true)) . '.jpg';
+      $headerImagePath = base_path().'/public/assets/journeys/header_images/';
+      Input::file('header_image')->move($headerImagePath, $headerImageFilename);
     }
 
     // Add the image path if
@@ -83,7 +95,7 @@ class Journeys extends Controller
         'header_image_filename' => NULL
       ];
     }
-    \Log::debug($journeyData);
+
     // Persist the record to the database
     Journey::create($journeyData);
     return redirect('/journeys');

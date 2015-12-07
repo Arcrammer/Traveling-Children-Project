@@ -1,6 +1,6 @@
 var elixir = require('laravel-elixir');
-elixir.config.css.outputFolder = 'assets/css'
-elixir.config.js.outputFolder = 'assets/js'
+elixir.config.css.outputFolder = 'assets/css';
+elixir.config.js.outputFolder = 'assets/js';
 
 /*
  |--------------------------------------------------------------------------
