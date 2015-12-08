@@ -128,6 +128,10 @@ div#destButtons {
   }
 }
 
+.prob {
+  text-align: center;
+}
+
 #signinModal {
   input {
     text-align: center;
@@ -607,7 +611,7 @@ and (max-width: 900px) {
       width: inherit !important;
     }
   }
-  
+
   input[type="file"] {
     height: inherit !important;
     margin: 0 !important;

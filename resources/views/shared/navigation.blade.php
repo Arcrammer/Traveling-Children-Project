@@ -196,6 +196,13 @@
 </div> <!-- .modal .fade .bs-example-modal-sm -->
 
 <!-- Sign-in Modal -->
+<script>
+  @if (empty($errors->all()))
+    var signinNeedsDisplay = false;
+  @else
+    var signinNeedsDisplay = true;
+  @endif
+</script>
 <div class="modal fade bs-example-modal-sm" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -210,6 +217,13 @@
         <h4>Traveler Sign In</h4>
       </div> <!-- .modal-header -->
       <div class="modal-body">
+        @unless (empty($errors->all()))
+          <div class="probs">
+            @foreach ($errors->all() as $error)
+              <p class="prob">{{ $error }}</p>
+            @endforeach
+          </div> <!-- .probs -->
+        @endunless
         <form
           action="/auth/login"
           class="form-inline signin-form"

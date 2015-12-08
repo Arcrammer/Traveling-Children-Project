@@ -89,6 +89,9 @@ div#destButtons {
     div#destButtons a:hover {
       color: white; }
 
+.prob {
+  text-align: center; }
+
 #signinModal input {
   text-align: center; }
   #signinModal input[type="submit"] {

@@ -89,6 +89,9 @@ div#destButtons {
     div#destButtons a:hover {
       color: white; }
 
+.prob {
+  text-align: center; }
+
 #signinModal input {
   text-align: center; }
   #signinModal input[type="submit"] {
@@ -537,6 +540,9 @@ div#destButtons {
     font-size: .75em; }
     div#destButtons a:hover {
       color: white; }
+
+.prob {
+  text-align: center; }
 
 #signinModal input {
   text-align: center; }
@@ -1098,5 +1104,13 @@ form.journey-form input[type="text"] {
   .crest {
     padding-top: 35px;
     width: 35% !important; } }
+
+@media only screen and (max-width: 500px) {
+  .journeyPost {
+    width: 95%; }
+    .journeyPost .journeyEditButton,
+    .journeyPost .journeyDeleteButton {
+      height: 45px !important;
+      padding: 10px !important; } }
 
 /*# sourceMappingURL=Journeys.css.map */

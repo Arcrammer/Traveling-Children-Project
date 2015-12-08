@@ -1,6 +1,9 @@
 (function() {
   (function($) {
     $('[data-toggle="tooltip"]').tooltip();
+    if (signinNeedsDisplay) {
+      $('#signinModal').modal();
+    }
     return $('#destSearchBtn').click(function() {
       var local, type;
       type = $($('#type')[0]).val();

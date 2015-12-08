@@ -76,5 +76,4 @@
     <button type="button" class="btn btn-info"><a href="#">Technology</a></button>
   </div> <!-- .btn-group .btn-group-lg .center -->
 </div> <!-- .center -->
-
 @endsection
