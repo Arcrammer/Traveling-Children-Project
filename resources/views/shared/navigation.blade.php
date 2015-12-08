@@ -79,7 +79,7 @@
           type="text"
           name="first_name"
           placeholder="Traveler's First Name"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -88,7 +88,7 @@
           type="text"
           name="last_name"
           placeholder="Traveler's Last Name"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -113,7 +113,7 @@
           type="text"
           name="street"
           placeholder="Street Address, Apt #"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -122,7 +122,7 @@
           type="text"
           name="city"
           placeholder="City"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <div>
@@ -133,7 +133,7 @@
             style="display:inline;width:30%;margin-right:5%;"
             name="state"
             placeholder="ST"
-            autocomplete="on"
+            autocomplete="off"
             required>
           <input
             form="signup-form"
@@ -142,7 +142,7 @@
             type="text"
             name="zip"
             placeholder="Zip Code"
-            autocomplete="on"
+            autocomplete="off"
             required>
         </div>
         <br />
@@ -151,9 +151,9 @@
           class="form-control"
           type="date"
           name="birthday"
-          autocomplete="on"
+          autocomplete="off"
           required >
-        <div style="margin-top:15px;margin-bottom:15px;">
+        <div class="gender-choice">
           <input
             form="signup-form"
             type="radio"

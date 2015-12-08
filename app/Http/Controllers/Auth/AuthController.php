@@ -33,7 +33,7 @@ class AuthController extends Controller
 
     // Where travelers are sent
     // upon login failure
-    protected $loginPath = "/auth/login";
+    protected $loginPath = "/";
 
     /**
      * Create a new authentication controller instance.

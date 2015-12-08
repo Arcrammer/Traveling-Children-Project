@@ -89,6 +89,22 @@ div#destButtons {
     div#destButtons a:hover {
       color: white; }
 
+#signinModal input {
+  text-align: center; }
+  #signinModal input[type="submit"] {
+    font-size: 1.25em; }
+
+#signupModal .gender-choice {
+  margin: 15px 0; }
+  #signupModal .gender-choice label {
+    margin-right: 17.5px;
+    margin-left: 5px; }
+  #signupModal .gender-choice input {
+    vertical-align: top; }
+
+#signupModal input[type="file"] {
+  line-height: 0; }
+
 .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-radius: 25px;
   border-top-right-radius: 0;
@@ -160,24 +176,25 @@ button.close {
     width: 75%; }
 
 #footer {
-  margin-top: 20px;
-  height: 50px;
-  font-size: .8125em;
+  background-color: #3a2417;
   color: #53b7e8;
-  overflow: hidden; }
-  #footer.container {
-    background-color: #3a2417;
-    width: 100%;
-    height: 300px;
-    padding: 20px; }
+  font-size: .8125em;
+  height: inherit !important;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 20px;
+  padding-bottom: 0 !important;
+  width: 100%; }
   #footer a {
     color: #2291c8;
     text-decoration: none; }
     #footer a:hover {
       color: #2291c8; }
 
-div#tcDownloads {
+#tcDownloads {
   text-align: center; }
+  #tcDownloads a {
+    display: inline-block; }
 
 img.journeyKitDowload {
   width: 365px;
@@ -396,15 +413,27 @@ img.socialBadges {
     .navbar .wordmark img {
       height: inherit;
       width: 100%; }
-  #signinModal input {
+  #signinModal input,
+  #signupModal input {
     font-size: 1.25em;
     height: 50px;
     letter-spacing: 0.25px;
     margin: 2.5% 0;
     width: 100%; }
-    #signinModal input[type="submit"] {
+    #signinModal input[type="submit"],
+    #signupModal input[type="submit"] {
       height: 50px;
       margin: 0; }
+  .gender-choice label {
+    margin-right: 35px !important;
+    margin-left: 10px !important;
+    vertical-align: bottom !important; }
+  .gender-choice input {
+    height: inherit !important;
+    width: inherit !important; }
+  input[type="file"] {
+    height: inherit !important;
+    margin: 0 !important; }
   .crest {
     margin-bottom: 15px; }
   #destSearchBtn {
