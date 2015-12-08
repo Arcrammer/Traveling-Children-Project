@@ -34,10 +34,21 @@ class Journeys extends Controller
    * @return Illuminate\Http\Response
    */
   protected function show($id) {
-    $journey = Journey::find($id);
-    $journey->body = file_get_contents(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename);
-    $journey->tags = $journey->tags;
-    return $journey;
+    if (Auth::check()) {
+      $journey = Journey::find($id);
+      $journeyData = [
+        'title' => $journey->title,
+        'body' => base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename,
+        'image' => base_path().'/public/assets/journeys/header_images/'.$journey->header_image_filename,
+        'tags' => ''
+      ];
+      foreach ($journey->tags->all() as $tag) {
+        $journeyData['tags'] .= ' #'.$tag->tag;
+      }
+      return $journeyData;
+    } else {
+      return 'Log in first.';
+    }
   }
 
   /**

@@ -228,7 +228,7 @@
           name="email"
           class="form-control"
           placeholder="Enter User ID"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -287,12 +287,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/">
+        <a href="/" class="wordmark hvr-grow">
           <img
             src="/assets/images/Wordmark.svg"
             lowsrc="/assets/images/Wordmark.png"
-            alt="Traveling Children Project Passport"
-            class="wordmark hvr-grow">
+            alt="Traveling Children Project Passport">
         </a>
       </div> <!-- .navbar-header -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

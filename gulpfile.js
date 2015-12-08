@@ -32,7 +32,7 @@ elixir(function(mix) {
   .coffee('Journeys.coffee');
 
   // Errors
-  mix.sass('Errors.scss', 'public/assets/css/Journeys.css');
+  mix.sass('Errors.scss', 'public/assets/css/Errors.css');
 
   // Versioning
   mix.version([

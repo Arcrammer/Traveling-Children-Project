@@ -21,6 +21,11 @@
       journeyPost = journeys[$(editButtons).index(button)];
       journeyID = $(journeyPost).data('journey-id');
       $.get('/journeys/show/' + journeyID, function(travelerPost) {
+        var tags;
+        tags = '';
+        $.each(travelerPost.tags, function(tag) {
+          return tags += tag;
+        });
         titleField.value = travelerPost['title'];
         dateField.value = travelerPost['date'];
         bodyField.value = travelerPost['body'];
