@@ -15,6 +15,7 @@ class CreateDestinationsTable extends Migration
     Schema::create('destinations', function (Blueprint $table) {
       // Columns
       $table->increments('id');
+      $table->string('name');
       $table->integer('city')->unsigned();
       $table->integer('state')->unsigned();
       $table->integer('type')->unsigned();

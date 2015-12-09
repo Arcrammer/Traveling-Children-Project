@@ -18,8 +18,14 @@ body {
   background-attachment: fixed;
 }
 
-.container * {
-  box-shadow: none;
+.master {
+  .container {
+    width: 80%;
+
+    * {
+      box-shadow: none;
+    }
+  }
 }
 
 // Homeless Stuff
@@ -35,10 +41,6 @@ p.lead.center {
 
 .tooltip {
   font-weight: 500;
-}
-
-.wordmark {
-  max-width: 75%;
 }
 
 img {
@@ -74,9 +76,13 @@ img {
   border-top-right-radius: 0;
 }
 
-img.wordmark {
-  margin: 15px 8px;
-  width: 125%;
+.wordmark {
+  display: inline-block;
+  height: inherit;
+  margin: 5px 10px;
+  position: relative;
+  top: 7.5px;
+  width: 350px;
 }
 
 .dropdown-menu {
@@ -112,12 +118,46 @@ li #facebook-signup a {
 div#destButtons {
   max-width: 90%;
   a {
-    padding: 10px;
+    display: block;
+    padding: 0;
     color: $muted-blue;
     font-size: .75em;
     &:hover {
       color: white;
     }
+  }
+}
+
+.prob {
+  text-align: center;
+}
+
+#signinModal {
+  input {
+    text-align: center;
+
+    &[type="submit"] {
+      font-size: 1.25em;
+    }
+  }
+}
+
+#signupModal {
+  .gender-choice {
+    margin: 15px 0;
+
+    label {
+      margin-right: 17.5px;
+      margin-left: 5px;
+    }
+
+    input {
+      vertical-align: top;
+    }
+  }
+
+  input[type="file"] {
+    line-height: 0;
   }
 }
 
@@ -211,28 +251,32 @@ button.close {
 
 // Footer
 #footer {
-  &.container {
-    background-color: $dark-brown;
-    width: 100%;
-    height: 300px;
-    padding: 20px;
-  }
-  margin-top: 20px;
-  height: 50px;
-  font-size: .8125em;
+  background-color: $dark-brown;
   color: #53b7e8;
+  font-size: .8125em;
+  height: inherit !important;
+  margin-top: 20px;
   overflow: hidden;
+  padding: 20px;
+  padding-bottom: 0 !important;
+  width: 100%;
+
   a {
     color: $blue;
     text-decoration: none;
+
     &:hover {
       color: $blue;
     }
   }
 }
 
-div#tcDownloads {
+#tcDownloads {
   text-align: center;
+
+  a {
+    display: inline-block;
+  }
 }
 
 img.journeyKitDowload {
@@ -426,6 +470,7 @@ img.socialBadges {
 }
 
 // Media Queries
+
 @media only screen and (max-width: 700px) {
   span.glyphicon.glyphicon-plus {
     margin-bottom: 5px;
@@ -498,5 +543,90 @@ img.socialBadges {
   }
   #footer p.center {
     width: 90%;
+  }
+}
+
+@media only screen
+and (max-width: 900px) {
+  .navbar {
+    .navbar-toggle {
+      margin: 10px;
+      padding: 27.5px !important;
+      width: 10%;
+    }
+
+    .icon-bar {
+      margin-top: 10px;
+      position: relative;
+      top: -25px;
+      left: -15px;
+      height: 3px;
+      width: 30px;
+
+      & + .icon-bar {
+        margin-top: 10px;
+      }
+    }
+
+    .wordmark {
+      height: 50px;
+      position: relative;
+      top: 10px;
+      left: 15px;
+      bottom: 15px;
+      width: 100%;
+
+      img {
+        height: inherit;
+        width: 100%;
+      }
+    }
+  }
+
+  #signinModal,
+  #signupModal {
+    input {
+      font-size: 1.25em;
+      height: 50px;
+      letter-spacing: 0.25px;
+      margin: 2.5% 0;
+      width: 100%;
+
+      &[type="submit"] {
+        height: 50px;
+        margin: 0;
+      }
+    }
+  }
+
+  .gender-choice {
+    label {
+      margin-right: 35px !important;
+      margin-left: 10px !important;
+      vertical-align: bottom !important;
+    }
+
+    input {
+      height: inherit !important;
+      width: inherit !important;
+    }
+  }
+
+  input[type="file"] {
+    height: inherit !important;
+    margin: 0 !important;
+  }
+
+  .crest {
+    margin-bottom: 15px;
+  }
+
+  #destSearchBtn {
+    padding: 15px 0 !important;
+    width: 90% !important;
+  }
+
+  .copyright {
+    margin-bottom: 15%;
   }
 }

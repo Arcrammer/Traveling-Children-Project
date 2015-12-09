@@ -4,6 +4,9 @@
  '/journeys/create')
  */
 
+ // Import 'Main.scss'
+ @import 'Main.scss';
+
 // Forms
 .form-control:focus {
   border-color: #f69568;
@@ -31,8 +34,125 @@ form.journey-form input[type="text"] {
   width: 535px !important;
 }
 
-.modal-header form h4 input[placeholder] {
-  color: $orange;
+#journeyModal {
+  .close {
+    height: 65px;
+    letter-spacing: 0.5px;
+    line-height: 75%;
+
+    span {
+      display: inline-block;
+      height: 35px
+    }
+  }
+
+  .modal-header {
+    h4 {
+      float: left;
+      letter-spacing: 0.35px;
+      width: 30%;
+    }
+
+    input {
+      background: none;
+      border: none;
+      float: left;
+      line-height: 435%;
+      text-indent: 25px;
+      width: 55%;
+    }
+  }
+
+  .modal-body,
+  .modal-footer {
+    padding: 0 (15px / 600px * 100%);
+
+    label {
+      color: #444;
+      font-weight: 500;
+      margin-top: 3.5%;
+      margin-left: 5%;
+    }
+
+    input {
+      background-color: white;
+      padding: 0;
+
+      &:first-of-type {
+        margin-top: 0;
+      }
+
+      &[type="file"] {
+        background-color: transparent;
+        line-height: 100%;
+        margin-left: 2.5%;
+        margin-bottom: 5%;
+        text-indent: 0;
+      }
+
+      &[type="submit"] {
+        background-color: transparent;
+        font-size: 1.15em;
+        margin: 5% 2.5%;
+        outline: none;
+        padding: 1% 2.5%;
+        text-indent: 0;
+        transition: all 175ms;
+
+        &:hover,
+        &:focus {
+          background-color: $orange;
+          color: white;
+        }
+
+        &:active {
+          background-color: $orange / 2;
+          color: grey;
+        }
+      }
+    }
+
+    textarea {
+      padding-top: 15px;
+    }
+  }
+
+  input {
+    color: $orange;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input, textarea {
+    text-indent: 15px
+  }
+
+  // Placeholders
+  ::-webkit-input-placeholder {
+    color: $orange;
+  }
+
+  :-moz-placeholder {
+    color: $orange;
+  }
+
+  ::-moz-placeholder {
+    color: $orange;
+  }
+
+  :-ms-input-placeholder {
+    color: $orange;
+  }
+}
+
+.journeyCreateButton {
+  border-radius: 100%;
+  height: 75px;
+  margin: auto;
+  padding: 0;
+  width: 75px;
 }
 
 // Posts
@@ -43,11 +163,16 @@ form.journey-form input[type="text"] {
 }
 
 .journeyModalButton {
-  height: 75px;
-  width: 75px;
-  border-radius: 60px;
+  border-radius: 100%;
   font-size: 3em;
+  height: 75px;
   vertical-align: middle !important;
+  width: 75px;
+
+  span {
+    display: block;
+    padding-top: 5px;
+  }
 }
 
 .x {
@@ -57,9 +182,10 @@ form.journey-form input[type="text"] {
   z-index: 8000;
   font-size: 1.5em;
   padding-right: 10px;
-}
 
-.jp_section {}
+  margin-top: 3.5%;
+  padding: 5% 7.5%;
+}
 
 .journeyPost {
   text-align: left;
@@ -72,6 +198,13 @@ form.journey-form input[type="text"] {
   margin: 25px;
   background-color: #fedf8d;
   border-radius: 4px;
+
+  margin: 25px / 940px * 100%;
+  width: 263.33333333px / 940px * 100%;
+
+  img {
+    width: 100% !important;
+  }
 }
 
 .jpPadding {
@@ -83,6 +216,9 @@ form.journey-form input[type="text"] {
   position: relative;
   top: 1px;
   left: 0;
+
+  display: block;
+  width: 100%;
 }
 
 .jp_title {
@@ -91,6 +227,9 @@ form.journey-form input[type="text"] {
   text-align: center;
   line-height: 1.125em;
   color: $orange;
+
+  margin: 0;
+  line-height: 135%;
 }
 
 .jp_img {
@@ -120,3 +259,38 @@ form.journey-form input[type="text"] {
 .jp_divider {
   border-color: #fbd163;
 }
+
+/* Media Queries */
+@media only screen
+  and (max-width: 900px) {
+    .container,
+    .jp_wrapper {
+      width: 100%;
+    }
+
+    .jp_wrapper {
+      margin-top: 5%;
+    }
+
+    .journeyPost {
+      width: 420px / 940px * 100%;
+    }
+
+    .crest {
+      padding-top: 35px;
+      width: 35% !important;
+    }
+  }
+
+@media only screen
+  and (max-width: 500px) {
+    .journeyPost {
+      width: 95%;
+
+      .journeyEditButton,
+      .journeyDeleteButton {
+        height: 45px !important;
+        padding: 10px !important;
+      }
+    }
+  }

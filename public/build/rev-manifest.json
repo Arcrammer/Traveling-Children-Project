@@ -1,6 +1,9 @@
 {
-  "assets/css/Home.css": "assets/css/Home-adee9dcacd.css",
+  "assets/css/Errors.css": "assets/css/Errors-804dc1572d.css",
+  "assets/css/Home.css": "assets/css/Home-aa3d7f49f1.css",
+  "assets/css/Journeys.css": "assets/css/Journeys-41c18cd08d.css",
   "assets/css/Main.css": "assets/css/Main-d41d8cd98f.css",
-  "assets/css/bootstrap.min.css": "assets/css/bootstrap.min-7ddce70c3b.css",
-  "assets/js/Home.js": "assets/js/Home-292701a9e8.js"
+  "assets/css/bootstrap.min.css": "assets/css/bootstrap.min-3c2bb9bbb5.css",
+  "assets/js/Home.js": "assets/js/Home-73e1024352.js",
+  "assets/js/Journeys.js": "assets/js/Journeys-f6e9354521.js"
 }

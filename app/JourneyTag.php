@@ -7,11 +7,19 @@ use Illuminate\Database\Eloquent\Model;
 class JourneyTag extends Model
 {
   /**
-   * Each journey tag belongs to a journey
+   * There's no use for timestamps
    *
-   * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+   * @var boolean
    */
-  protected function journey() {
-    return $this->belongsTo('TravelingChildrenProject\Journey');
-  }
+  public $timestamps = false;
+
+  /**
+   * Mass-assignable properties
+   *
+   * @var array
+   */
+  protected $fillable = [
+    'tag',
+    'journey'
+  ];
 }

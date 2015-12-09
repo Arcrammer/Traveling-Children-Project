@@ -1,6 +1,9 @@
 (($) ->
   $('[data-toggle="tooltip"]').tooltip()
 
+  if signinNeedsDisplay
+    $('#signinModal').modal()
+
   $('#destSearchBtn').click ->
     # The user has chosen a destination
     # type and location and clicked the

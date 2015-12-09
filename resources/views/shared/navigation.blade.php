@@ -79,7 +79,7 @@
           type="text"
           name="first_name"
           placeholder="Traveler's First Name"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -88,7 +88,7 @@
           type="text"
           name="last_name"
           placeholder="Traveler's Last Name"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -113,7 +113,7 @@
           type="text"
           name="street"
           placeholder="Street Address, Apt #"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -122,7 +122,7 @@
           type="text"
           name="city"
           placeholder="City"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <div>
@@ -133,7 +133,7 @@
             style="display:inline;width:30%;margin-right:5%;"
             name="state"
             placeholder="ST"
-            autocomplete="on"
+            autocomplete="off"
             required>
           <input
             form="signup-form"
@@ -142,7 +142,7 @@
             type="text"
             name="zip"
             placeholder="Zip Code"
-            autocomplete="on"
+            autocomplete="off"
             required>
         </div>
         <br />
@@ -151,9 +151,9 @@
           class="form-control"
           type="date"
           name="birthday"
-          autocomplete="on"
+          autocomplete="off"
           required >
-        <div style="margin-top:15px;margin-bottom:15px;">
+        <div class="gender-choice">
           <input
             form="signup-form"
             type="radio"
@@ -196,6 +196,13 @@
 </div> <!-- .modal .fade .bs-example-modal-sm -->
 
 <!-- Sign-in Modal -->
+<script>
+  @if (empty($errors->all()))
+    var signinNeedsDisplay = false;
+  @else
+    var signinNeedsDisplay = true;
+  @endif
+</script>
 <div class="modal fade bs-example-modal-sm" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -210,6 +217,13 @@
         <h4>Traveler Sign In</h4>
       </div> <!-- .modal-header -->
       <div class="modal-body">
+        @unless (empty($errors->all()))
+          <div class="probs">
+            @foreach ($errors->all() as $error)
+              <p class="prob">{{ $error }}</p>
+            @endforeach
+          </div> <!-- .probs -->
+        @endunless
         <form
           action="/auth/login"
           class="form-inline signin-form"
@@ -228,7 +242,7 @@
           name="email"
           class="form-control"
           placeholder="Enter User ID"
-          autocomplete="on"
+          autocomplete="off"
           required>
         <br />
         <input
@@ -287,12 +301,11 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/">
+        <a href="/" class="wordmark hvr-grow">
           <img
             src="/assets/images/Wordmark.svg"
             lowsrc="/assets/images/Wordmark.png"
-            alt="Traveling Children Project Passport"
-            class="wordmark hvr-grow">
+            alt="Traveling Children Project Passport">
         </a>
       </div> <!-- .navbar-header -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

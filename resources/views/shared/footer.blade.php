@@ -1,5 +1,5 @@
 <div id="footer" class="container">
-  <p class="center" style="margin-bottom: 3.5%">
+  <p class="center copyright">
     <b>
       &copy; 2015 Traveling Children Project, LLC. All rights reserved.
       <a href="/ChromeAdvert" alt="Google Chrome" target="_blank">
@@ -47,7 +47,7 @@
   </div> <!-- #socialBadges -->
 
   <div id="tcDownloads">
-    <a href="http://bit.ly/JourneyKitPDF" target="_blank">
+    <a href="/assets/downloadables/JourneyKit.pdf" target="_blank">
       <img
         src="/assets/images/JourneyKit.svg"
         class="journeyKitDowload"

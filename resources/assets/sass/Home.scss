@@ -16,7 +16,13 @@
 }
 
 .form-inline .center #destSearch {
-  width: 555px;
+  width: 100%;
+}
+
+#destSearchBtn {
+  display: block;
+  margin: 5% auto;
+  width: 30%;
 }
 
 .form-group {
@@ -48,3 +54,30 @@ input#exampleInputPassword3 {
     vertical-align: top !important;
   }
 }
+
+/* Media Queries */
+@media only screen
+  and (max-width: 900px) {
+    // Navigation
+    .navbar {
+      border-radius: 0;
+
+      .navbar-toggle {
+        padding: 30px;
+      }
+    }
+
+    // Journey Type Buttons
+    #destSearchBtn {
+      margin: 2.5% auto;
+      padding: 25px;
+      width: 33.3333333333%;
+    }
+
+    #destButtons {
+      button {
+        margin: 2px / 597.594px * 100%;
+        width: 195.198px / 597.594px * 100%;
+      }
+    }
+  }
