@@ -21,9 +21,6 @@ p.lead.center {
 .tooltip {
   font-weight: 500; }
 
-.wordmark {
-  max-width: 75%; }
-
 img.crest {
   width: 30%;
   display: block;
@@ -49,9 +46,13 @@ img#chrome {
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
 
-img.wordmark {
-  margin: 15px 8px;
-  width: 125%; }
+.wordmark {
+  display: inline-block;
+  height: inherit;
+  margin: 5px 10px;
+  position: relative;
+  top: 7.5px;
+  width: 350px; }
 
 .dropdown-menu {
   border: none; }
@@ -87,6 +88,25 @@ div#destButtons {
     font-size: .75em; }
     div#destButtons a:hover {
       color: white; }
+
+.prob {
+  text-align: center; }
+
+#signinModal input {
+  text-align: center; }
+  #signinModal input[type="submit"] {
+    font-size: 1.25em; }
+
+#signupModal .gender-choice {
+  margin: 15px 0; }
+  #signupModal .gender-choice label {
+    margin-right: 17.5px;
+    margin-left: 5px; }
+  #signupModal .gender-choice input {
+    vertical-align: top; }
+
+#signupModal input[type="file"] {
+  line-height: 0; }
 
 .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-radius: 25px;
@@ -159,24 +179,25 @@ button.close {
     width: 75%; }
 
 #footer {
-  margin-top: 20px;
-  height: 50px;
-  font-size: .8125em;
+  background-color: #3a2417;
   color: #53b7e8;
-  overflow: hidden; }
-  #footer.container {
-    background-color: #3a2417;
-    width: 100%;
-    height: 300px;
-    padding: 20px; }
+  font-size: .8125em;
+  height: inherit !important;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 20px;
+  padding-bottom: 0 !important;
+  width: 100%; }
   #footer a {
     color: #2291c8;
     text-decoration: none; }
     #footer a:hover {
       color: #2291c8; }
 
-div#tcDownloads {
+#tcDownloads {
   text-align: center; }
+  #tcDownloads a {
+    display: inline-block; }
 
 img.journeyKitDowload {
   width: 365px;
@@ -370,6 +391,59 @@ img.socialBadges {
     padding: 0; }
   #footer p.center {
     width: 90%; } }
+
+@media only screen and (max-width: 900px) {
+  .navbar .navbar-toggle {
+    margin: 10px;
+    padding: 27.5px !important;
+    width: 10%; }
+  .navbar .icon-bar {
+    margin-top: 10px;
+    position: relative;
+    top: -25px;
+    left: -15px;
+    height: 3px;
+    width: 30px; }
+    .navbar .icon-bar + .icon-bar {
+      margin-top: 10px; }
+  .navbar .wordmark {
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 15px;
+    bottom: 15px;
+    width: 100%; }
+    .navbar .wordmark img {
+      height: inherit;
+      width: 100%; }
+  #signinModal input,
+  #signupModal input {
+    font-size: 1.25em;
+    height: 50px;
+    letter-spacing: 0.25px;
+    margin: 2.5% 0;
+    width: 100%; }
+    #signinModal input[type="submit"],
+    #signupModal input[type="submit"] {
+      height: 50px;
+      margin: 0; }
+  .gender-choice label {
+    margin-right: 35px !important;
+    margin-left: 10px !important;
+    vertical-align: bottom !important; }
+  .gender-choice input {
+    height: inherit !important;
+    width: inherit !important; }
+  input[type="file"] {
+    height: inherit !important;
+    margin: 0 !important; }
+  .crest {
+    margin-bottom: 15px; }
+  #destSearchBtn {
+    padding: 15px 0 !important;
+    width: 90% !important; }
+  .copyright {
+    margin-bottom: 15%; } }
 
 /**
  * These styles are applied to

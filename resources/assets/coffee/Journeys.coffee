@@ -24,6 +24,13 @@ $(document).ready ->
     $.get '/journeys/show/' + journeyID, (travelerPost) ->
       # The server has sent the JSON; Fill
       # the edit forms' fields with it
+
+      # Format the tags
+      tags = ''
+      $.each travelerPost.tags, (tag) ->
+        tags += tag
+
+      # Fill the fields
       titleField.value = travelerPost['title']
       dateField.value = travelerPost['date']
       bodyField.value = travelerPost['body']
