@@ -7,7 +7,7 @@
 @endsection
 
 @section('extra_scripts')
-<script src="{{ elixir('assets/js/Home.js') }}"></script>
+<script src="{{ elixir('assets/scripts/Home.js') }}"></script>
 @endsection
 
 @section('content')

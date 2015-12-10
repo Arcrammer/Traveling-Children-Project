@@ -1,6 +1,4 @@
 (($) ->
-  $('[data-toggle="tooltip"]').tooltip()
-
   if signinNeedsDisplay
     $('#signinModal').modal()
 

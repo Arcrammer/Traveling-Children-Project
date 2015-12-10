@@ -1,0 +1,1 @@
+(function(){!function(o){return o('[data-toggle="tooltip"]').tooltip(),console.log("It's working")}(jQuery)}).call(this);
