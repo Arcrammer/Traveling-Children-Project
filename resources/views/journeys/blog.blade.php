@@ -82,8 +82,21 @@
         </p>
         @if ($journey->traveler == Auth::id())
           <hr class="jp_divider">
-          <button class="btn btn-primary journeyEditButton" data-toggle="modal" data-target="#journeyModal">EDIT</button>
-          <a href="/journeys/delete/{{ $journey->id }}" class="btn btn-warning journeyDeleteButton" role="button">DELETE</a>
+			  <div class="fa_JourneyPost">
+				  <div class="dropup jp_dropup">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Share"><i class="fa fa-send"></i></a>
+				    <ul class="dropdown-menu">
+					  <a href="#" target="_blank"><li><i class="fa fa-facebook-square"></i> Facebook</li></a>
+					  <a href="#" target="_blank"><li><i class="fa fa-twitter-square"></i> Twitter</li></a>
+					  <a href="#" target="_blank"><li><i class="fa fa-instagram"></i> Instagram</li></a>
+					  <a href="#" target="_blank"><li><i class="fa fa-tumblr-square"></i> Tumblr</li></a>
+					  <a href="mailto:"><li><i class="fa fa-envelope-square"></i> Email</li></a>
+				    </ul>
+				  </div>
+				  <a href="#" title="Like"><i class="fa fa-heart"></i></a>
+				  <a href="#" title="Edit"><i class="fa fa-pencil" journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i></a>
+				  <a href="/journeys/delete/{{ $journey->id }}" title="Delete" class="journeyDeleteButton"><i class="fa fa-close"></i></a>
+			  </div>
         @endif
       </div> <!-- .jpPadding -->
     </div> <!-- .journeyPost -->
