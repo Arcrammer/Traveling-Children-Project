@@ -269,8 +269,8 @@ div.fa_JourneyPost a:hover  i.fa {
 }
 
 div.fa_JourneyPost i.fa {
-  color:#ffc233;
-  font-size:1.5em;
+  color: #ffc233;
+  font-size: 1.5em;
   text-align: right;
   padding: 6px;
 }
@@ -279,8 +279,12 @@ div.fa_JourneyPost i.fa.fa-close {
   font-size:1.875em;
 }
 
+.dropup {
+  padding-top: 18px;
+}
+
 .jp_dropup {
-  display:inline;
+  display: inline;
 }
 
 div.dropup ul.dropdown-menu {
@@ -294,6 +298,7 @@ ul.dropdown-menu a {
 
 .jp_divider {
   border-color: #fbd163;
+  margin-bottom: 5px;
 }
 
 /* Media Queries */

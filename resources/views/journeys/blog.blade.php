@@ -89,6 +89,7 @@
 					  <a href="#" target="_blank"><li><i class="fa fa-facebook-square"></i> Facebook</li></a>
 					  <a href="#" target="_blank"><li><i class="fa fa-twitter-square"></i> Twitter</li></a>
 					  <a href="#" target="_blank"><li><i class="fa fa-instagram"></i> Instagram</li></a>
+					  <a href="#" target="_blank"><li><i class="fa fa-pinterest-square"></i> Pinterest</li></a>
 					  <a href="#" target="_blank"><li><i class="fa fa-tumblr-square"></i> Tumblr</li></a>
 					  <a href="mailto:"><li><i class="fa fa-envelope-square"></i> Email</li></a>
 				    </ul>
