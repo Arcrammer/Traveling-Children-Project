@@ -1090,7 +1090,8 @@ form.journey-form input[type="text"] {
   font-style: italic; }
 
 div.fa_JourneyPost {
-  text-align: right; }
+  text-align: right;
+  padding-top: 0px; }
 
 div.fa_JourneyPost a {
   text-align: right; }
@@ -1118,7 +1119,8 @@ ul.dropdown-menu a {
   text-align: left; }
 
 .jp_divider {
-  border-color: #fbd163; }
+  border-color: #fbd163;
+  margin-bottom: 5px; }
 
 /* Media Queries */
 @media only screen and (max-width: 900px) {
