@@ -1089,6 +1089,34 @@ form.journey-form input[type="text"] {
   color: #ee6730;
   font-style: italic; }
 
+div.fa_JourneyPost {
+  text-align: right; }
+
+div.fa_JourneyPost a {
+  text-align: right; }
+
+div.fa_JourneyPost a:hover i.fa {
+  color: #ee6730; }
+
+div.fa_JourneyPost i.fa {
+  color: #ffc233;
+  font-size: 1.5em;
+  text-align: right;
+  padding: 6px; }
+
+div.fa_JourneyPost i.fa.fa-close {
+  font-size: 1.875em; }
+
+.jp_dropup {
+  display: inline; }
+
+div.dropup ul.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.9375);
+  padding: 8px; }
+
+ul.dropdown-menu a {
+  text-align: left; }
+
 .jp_divider {
   border-color: #fbd163; }
 

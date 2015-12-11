@@ -1,6 +1,9 @@
 (function() {
   (function($) {
-    return $('[data-toggle="tooltip"]').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
+    return $(function() {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
   })(jQuery);
 
 }).call(this);
