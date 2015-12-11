@@ -5,7 +5,7 @@
 @endsection
 @section('extra_scripts')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.2/masonry.pkgd.min.js"></script>
-<script src="{{ elixir('assets/js/Journeys.js') }}"></script>
+<script src="{{ elixir('assets/scripts/Journeys.js') }}"></script>
 @endsection
 @section('content')
 

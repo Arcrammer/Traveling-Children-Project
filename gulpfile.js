@@ -1,6 +1,6 @@
 var elixir = require('laravel-elixir');
 elixir.config.css.outputFolder = 'assets/css';
-elixir.config.js.outputFolder = 'assets/js';
+elixir.config.js.outputFolder = 'assets/scripts';
 
 /*
  |--------------------------------------------------------------------------
@@ -22,14 +22,20 @@ elixir(function(mix) {
     'Main.scss',
     'Home.scss'
   ], 'public/assets/css/Home.css')
-  .coffee('Home.coffee');
+  .coffee([
+    'Main.coffee',
+    'Home.coffee'
+  ], 'public/assets/scripts/Home.js');
 
   // Journeys
   mix.sass([
     'Main.scss',
     'Journeys.scss'
   ], 'public/assets/css/Journeys.css')
-  .coffee('Journeys.coffee');
+  .coffee([
+    'Main.coffee',
+    'Journeys.coffee'
+  ], 'public/assets/scripts/Journeys.js');
 
   // Errors
   mix.sass('Errors.scss', 'public/assets/css/Errors.css');
@@ -43,8 +49,9 @@ elixir(function(mix) {
     'assets/css/Errors.css',
 
     // Scripts
-    'assets/js/Home.js',
-    'assets/js/Journeys.js',
+    'assets/scripts/Main.js',
+    'assets/scripts/Home.js',
+    'assets/scripts/Journeys.js',
     'assets/css/bootstrap.min.css'
   ]);
 });
