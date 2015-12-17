@@ -9,7 +9,7 @@
 @endsection
 @section('content')
 
-<!-- Journey Creation Modal -->
+<!-- Journey Creation and Editing Modal -->
 <div class="modal fade" id="journeyModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -28,12 +28,12 @@
         <input form="journey-form" id="date" type="date" name="date" class="form-control" autocomplete="on" autocomplete="off" required>
 
         <label for="body">What did you do there?</label>
-        <textarea id="body" rows="10" name="body" class="form-control" placeholder="Body..." autocomplete="off" required></textarea>
+        <textarea form="journey-form" id="body" rows="10" name="body" class="form-control" placeholder="Body..." autocomplete="off" required></textarea>
 
         <label for="tags">Choose some tags to help others easily find this journey.</label>
         <input form="journey-form" id="tags" type="text" name="tags" class="form-control" value="#HappyTravels #TravelingChristian" placeholder="#One #Two #Red #Blue" autocomplete="off" required>
 
-        <label for="photo">Is there a photo you took while you were there??</label>
+        <label for="photo">Is there a photo you took while you were there?</label>
         <input form="journey-form" id="photo" type="file" name="header_image" class="input-group" accept="image/*">
       </div> <!-- .modal-body -->
       <div class="modal-footer">
@@ -81,22 +81,42 @@
           @endforeach
         </p>
         @if ($journey->traveler == Auth::id())
-          <hr class="jp_divider">
+        <hr class="jp_divider">
 			  <div class="fa_JourneyPost">
 				  <div class="dropup jp_dropup">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Share"><i class="fa fa-send"></i></a>
+  					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Share">
+              <i class="fa fa-send"></i>
+            </a>
 				    <ul class="dropdown-menu">
-					  <a href="#" target="_blank"><li><i class="fa fa-facebook-square"></i> Facebook</li></a>
-					  <a href="#" target="_blank"><li><i class="fa fa-twitter-square"></i> Twitter</li></a>
-					  <a href="#" target="_blank"><li><i class="fa fa-instagram"></i> Instagram</li></a>
-					  <a href="#" target="_blank"><li><i class="fa fa-pinterest-square"></i> Pinterest</li></a>
-					  <a href="#" target="_blank"><li><i class="fa fa-tumblr-square"></i> Tumblr</li></a>
-					  <a href="mailto:"><li><i class="fa fa-envelope-square"></i> Email</li></a>
+  					  <a href="#" target="_blank">
+                <li><i class="fa fa-facebook-square"></i> Facebook</li>
+              </a>
+  					  <a href="#" target="_blank">
+                <li><i class="fa fa-twitter-square"></i> Twitter</li>
+              </a>
+  					  <a href="#" target="_blank">
+                <li><i class="fa fa-instagram"></i> Instagram</li>
+              </a>
+  					  <a href="#" target="_blank">
+                <li><i class="fa fa-pinterest-square"></i> Pinterest</li>
+              </a>
+  					  <a href="#" target="_blank">
+                <li><i class="fa fa-tumblr-square"></i> Tumblr</li>
+              </a>
+  					  <a href="mailto:">
+                <li><i class="fa fa-envelope-square"></i> Email</li>
+              </a>
 				    </ul>
 				  </div>
-				  <a href="#" title="Like"><i class="fa fa-heart"></i></a>
-				  <a href="#" title="Edit"><i class="fa fa-pencil" journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i></a>
-				  <a href="/journeys/delete/{{ $journey->id }}" title="Delete" class="journeyDeleteButton"><i class="fa fa-close"></i></a>
+				  <a href="#" title="Like">
+            <i class="fa fa-heart"></i>
+          </a>
+				  <a href="#" title="Edit">
+            <i class="fa fa-pencil journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i>
+          </a>
+				  <a href="/journeys/delete/{{ $journey->id }}" title="Delete" class="journeyDeleteButton">
+            <i class="fa fa-close"></i>
+          </a>
 			  </div>
         @endif
       </div> <!-- .jpPadding -->
