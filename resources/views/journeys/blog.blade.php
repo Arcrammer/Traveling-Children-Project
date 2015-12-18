@@ -56,7 +56,16 @@
 <!-- Journey Blog Posts -->
 <div class="jp_wrapper grid">
   @foreach ($journeys->items() as $journey)
-    <div class="journeyPost" data-journey-id="{{ $journey->id }}">
+    @if ($journey->creator->id == Auth::id())
+      {{--
+        It's safe to interpolate the UUID
+        because the traveler currently
+        logged in is the posts' creator
+      --}}
+      <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}">
+    @else
+      <div class="journeyPost">
+    @endif
       <div class="jpPadding">
         <p class="jp_title">TC Journey to {{ $journey->title }}</p>
       </div> <!-- .jpPadding -->
@@ -115,7 +124,7 @@
 				  <a href="#" title="Edit">
             <i class="fa fa-pencil journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i>
           </a>
-				  <a href="/journeys/delete/{{ $journey->id }}" title="Delete" class="journeyDeleteButton">
+				  <a href="/journeys/delete/{{ $journey->uuid }}" title="Delete" class="journeyDeleteButton">
             <i class="fa fa-close"></i>
           </a>
 			  </div>

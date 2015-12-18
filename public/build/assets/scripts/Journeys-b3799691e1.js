@@ -26,12 +26,10 @@
     bodyField = $('textarea[name="body"]');
     tagsField = $('input#tags');
     editButtons.click(function() {
-      var button, journeyID, journeyPost;
-      button = this;
-      journeyPost = journeys[$(editButtons).index(button)];
-      journeyID = $(journeyPost).data('journey-id');
+      var journeyID;
+      journeyID = $(this).parents('.journeyPost').data('journey-uuid');
+      console.log(journeyID);
       $.get('/journeys/show/' + journeyID, function(journey) {
-        console.log(journey);
         titleField.val(journey.title);
         uuidField.val(journey.uuid);
         dateField.val(journey.date);

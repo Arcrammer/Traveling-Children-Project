@@ -33,9 +33,9 @@ class Journeys extends Controller
    *
    * @return Illuminate\Http\Response
    */
-  protected function show($id) {
+  protected function show($uuid) {
     if (Auth::check()) {
-      $journey = Journey::find($id);
+      $journey = Journey::where('uuid', '=', $uuid)->first();
       $journeyBodyFilename = base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename;
       $journeyHeaderImageFilename = '/assets/journeys/header_images/'.$journey->header_image_filename;
       $journeyData = [
@@ -60,12 +60,13 @@ class Journeys extends Controller
    *
    * @return Illuminate\Http\Response
    */
-  protected function delete($id) {
-    if (Journey::find($id)->creator->id == Auth::id()) {
+  protected function delete($uuid) {
+    $journey = Journey::where('uuid', '=', $uuid)->first();
+    if ($journey->creator->id == Auth::id()) {
       // The user currently authenticated user
       // is the creator of the post they're
       // trying to delete; Soft delete it
-      Journey::destroy($id);
+      Journey::destroy($journey->id);
     }
     return redirect('/journeys');
   }

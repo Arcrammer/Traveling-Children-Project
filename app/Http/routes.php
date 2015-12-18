@@ -15,8 +15,8 @@
 Route::get('/', 'welcome@home');
 Route::get('/journeys', 'journeys@blog');
 Route::post('/journeys/edit', 'journeys@update');
-Route::get('/journeys/show/{id}', 'journeys@show');
-Route::get('/journeys/delete/{id}', 'journeys@delete');
+Route::get('/journeys/show/{uuid}', 'journeys@show');
+Route::get('/journeys/delete/{uuid}', 'journeys@delete');
 Route::post('/journeys', 'journeys@persist');
 
 // Controllers

@@ -20,16 +20,13 @@ $(document).ready ->
     # the 'ID' for the
     # relative journey
     #
-    button = this
-    journeyPost = journeys[$(editButtons).index(button)]
-    journeyID = $(journeyPost).data 'journey-id'
+    journeyID = $(this).parents('.journeyPost').data 'journey-uuid'
+    console.log journeyID
 
     # Ask the server for journey data as JSON
     $.get '/journeys/show/' + journeyID, (journey) ->
       # The server has sent the JSON; Fill
       # the edit forms' fields with it
-
-      console.log journey
 
       # Fill the fields
       titleField.val journey.title
