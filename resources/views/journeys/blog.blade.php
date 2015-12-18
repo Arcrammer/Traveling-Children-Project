@@ -98,24 +98,12 @@
               <i class="fa fa-send"></i>
             </a>
 				    <ul class="dropdown-menu">
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-facebook-square"></i> Facebook</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-twitter-square"></i> Twitter</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-instagram"></i> Instagram</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-pinterest-square"></i> Pinterest</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-tumblr-square"></i> Tumblr</li>
-              </a>
-  					  <a href="mailto:">
-                <li><i class="fa fa-envelope-square"></i> Email</li>
-              </a>
+              <li class="share-with-facebook"><i class="fa fa-facebook-square"></i> Facebook</li>
+              <li class="share-with-twitter"><i class="fa fa-twitter-square"></i> Twitter</li>
+              <li class="share-with-instagram"><i class="fa fa-instagram"></i> Instagram</li>
+              <li class="share-with-pinterest"><i class="fa fa-pinterest-square"></i> Pinterest</li>
+              <li class="share-with-tumblr"><i class="fa fa-tumblr-square"></i> Tumblr</li>
+              <li class="share-with-envelope"><i class="fa fa-envelope-square"></i> Email</li>
 				    </ul>
 				  </div>
 				  <a href="#" title="Like">
