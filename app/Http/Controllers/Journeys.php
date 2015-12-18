@@ -12,6 +12,11 @@ use TravelingChildrenProject\Journey;
 use TravelingChildrenProject\JourneyTag;
 use TravelingChildrenProject\Tag;
 
+/**
+ * TODO: Allow deletion of tags on both
+ * journey creation and deletion
+ */
+
 class Journeys extends Controller
 {
   /**
@@ -156,6 +161,10 @@ class Journeys extends Controller
   }
 
   protected function persistTagsToJourneyWithID($tags, $journeyID) {
+    // Delete all of the tag associations
+    // currently stored in the database
+    JourneyTag::where('journey', '=', $journeyID)->delete();
+
     // Strip spaces
     $formattedTags = preg_replace('/\s+/', '', $tags);
 
@@ -179,12 +188,15 @@ class Journeys extends Controller
       // marked in the 'journey_tags'
       // table before adding it
       //
-      $notAlreadyAssociated = (JourneyTag::where([
+      $associatedTag = JourneyTag::where([
         'tag' => $tag_id,
         'journey' => $journeyID
-      ])->first() == NULL);
-      if ($notAlreadyAssociated) {
-        // Save it to the 'journey_tags' join table
+      ])->first();
+      if ($associatedTag == NULL) {
+        // The tag hasn't been associated
+        // with this post yet; Save it to
+        // the 'journey_tags' join table
+        //
         JourneyTag::create([
           'journey' => $journeyID,
           'tag' => $tag_id
