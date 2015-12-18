@@ -1,5 +1,5 @@
 (($) ->
-  if signinNeedsDisplay
+  if typeof signinNeedsDisplay != undefined
     $('#signinModal').modal()
 
   $('#destSearchBtn').click ->

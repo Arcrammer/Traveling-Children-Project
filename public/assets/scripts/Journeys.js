@@ -28,7 +28,6 @@
     editButtons.click(function() {
       var journeyID;
       journeyID = $(this).parents('.journeyPost').data('journey-uuid');
-      console.log(journeyID);
       $.get('/journeys/show/' + journeyID, function(journey) {
         titleField.val(journey.title);
         uuidField.val(journey.uuid);

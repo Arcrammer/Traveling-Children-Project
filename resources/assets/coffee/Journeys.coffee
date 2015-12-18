@@ -21,7 +21,6 @@ $(document).ready ->
     # relative journey
     #
     journeyID = $(this).parents('.journeyPost').data 'journey-uuid'
-    console.log journeyID
 
     # Ask the server for journey data as JSON
     $.get '/journeys/show/' + journeyID, (journey) ->
