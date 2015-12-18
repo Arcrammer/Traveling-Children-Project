@@ -36,10 +36,14 @@ class Journeys extends Controller
   protected function show($id) {
     if (Auth::check()) {
       $journey = Journey::find($id);
+      $journeyBodyFilename = base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename;
+      $journeyHeaderImageFilename = '/assets/journeys/header_images/'.$journey->header_image_filename;
       $journeyData = [
+        'uuid' => $journey->uuid,
         'title' => $journey->title,
-        'body' => base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename,
-        'image' => base_path().'/public/assets/journeys/header_images/'.$journey->header_image_filename,
+        'date' => $journey->date,
+        'body' => strip_tags(file_get_contents($journeyBodyFilename)),
+        'image' => $journeyHeaderImageFilename,
         'tags' => ''
       ];
       foreach ($journey->tags->all() as $tag) {
@@ -76,7 +80,7 @@ class Journeys extends Controller
     $bodyFilename = md5(uniqid(rand(), true)) . '.html';
     $bodyPath = base_path().'/public/assets/journeys/descriptions/'.$bodyFilename;
     $bodyFile = fopen($bodyPath, 'w+');
-    fwrite($bodyFile, Input::get('body'));
+    fwrite($bodyFile, htmlspecialchars(Input::get('body')));
     fclose($bodyFile);
 
     // Save the uploaded header image to
@@ -139,6 +143,33 @@ class Journeys extends Controller
       }
     }
 
+    return redirect('/journeys');
+  }
+
+  protected function update() {
+    $journey = Journey::where('uuid', '=', Input::get('post-uuid'))->first();
+    $journey->title = Input::get('title');
+    $journey->date = Input::get('date');
+
+    // Rewrite the contents of
+    // the journeys' description
+    $bodyFile = fopen(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename, 'w+');
+    fwrite($bodyFile, htmlspecialchars(Input::get('body')));
+    fclose($bodyFile);
+
+    // Rename the old image to indicate
+    // it was deleted and save the new
+    // one if there was a new image
+    // uploaded
+    if (Input::hasFile('header_image') && Input::file('header_image')->isValid()) {
+      // There was a new image uploaded
+      $oldHeaderImageFilename = $journey->header_image_filename;
+      $headerImagePath = base_path().'/public/assets/journeys/header_images/';
+      rename($headerImagePath.$oldHeaderImageFilename, '!'.$oldHeaderImageFilename);
+      Input::file('header_image')->move($headerImagePath, $oldHeaderImageFilename);
+    }
+
+    $journey->save();
     return redirect('/journeys');
   }
 }

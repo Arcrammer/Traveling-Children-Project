@@ -17,6 +17,7 @@
         <form id="journey-form" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
         </form>
         {{ csrf_field() }}
+        <input form="journey-form" type="hidden" name="post-uuid" value="">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

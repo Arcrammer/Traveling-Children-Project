@@ -15,6 +15,7 @@ class CreateJourneysTable extends Migration
     Schema::create('journeys', function (Blueprint $table) {
       // Columns
       $table->increments('id');
+      $table->string('uuid');
       $table->integer('traveler')->unsigned();
       $table->string('title');
       $table->date('date');
@@ -28,6 +29,15 @@ class CreateJourneysTable extends Migration
         ->references('id')
         ->on('travelers');
     });
+
+    // Triggers
+    DB::unprepared('
+      CREATE TRIGGER `generate_uuid`
+      BEFORE INSERT
+      ON `journeys`
+      FOR EACH ROW
+      SET NEW.uuid = UUID()
+    ');
   }
 
   /**

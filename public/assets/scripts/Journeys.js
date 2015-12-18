@@ -10,7 +10,7 @@
 
 (function() {
   $(document).ready(function() {
-    var bodyField, createButton, dateField, editButtons, journeyID, journeys, submitButton, tagsField, titleField;
+    var bodyField, dateField, editButtons, journeys, submitButton, tagsField, titleField, uuidField;
     $('.grid').masonry(function() {
       return {
         itemSelector: '.grid-item',
@@ -21,32 +21,28 @@
     editButtons = $('.journeyEditButton');
     submitButton = $('input[type="submit"]');
     titleField = $('input[name="title"]');
+    uuidField = $('input[name="post-uuid"]');
     dateField = $('input[name="date"]');
     bodyField = $('textarea[name="body"]');
     tagsField = $('input#tags');
-    journeyID = null;
     editButtons.click(function() {
-      var button, journeyPost;
+      var button, journeyID, journeyPost;
       button = this;
       journeyPost = journeys[$(editButtons).index(button)];
       journeyID = $(journeyPost).data('journey-id');
-      $.get('/journeys/show/' + journeyID, function(travelerPost) {
-        var tags;
-        tags = '';
-        $.each(travelerPost.tags, function(tag) {
-          return tags += tag;
-        });
-        titleField.value = travelerPost['title'];
-        dateField.value = travelerPost['date'];
-        bodyField.value = travelerPost['body'];
-        tagsField.value = tags;
-        submitButton.value = 'Update';
-        $('.journey-form')[0].setAttribute('action', '/journeys/edit/' + journeyID);
+      $.get('/journeys/show/' + journeyID, function(journey) {
+        console.log(journey);
+        titleField.val(journey.title);
+        uuidField.val(journey.uuid);
+        dateField.val(journey.date);
+        bodyField.val(journey.body);
+        tagsField.val(journey.tags.trim().replace(/\s+/g, ' '));
+        submitButton.val('Update');
+        $('.journey-form')[0].setAttribute('action', '/journeys/edit');
       });
     });
-    createButton = $('.journeyCreateButton')[0];
-    $(createButton).click(function() {
-      submitButton.value = 'Create';
+    $('#journeyModal').on('hide.bs.modal', function() {
+      return submitButton.val('Create');
     });
   });
 
