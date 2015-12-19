@@ -12,11 +12,6 @@ use TravelingChildrenProject\Journey;
 use TravelingChildrenProject\JourneyTag;
 use TravelingChildrenProject\Tag;
 
-/**
- * TODO: Allow deletion of tags on both
- * journey creation and deletion
- */
-
 class Journeys extends Controller
 {
   /**
@@ -41,6 +36,7 @@ class Journeys extends Controller
       $journeyHeaderImageFilename = '/assets/journeys/header_images/'.$journey->header_image_filename;
       $journeyData = [
         'uuid' => $journey->uuid,
+        'creator' => $journey->creator->first_name,
         'title' => $journey->title,
         'date' => $journey->date,
         'body' => strip_tags(file_get_contents($journeyBodyFilename)),
@@ -149,7 +145,7 @@ class Journeys extends Controller
       // There was a new image uploaded
       $oldHeaderImageFilename = $journey->header_image_filename;
       $headerImagePath = base_path().'/public/assets/journeys/header_images/';
-      rename($headerImagePath.$oldHeaderImageFilename, '!'.$oldHeaderImageFilename);
+      rename($headerImagePath.$oldHeaderImageFilename, $headerImagePath.'!'.$oldHeaderImageFilename);
       Input::file('header_image')->move($headerImagePath, $oldHeaderImageFilename);
     }
 

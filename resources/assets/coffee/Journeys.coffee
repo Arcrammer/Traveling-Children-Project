@@ -4,7 +4,32 @@ $(document).ready ->
     itemSelector: '.grid-item',
     columnWidth: 200
 
-  # Get the edit form input elements
+  # Sharing through Facebook
+  $.ajaxSetup cache: true
+  $.getScript 'http://connect.facebook.net/en_US/sdk.js', ->
+    FB.init
+      appId: '1660831194160373'
+      version: 'v2.5'
+    $('#loginbutton,#feedbutton').removeAttr 'disabled'
+    FB.getLoginStatus (response) ->
+      # Now everything has been initialised
+      $('.share-with-facebook').click () ->
+
+        # Fetch the data for the journey
+        # they want to share on Facebook
+        journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'
+
+        $.get '/journeys/show/' + journeyUUID, (journey) ->
+          # Let them share it
+          FB.ui {
+            method: 'feed'
+            link: 'travelingchildrenproject.dev/journeys'
+            name: journey.creator + '\'s Journey to ' + journey.title
+            description: journey.body
+            picture: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
+          }
+
+  # Handling journey post updates
   journeys = $('.journeyPost')
   editButtons = $('.journeyEditButton')
   submitButton = $('input[type="submit"]')
@@ -20,10 +45,10 @@ $(document).ready ->
     # the 'ID' for the
     # relative journey
     #
-    journeyID = $(this).parents('.journeyPost').data 'journey-uuid'
+    journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'
 
     # Ask the server for journey data as JSON
-    $.get '/journeys/show/' + journeyID, (journey) ->
+    $.get '/journeys/show/' + journeyUUID, (journey) ->
       # The server has sent the JSON; Fill
       # the edit forms' fields with it
 
@@ -40,12 +65,12 @@ $(document).ready ->
       # Set the forms' 'action' to the method that
       # persists the updated data to the database
       $('.journey-form')[0].setAttribute 'action', '/journeys/edit'
-      return
-    return
 
-  $('#journeyModal').on 'hide.bs.modal', () ->
+  $('#journeyModal').on 'hidden.bs.modal', () ->
     # The modal is hiding, so we'll
     # replace the 'Create' text of
-    # the other forms' button
+    # the other forms' button and
+    # clear the form data
+    #
+    $('.journey-form')[0].reset()
     submitButton.val 'Create'
-  return

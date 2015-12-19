@@ -56,16 +56,7 @@
 <!-- Journey Blog Posts -->
 <div class="jp_wrapper grid">
   @foreach ($journeys->items() as $journey)
-    @if ($journey->creator->id == Auth::id())
-      {{--
-        It's safe to interpolate the UUID
-        because the traveler currently
-        logged in is the posts' creator
-      --}}
-      <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}">
-    @else
-      <div class="journeyPost">
-    @endif
+    <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}">
       <div class="jpPadding">
         <p class="jp_title">TC Journey to {{ $journey->title }}</p>
       </div> <!-- .jpPadding -->
@@ -77,9 +68,9 @@
       <div class="jpPadding">
         <p class="jp_fname_date">
           <em>
-            <a href="#">
+            <a href="#" class="traveling-title">
               <b>Traveling {{ $journey->creator->first_name }}</b>
-            </a> / {{ $journey->created_at->diffForHumans() }}
+            </a>/ {{ $journey->created_at->diffForHumans() }}
           </em>
         </p>
         <p class="jp_body">
@@ -90,7 +81,6 @@
           <span class="tag">#{{ $tag->tag }}</span>
           @endforeach
         </p>
-        @if ($journey->traveler == Auth::id())
         <hr class="jp_divider">
 			  <div class="fa_JourneyPost">
 				  <div class="dropup jp_dropup">
@@ -109,14 +99,15 @@
 				  <a href="#" title="Like">
             <i class="fa fa-heart"></i>
           </a>
-				  <a href="#" title="Edit">
-            <i class="fa fa-pencil journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i>
-          </a>
-				  <a href="/journeys/delete/{{ $journey->uuid }}" title="Delete" class="journeyDeleteButton">
-            <i class="fa fa-close"></i>
-          </a>
+          @if ($journey->traveler == Auth::id())
+  				  <a href="#" title="Edit">
+              <i class="fa fa-pencil journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i>
+            </a>
+  				  <a href="/journeys/delete/{{ $journey->uuid }}" title="Delete" class="journeyDeleteButton">
+              <i class="fa fa-close"></i>
+            </a>
+          @endif
 			  </div>
-        @endif
       </div> <!-- .jpPadding -->
     </div> <!-- .journeyPost -->
   @endforeach

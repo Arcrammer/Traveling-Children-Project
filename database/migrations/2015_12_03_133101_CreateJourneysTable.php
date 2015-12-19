@@ -15,7 +15,7 @@ class CreateJourneysTable extends Migration
     Schema::create('journeys', function (Blueprint $table) {
       // Columns
       $table->increments('id');
-      $table->string('uuid');
+      $table->string('uuid')->unique();
       $table->integer('traveler')->unsigned();
       $table->string('title');
       $table->date('date');
