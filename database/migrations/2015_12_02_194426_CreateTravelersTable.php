@@ -34,7 +34,7 @@ class CreateTravelersTable extends Migration
         ->on('genders');
     });
 
-    // Create the `generate_passport_id` trigger
+    // Triggers
     DB::unprepared('
       CREATE TRIGGER `generate_passport_id`
       BEFORE INSERT

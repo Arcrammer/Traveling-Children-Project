@@ -13,7 +13,8 @@ use TravelingChildrenProject\JourneyTag;
 use TravelingChildrenProject\Tag;
 
 /**
- * TODO: Allow CRUD for journeys
+ * TODO: Allow deletion of tags on both
+ * journey creation and deletion
  */
 
 class Journeys extends Controller
@@ -33,13 +34,17 @@ class Journeys extends Controller
    *
    * @return Illuminate\Http\Response
    */
-  protected function show($id) {
+  protected function show($uuid) {
     if (Auth::check()) {
-      $journey = Journey::find($id);
+      $journey = Journey::where('uuid', '=', $uuid)->first();
+      $journeyBodyFilename = base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename;
+      $journeyHeaderImageFilename = '/assets/journeys/header_images/'.$journey->header_image_filename;
       $journeyData = [
+        'uuid' => $journey->uuid,
         'title' => $journey->title,
-        'body' => base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename,
-        'image' => base_path().'/public/assets/journeys/header_images/'.$journey->header_image_filename,
+        'date' => $journey->date,
+        'body' => strip_tags(file_get_contents($journeyBodyFilename)),
+        'image' => $journeyHeaderImageFilename,
         'tags' => ''
       ];
       foreach ($journey->tags->all() as $tag) {
@@ -56,12 +61,13 @@ class Journeys extends Controller
    *
    * @return Illuminate\Http\Response
    */
-  protected function delete($id) {
-    if (Journey::find($id)->creator->id == Auth::id()) {
+  protected function delete($uuid) {
+    $journey = Journey::where('uuid', '=', $uuid)->first();
+    if ($journey->creator->id == Auth::id()) {
       // The user currently authenticated user
       // is the creator of the post they're
       // trying to delete; Soft delete it
-      Journey::destroy($id);
+      Journey::destroy($journey->id);
     }
     return redirect('/journeys');
   }
@@ -76,7 +82,7 @@ class Journeys extends Controller
     $bodyFilename = md5(uniqid(rand(), true)) . '.html';
     $bodyPath = base_path().'/public/assets/journeys/descriptions/'.$bodyFilename;
     $bodyFile = fopen($bodyPath, 'w+');
-    fwrite($bodyFile, Input::get('body'));
+    fwrite($bodyFile, htmlspecialchars(Input::get('body')));
     fclose($bodyFile);
 
     // Save the uploaded header image to
@@ -98,47 +104,104 @@ class Journeys extends Controller
       'updated_at' => gmdate('Y-m-d H:i:s')
     ];
 
-    if (Input::hasFile('header_image')) {
-      $journeyData += [
-        'header_image_filename' => $headerImageFilename
-      ];
-    } else {
-      $journeyData += [
-        'header_image_filename' => NULL
-      ];
-    }
+    // Set the 'header_image_filename' to
+    // NULL if the user hasn't uploaded
+    // a header image with the post
+    //
+    $headerImageFilename = (Input::hasFile('header_image')) ? $headerImageFilename : NULL;
+
+    // Send it to the database
+    $journeyData += [
+      'header_image_filename' => $headerImageFilename
+    ];
 
     // Persist the record to the database
     $created = Journey::create($journeyData);
 
     if ($created) {
-      // Prepare their tags for persistance
-      $tags = preg_split('/#/', Input::get('tags'), NULL, PREG_SPLIT_NO_EMPTY);
-      foreach ($tags as $tag) {
-        print_r($tag);
-        // Strip spaces
-        str_replace(' ', '', $tag);
+      // Save the tag associations
+      $this->persistTagsToJourneyWithID(Input::get('tags'), $created->id);
+    }
+    return redirect('/journeys');
+  }
 
-        // Add the tag to 'journey_tags'
-        // if it isn't there already
-        $itExists = Tag::where(['tag' => $tag])->first();
-        if ($itExists) {
-          // Remember the name for later
-          $tag_id = $itExists->id;
-        } else {
-          // It doesn't exist, so
-          // we'll create it now
-          $tag_id = Tag::create(['tag' => $tag])->id;
-        }
+  /**
+   * Update a journey post
+   *
+   * @return Illuminate\Http\Response
+   */
+  protected function update() {
+    $journey = Journey::where('uuid', '=', Input::get('post-uuid'))->first();
+    $journey->title = Input::get('title');
+    $journey->date = Input::get('date');
 
-        // Save it to the 'journey_tags' join table
+    // Rewrite the contents of
+    // the journeys' description
+    $bodyFile = fopen(base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename, 'w+');
+    fwrite($bodyFile, htmlspecialchars(Input::get('body')));
+    fclose($bodyFile);
+
+    // Rename the old image to indicate
+    // it was deleted and save the new
+    // one if there was a new image
+    // uploaded
+    if (Input::hasFile('header_image') && Input::file('header_image')->isValid()) {
+      // There was a new image uploaded
+      $oldHeaderImageFilename = $journey->header_image_filename;
+      $headerImagePath = base_path().'/public/assets/journeys/header_images/';
+      rename($headerImagePath.$oldHeaderImageFilename, '!'.$oldHeaderImageFilename);
+      Input::file('header_image')->move($headerImagePath, $oldHeaderImageFilename);
+    }
+
+    // Remember the tags for it
+    $this->persistTagsToJourneyWithID(Input::get('tags'), $journey->id);
+
+    $journey->save();
+    return redirect('/journeys');
+  }
+
+  protected function persistTagsToJourneyWithID($tags, $journeyID) {
+    // Delete all of the tag associations
+    // currently stored in the database
+    JourneyTag::where('journey', '=', $journeyID)->delete();
+
+    // Strip spaces
+    $formattedTags = preg_replace('/\s+/', '', $tags);
+
+    // Split them to an array
+    $formattedTags = preg_split('/#/', $formattedTags, NULL, PREG_SPLIT_NO_EMPTY);
+
+    foreach ($formattedTags as $tag) {
+      // Add the tag to 'journey_tags'
+      // if it isn't there already
+      $itExists = Tag::where(['tag' => $tag])->first();
+      if ($itExists) {
+        // Remember the name for later
+        $tag_id = $itExists->id;
+      } else {
+        // It doesn't exist, so
+        // we'll create it now
+        $tag_id = Tag::create(['tag' => $tag])->id;
+      }
+
+      // Make sure it isn't already
+      // marked in the 'journey_tags'
+      // table before adding it
+      //
+      $associatedTag = JourneyTag::where([
+        'tag' => $tag_id,
+        'journey' => $journeyID
+      ])->first();
+      if ($associatedTag == NULL) {
+        // The tag hasn't been associated
+        // with this post yet; Save it to
+        // the 'journey_tags' join table
+        //
         JourneyTag::create([
-          'journey' => $created->id,
+          'journey' => $journeyID,
           'tag' => $tag_id
         ]);
       }
     }
-
-    return redirect('/journeys');
   }
 }

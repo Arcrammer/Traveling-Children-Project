@@ -10,7 +10,7 @@
 
 (function() {
   (function($) {
-    if (signinNeedsDisplay) {
+    if (typeof signinNeedsDisplay !== void 0) {
       $('#signinModal').modal();
     }
     return $('#destSearchBtn').click(function() {

@@ -17,6 +17,7 @@
         <form id="journey-form" class="form-inline journey-form" method="POST" enctype="multipart/form-data">
         </form>
         {{ csrf_field() }}
+        <input form="journey-form" type="hidden" name="post-uuid" value="">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -55,7 +56,16 @@
 <!-- Journey Blog Posts -->
 <div class="jp_wrapper grid">
   @foreach ($journeys->items() as $journey)
-    <div class="journeyPost" data-journey-id="{{ $journey->id }}">
+    @if ($journey->creator->id == Auth::id())
+      {{--
+        It's safe to interpolate the UUID
+        because the traveler currently
+        logged in is the posts' creator
+      --}}
+      <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}">
+    @else
+      <div class="journeyPost">
+    @endif
       <div class="jpPadding">
         <p class="jp_title">TC Journey to {{ $journey->title }}</p>
       </div> <!-- .jpPadding -->
@@ -88,24 +98,12 @@
               <i class="fa fa-send"></i>
             </a>
 				    <ul class="dropdown-menu">
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-facebook-square"></i> Facebook</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-twitter-square"></i> Twitter</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-instagram"></i> Instagram</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-pinterest-square"></i> Pinterest</li>
-              </a>
-  					  <a href="#" target="_blank">
-                <li><i class="fa fa-tumblr-square"></i> Tumblr</li>
-              </a>
-  					  <a href="mailto:">
-                <li><i class="fa fa-envelope-square"></i> Email</li>
-              </a>
+              <li class="share-with-facebook"><i class="fa fa-facebook-square"></i> Facebook</li>
+              <li class="share-with-twitter"><i class="fa fa-twitter-square"></i> Twitter</li>
+              <li class="share-with-instagram"><i class="fa fa-instagram"></i> Instagram</li>
+              <li class="share-with-pinterest"><i class="fa fa-pinterest-square"></i> Pinterest</li>
+              <li class="share-with-tumblr"><i class="fa fa-tumblr-square"></i> Tumblr</li>
+              <li class="share-with-envelope"><i class="fa fa-envelope-square"></i> Email</li>
 				    </ul>
 				  </div>
 				  <a href="#" title="Like">
@@ -114,7 +112,7 @@
 				  <a href="#" title="Edit">
             <i class="fa fa-pencil journeyEditButton" data-toggle="modal" data-target="#journeyModal"></i>
           </a>
-				  <a href="/journeys/delete/{{ $journey->id }}" title="Delete" class="journeyDeleteButton">
+				  <a href="/journeys/delete/{{ $journey->uuid }}" title="Delete" class="journeyDeleteButton">
             <i class="fa fa-close"></i>
           </a>
 			  </div>
