@@ -43,6 +43,7 @@ $(document).ready ->
       t._e = []
       t.ready = (f) ->
         t._e.push f
+        # Now everything has been initialised
         return
       t
     )(document, 'script', 'twitter-wjs')

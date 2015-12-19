@@ -91,12 +91,34 @@
                 <i class="fa fa-send"></i>
               </a>
               <ul class="dropdown-menu">
-                <li class="share-with-facebook"><a><i class="fa fa-facebook-square"></i> Facebook</a></li>
-                <li class="share-with-twitter"><a><i class="fa fa-twitter-square"></i> Twitter</a></li>
-                <li class="share-with-instagram"><a><i class="fa fa-instagram"></i> Instagram</a></li>
-                <li class="share-with-pinterest"><a><i class="fa fa-pinterest-square"></i> Pinterest</a></li>
-                <li class="share-with-tumblr"><a><i class="fa fa-tumblr-square"></i> Tumblr</a></li>
-                <li class="share-with-envelope"><a><i class="fa fa-envelope-square"></i> Email</a></li>
+                <li class="share-with-facebook">
+                  <a><i class="fa fa-facebook-square"></i> Facebook</a>
+                </li>
+                <li class="share-with-twitter">
+                  <?php
+                    $twitter_url = 'https://twitter.com/share?';
+                    $twitter_url .= 'text=Check+out+this+journey+at+TCP%21';
+                    $twitter_url .= '&';
+                    $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.dev%2Fjourneys%2F'.$journey->id;
+                    $twitter_url .= '&';
+                    $twitter_url .= 'hashtags=TravelingChildrenProject,TCPJourneys';
+                    $twitter_url .= '&';
+                    $twitter_url .= 'via=KiDFRONTATiON';
+                  ?>
+                  <a href="{{ $twitter_url }}"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li class="share-with-instagram">
+                  <a><i class="fa fa-instagram"></i> Instagram</a>
+                </li>
+                <li class="share-with-pinterest">
+                  <a><i class="fa fa-pinterest-square"></i> Pinterest</a>
+                </li>
+                <li class="share-with-tumblr">
+                  <a><i class="fa fa-tumblr-square"></i> Tumblr</a>
+                </li>
+                <li class="share-with-envelope">
+                  <a><i class="fa fa-envelope-square"></i> Email</a>
+                </li>
   				    </ul>
   				  </div>
   				  <a href="#" title="Like">
