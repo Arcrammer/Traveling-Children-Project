@@ -897,6 +897,9 @@ img.socialBadges {
   .copyright {
     margin-bottom: 15%; } }
 
+.traveling-title {
+  margin-right: 5px; }
+
 .form-control:focus {
   border-color: #f69568;
   outline: 0;

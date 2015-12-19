@@ -1,0 +1,4 @@
+Journeys:
+ - Dynamically load image data for Facebook sharing as
+   they currently load from GitHub because Facebook
+   searches for the image through the Internet
