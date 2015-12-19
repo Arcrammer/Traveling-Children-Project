@@ -29,6 +29,24 @@ $(document).ready ->
             picture: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
           }
 
+    # Sharing through Twitter
+    window.twttr = ((d, s, id) ->
+      js = undefined
+      fjs = d.getElementsByTagName(s)[0]
+      t = window.twttr or {}
+      if d.getElementById(id)
+        return t
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://platform.twitter.com/widgets.js'
+      fjs.parentNode.insertBefore js, fjs
+      t._e = []
+      t.ready = (f) ->
+        t._e.push f
+        return
+      t
+    )(document, 'script', 'twitter-wjs')
+
   # Handling journey post updates
   journeys = $('.journeyPost')
   editButtons = $('.journeyEditButton')

@@ -1095,12 +1095,8 @@ form.journey-form input[type="text"] {
 div.fa_JourneyPost {
   text-align: right; }
 
-div.fa_JourneyPost li a {
-  font-weight: normal; }
-
-div.fa_JourneyPost a:hover {
-  color: #ee6730;
-  background: none; }
+div.fa_JourneyPost a {
+  text-align: right; }
 
 div.fa_JourneyPost a:hover i.fa {
   color: #ee6730; }
