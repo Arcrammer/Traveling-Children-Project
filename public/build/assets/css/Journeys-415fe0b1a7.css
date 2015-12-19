@@ -356,6 +356,9 @@ img.socialBadges {
     div.center.welcome p {
       width: 105%;
       font-size: 1.5em; }
+  img.crest {
+    width: 100%;
+    margin-bottom: 5px; }
   img#chrome {
     width: 4%; }
   .container {
@@ -390,31 +393,29 @@ img.socialBadges {
     width: 90%; } }
 
 @media only screen and (max-width: 900px) {
-  .navbar {
-    border-radius: 0; }
-    .navbar .navbar-toggle {
-      margin: 10px;
-      padding: 27.5px !important;
-      width: 10%; }
-    .navbar .icon-bar {
-      margin-top: 10px;
-      position: relative;
-      top: -25px;
-      left: -15px;
-      height: 3px;
-      width: 30px; }
-      .navbar .icon-bar + .icon-bar {
-        margin-top: 10px; }
-    .navbar .wordmark {
-      height: 50px;
-      position: relative;
-      top: 10px;
-      left: 15px;
-      bottom: 15px;
+  .navbar .navbar-toggle {
+    margin: 10px;
+    padding: 27.5px !important;
+    width: 10%; }
+  .navbar .icon-bar {
+    margin-top: 10px;
+    position: relative;
+    top: -25px;
+    left: -15px;
+    height: 3px;
+    width: 30px; }
+    .navbar .icon-bar + .icon-bar {
+      margin-top: 10px; }
+  .navbar .wordmark {
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 15px;
+    bottom: 15px;
+    width: 100%; }
+    .navbar .wordmark img {
+      height: inherit;
       width: 100%; }
-      .navbar .wordmark img {
-        height: inherit;
-        width: 100%; }
   #signinModal input,
   #signupModal input {
     font-size: 1.25em;
@@ -436,10 +437,8 @@ img.socialBadges {
   input[type="file"] {
     height: inherit !important;
     margin: 0 !important; }
-  img.crest {
-    padding-top: 0;
-    margin-bottom: 15px;
-    width: 100% !important; }
+  .crest {
+    margin-bottom: 15px; }
   #destSearchBtn {
     padding: 15px 0 !important;
     width: 90% !important; }
@@ -809,6 +808,9 @@ img.socialBadges {
     div.center.welcome p {
       width: 105%;
       font-size: 1.5em; }
+  img.crest {
+    width: 100%;
+    margin-bottom: 5px; }
   img#chrome {
     width: 4%; }
   .container {
@@ -843,31 +845,29 @@ img.socialBadges {
     width: 90%; } }
 
 @media only screen and (max-width: 900px) {
-  .navbar {
-    border-radius: 0; }
-    .navbar .navbar-toggle {
-      margin: 10px;
-      padding: 27.5px !important;
-      width: 10%; }
-    .navbar .icon-bar {
-      margin-top: 10px;
-      position: relative;
-      top: -25px;
-      left: -15px;
-      height: 3px;
-      width: 30px; }
-      .navbar .icon-bar + .icon-bar {
-        margin-top: 10px; }
-    .navbar .wordmark {
-      height: 50px;
-      position: relative;
-      top: 10px;
-      left: 15px;
-      bottom: 15px;
+  .navbar .navbar-toggle {
+    margin: 10px;
+    padding: 27.5px !important;
+    width: 10%; }
+  .navbar .icon-bar {
+    margin-top: 10px;
+    position: relative;
+    top: -25px;
+    left: -15px;
+    height: 3px;
+    width: 30px; }
+    .navbar .icon-bar + .icon-bar {
+      margin-top: 10px; }
+  .navbar .wordmark {
+    height: 50px;
+    position: relative;
+    top: 10px;
+    left: 15px;
+    bottom: 15px;
+    width: 100%; }
+    .navbar .wordmark img {
+      height: inherit;
       width: 100%; }
-      .navbar .wordmark img {
-        height: inherit;
-        width: 100%; }
   #signinModal input,
   #signupModal input {
     font-size: 1.25em;
@@ -889,15 +889,16 @@ img.socialBadges {
   input[type="file"] {
     height: inherit !important;
     margin: 0 !important; }
-  img.crest {
-    padding-top: 0;
-    margin-bottom: 15px;
-    width: 100% !important; }
+  .crest {
+    margin-bottom: 15px; }
   #destSearchBtn {
     padding: 15px 0 !important;
     width: 90% !important; }
   .copyright {
     margin-bottom: 15%; } }
+
+.traveling-title {
+  margin-right: 5px; }
 
 .form-control:focus {
   border-color: #f69568;
@@ -1091,8 +1092,44 @@ form.journey-form input[type="text"] {
   color: #ee6730;
   font-style: italic; }
 
+div.fa_JourneyPost {
+  text-align: right; }
+
+div.fa_JourneyPost li a {
+  font-weight: normal; }
+
+div.fa_JourneyPost a:hover {
+  color: #ee6730;
+  background: none; }
+
+div.fa_JourneyPost a:hover i.fa {
+  color: #ee6730; }
+
+div.fa_JourneyPost i.fa {
+  color: #ffc233;
+  font-size: 1.5em;
+  text-align: right;
+  padding: 6px; }
+
+div.fa_JourneyPost i.fa.fa-close {
+  font-size: 1.875em; }
+
+.dropup {
+  padding-top: 18px; }
+
+.jp_dropup {
+  display: inline; }
+
+div.dropup ul.dropdown-menu {
+  background-color: rgba(255, 255, 255, 0.9375);
+  padding: 8px; }
+
+ul.dropdown-menu a {
+  text-align: left; }
+
 .jp_divider {
-  border-color: #fbd163; }
+  border-color: #fbd163;
+  margin-bottom: 5px; }
 
 /* Media Queries */
 @media only screen and (max-width: 900px) {
