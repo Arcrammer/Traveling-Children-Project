@@ -897,6 +897,9 @@ img.socialBadges {
   .copyright {
     margin-bottom: 15%; } }
 
+.traveling-title {
+  margin-right: 5px; }
+
 .form-control:focus {
   border-color: #f69568;
   outline: 0;
@@ -1009,9 +1012,6 @@ form.journey-form input[type="text"] {
   padding: 0;
   width: 75px; }
 
-.traveling-title {
-  margin-right: 5px; }
-
 .journeyEditButton,
 .journeyDeleteButton {
   height: 35px;
@@ -1105,30 +1105,24 @@ div.fa_JourneyPost a:hover {
 div.fa_JourneyPost a:hover i.fa {
   color: #ee6730; }
 
-div.fa_JourneyPost a:active {
-  color: #3a2417; }
-
-div.fa_JourneyPost a:active i.fa {
-  color: #3a2417; }
-
 div.fa_JourneyPost i.fa {
   color: #ffc233;
   font-size: 1.5em;
   text-align: right;
-  padding: 5px; }
+  padding: 6px; }
 
 div.fa_JourneyPost i.fa.fa-close {
   font-size: 1.875em; }
 
 .dropup {
-  padding-top: 15px; }
+  padding-top: 18px; }
 
 .jp_dropup {
   display: inline; }
 
 div.dropup ul.dropdown-menu {
   background-color: rgba(255, 255, 255, 0.9375);
-  padding: 5px; }
+  padding: 8px; }
 
 ul.dropdown-menu a {
   text-align: left; }

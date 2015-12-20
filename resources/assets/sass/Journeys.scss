@@ -7,6 +7,11 @@
  // Import 'Main.scss'
  @import 'Main.scss';
 
+// Journey Posts
+.traveling-title {
+  margin-right: 5px;
+}
+
 // Forms
 .form-control:focus {
   border-color: #f69568;
@@ -34,7 +39,6 @@ form.journey-form input[type="text"] {
   width: 535px !important;
 }
 
-// Modals
 #journeyModal {
   .close {
     height: 65px;
@@ -156,11 +160,7 @@ form.journey-form input[type="text"] {
   width: 75px;
 }
 
-// Journey Posts
-.traveling-title {
-  margin-right: 5px;
-}
-
+// Posts
 .journeyEditButton,
 .journeyDeleteButton {
   height: 35px;
@@ -261,13 +261,16 @@ form.journey-form input[type="text"] {
   font-style: italic;
 }
 
-// Social Links
 div.fa_JourneyPost {
   text-align: right;
 }
 
-div.fa_JourneyPost li a {
-  font-weight: normal;
+div.fa_JourneyPost li {
+  cursor: pointer;
+
+  a {
+   font-weight: normal;
+ }
 }
 
 div.fa_JourneyPost a:hover {
@@ -275,23 +278,15 @@ div.fa_JourneyPost a:hover {
   background: none;
 }
 
-div.fa_JourneyPost a:hover i.fa {
+div.fa_JourneyPost a:hover  i.fa {
   color: #ee6730;
-}
-
-div.fa_JourneyPost a:active {
-  color: #3a2417;
-}
-
-div.fa_JourneyPost a:active i.fa {
-  color: #3a2417;
 }
 
 div.fa_JourneyPost i.fa {
   color: #ffc233;
   font-size: 1.5em;
   text-align: right;
-  padding: 5px;
+  padding: 6px;
 }
 
 div.fa_JourneyPost i.fa.fa-close {
@@ -299,7 +294,7 @@ div.fa_JourneyPost i.fa.fa-close {
 }
 
 .dropup {
-  padding-top: 15px;
+  padding-top: 18px;
 }
 
 .jp_dropup {
@@ -308,7 +303,7 @@ div.fa_JourneyPost i.fa.fa-close {
 
 div.dropup ul.dropdown-menu {
   background-color: rgba(255,255,255,.9375);
-  padding: 5px;
+  padding: 8px;
 }
 
 ul.dropdown-menu a {
