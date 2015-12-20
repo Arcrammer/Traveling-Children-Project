@@ -91,10 +91,10 @@
                 <i class="fa fa-send"></i>
               </a>
               <ul class="dropdown-menu">
-                <li class="share-with-facebook">
+                <li class="share-with-facebook share-button">
                   <a><i class="fa fa-facebook-square"></i> Facebook</a>
                 </li>
-                <li class="share-with-twitter">
+                <li class="share-with-twitter share-button">
                   <?php
                     $twitter_url = 'https://twitter.com/share?';
                     $twitter_url .= 'text=Check+out+this+journey+at+TCP%21';
@@ -107,13 +107,10 @@
                   ?>
                   <a href="{{ $twitter_url }}"><i class="fa fa-twitter"></i> Twitter</a>
                 </li>
-                <li class="share-with-instagram">
-                  <a><i class="fa fa-instagram"></i> Instagram</a>
-                </li>
-                <li class="share-with-pinterest">
+                <li class="share-with-pinterest share-button">
                   <a><i class="fa fa-pinterest-square"></i> Pinterest</a>
                 </li>
-                <li class="share-with-tumblr">
+                <li class="share-with-tumblr share-button">
                   <a><i class="fa fa-tumblr-square"></i> Tumblr</a>
                 </li>
                 <li class="share-with-envelope">

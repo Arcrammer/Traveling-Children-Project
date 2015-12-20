@@ -26,27 +26,24 @@ $(document).ready ->
             link: 'travelingchildrenproject.dev/journeys'
             name: journey.creator + '\'s Journey to ' + journey.title
             description: journey.body
+            # picture: 'http://travelingchildrenproject.dev/assets/journeys/header_images/' + journey.image
             picture: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
           }
 
-    # Sharing through Twitter
-    window.twttr = ((d, s, id) ->
-      js = undefined
-      fjs = d.getElementsByTagName(s)[0]
-      t = window.twttr or {}
-      if d.getElementById(id)
-        return t
-      js = d.createElement(s)
-      js.id = id
-      js.src = 'https://platform.twitter.com/widgets.js'
-      fjs.parentNode.insertBefore js, fjs
-      t._e = []
-      t.ready = (f) ->
-        t._e.push f
-        # Now everything has been initialised
-        return
-      t
-    )(document, 'script', 'twitter-wjs')
+  # Sharing through Pinterest
+  $.getScript '//assets.pinterest.com/js/pinit.js', ->
+    $('.share-with-pinterest').click ->
+      # Fetch the data for the journey
+      # they want to share on Pinterest
+      journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'
+      $.get '/journeys/show/' + journeyUUID, (journey) ->
+        # The user clicked the 'Pinterest' button
+        PinUtils.pinOne {
+          # media: 'http://travelingchildrenproject.dev/assets/journeys/header_images/' + journey.image
+          media: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
+          url: 'http://travelingchildrenproject.dev/journeys/' + journey.id
+          description: journey.body
+        }
 
   # Handling journey post updates
   journeys = $('.journeyPost')

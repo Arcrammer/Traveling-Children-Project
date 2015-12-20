@@ -26,7 +26,7 @@
         version: 'v2.5'
       });
       $('#loginbutton,#feedbutton').removeAttr('disabled');
-      FB.getLoginStatus(function(response) {
+      return FB.getLoginStatus(function(response) {
         return $('.share-with-facebook').click(function() {
           var journeyUUID;
           journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
@@ -41,24 +41,19 @@
           });
         });
       });
-      return window.twttr = (function(d, s, id) {
-        var fjs, js, t;
-        js = void 0;
-        fjs = d.getElementsByTagName(s)[0];
-        t = window.twttr || {};
-        if (d.getElementById(id)) {
-          return t;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-        t._e = [];
-        t.ready = function(f) {
-          t._e.push(f);
-        };
-        return t;
-      })(document, 'script', 'twitter-wjs');
+    });
+    $.getScript('//assets.pinterest.com/js/pinit.js', function() {
+      return $('.share-with-pinterest').click(function() {
+        var journeyUUID;
+        journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
+        return $.get('/journeys/show/' + journeyUUID, function(journey) {
+          return PinUtils.pinOne({
+            media: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true',
+            url: 'http://travelingchildrenproject.dev/journeys/' + journey.id,
+            description: journey.body
+          });
+        });
+      });
     });
     journeys = $('.journeyPost');
     editButtons = $('.journeyEditButton');

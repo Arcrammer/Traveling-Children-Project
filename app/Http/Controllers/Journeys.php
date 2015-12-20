@@ -30,26 +30,22 @@ class Journeys extends Controller
    * @return Illuminate\Http\Response
    */
   protected function show($uuid) {
-    if (Auth::check()) {
-      $journey = Journey::where('uuid', '=', $uuid)->first();
-      $journeyBodyFilename = base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename;
-      $journeyHeaderImageFilename = '/assets/journeys/header_images/'.$journey->header_image_filename;
-      $journeyData = [
-        'uuid' => $journey->uuid,
-        'creator' => $journey->creator->first_name,
-        'title' => $journey->title,
-        'date' => $journey->date,
-        'body' => strip_tags(file_get_contents($journeyBodyFilename)),
-        'image' => $journeyHeaderImageFilename,
-        'tags' => ''
-      ];
-      foreach ($journey->tags->all() as $tag) {
-        $journeyData['tags'] .= ' #'.$tag->tag;
-      }
-      return $journeyData;
-    } else {
-      return 'Log in first.';
+    $journey = Journey::where('uuid', '=', $uuid)->first();
+    $journeyBodyFilename = base_path().'/public/assets/journeys/descriptions/'.$journey->description_filename;
+    $journeyHeaderImageFilename = '/assets/journeys/header_images/'.$journey->header_image_filename;
+    $journeyData = [
+      'uuid' => $journey->uuid,
+      'creator' => $journey->creator->first_name,
+      'title' => $journey->title,
+      'date' => $journey->date,
+      'body' => strip_tags(file_get_contents($journeyBodyFilename)),
+      'image' => $journeyHeaderImageFilename,
+      'tags' => ''
+    ];
+    foreach ($journey->tags->all() as $tag) {
+      $journeyData['tags'] .= ' #'.$tag->tag;
     }
+    return $journeyData;
   }
 
   /**
