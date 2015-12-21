@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="container">
-      <img id="thumbsDownError" src="/assets/images/404.png">
+      <img id="thumbsDownError" src="/assets/images/404.svg">
     </div> <!-- #container -->
   </body>
 </html>
