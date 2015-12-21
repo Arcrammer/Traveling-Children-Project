@@ -45,6 +45,20 @@ $(document).ready ->
           description: journey.body
         }
 
+  $.getScript 'https://assets.tumblr.com/share-button.js', ->
+    $('.share-with-tumblr').click ->
+      postLink = 'https://www.tumblr.com/widgets/share/tool?'
+      postLink += 'posttype=link'
+      postLink += '&'
+      postLink += 'tags=TravelingChildrenProject,TCPJourneys'
+      postLink += '&'
+      postLink += 'content='+encodeURIComponent('https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true')
+      postLink += '&'
+      postLink += 'caption=TCPJourneyBySomeone'
+      postLink += '&'
+      postLink += 'show-via=travelingchildrenproject'
+      window.open postLink, null, 'height=540,width=600'
+
   # Handling journey post updates
   journeys = $('.journeyPost')
   editButtons = $('.journeyEditButton')

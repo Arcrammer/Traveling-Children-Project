@@ -103,7 +103,7 @@
                     $twitter_url .= '&';
                     $twitter_url .= 'hashtags=TravelingChildrenProject,TCPJourneys';
                     $twitter_url .= '&';
-                    $twitter_url .= 'via=KiDFRONTATiON';
+                    $twitter_url .= 'via=travelingchildrenproject';
                   ?>
                   <a href="{{ $twitter_url }}"><i class="fa fa-twitter"></i> Twitter</a>
                 </li>
@@ -111,6 +111,8 @@
                   <a><i class="fa fa-pinterest-square"></i> Pinterest</a>
                 </li>
                 <li class="share-with-tumblr share-button">
+                  <a class="tumblr-share-button" data-color="blue" data-notes="right" href="https://embed.tumblr.com/share"></a>
+<script>!function(d,s,id){var js,ajs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://secure.assets.tumblr.com/share-button.js";ajs.parentNode.insertBefore(js,ajs);}}(document, "script", "tumblr-js");</script>
                   <a><i class="fa fa-tumblr-square"></i> Tumblr</a>
                 </li>
                 <li class="share-with-envelope">
