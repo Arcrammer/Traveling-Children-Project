@@ -6,7 +6,6 @@ php:
 
 install:
   - rm composer.lock
-  - php5dismod xdebug
   - composer self-update
   - composer install
   - npm uninstall `ls -1 node_modules | tr '/\n' ' '`
