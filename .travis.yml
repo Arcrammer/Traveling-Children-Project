@@ -15,7 +15,7 @@ install:
   - npm install
 
 before_script:
-  - mysql -e 'CREATE DATABASE `Traveling-Children-Project_Development`'
+  - mysql -e 'CREATE DATABASE `Traveling-Children-Project_Test`'
 
 script:
   - gulp
