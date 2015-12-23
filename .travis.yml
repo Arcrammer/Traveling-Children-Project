@@ -8,7 +8,7 @@ install:
   - rm composer.lock
   - composer self-update
   - composer install
-  - npm uninstall `ls -1 node_modules | tr '/\n' ' '`
+  - npm -g install npm@next
   - npm install
   - gulp
 
