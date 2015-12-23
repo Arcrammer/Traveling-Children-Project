@@ -26,7 +26,7 @@ return [
     |
     */
 
-    'url' => 'https://travelingchildrenproject.com/',
+    'url' => 'https://travelingchildrenproject.dev/',
 
     /*
     |--------------------------------------------------------------------------

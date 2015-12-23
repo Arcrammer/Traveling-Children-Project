@@ -10,7 +10,7 @@ php:
 before_install:
   - rm composer.lock
   - composer self-update
-  - npm -g install npm@next
+  - npm -g install npm@3.5.1
 
 install:
   - composer install
@@ -21,4 +21,12 @@ before_script:
 
 script:
   - gulp
-  - php artisan --env=staging --force migrate:refresh --seed
+  - php artisan --env=staging --force migrate --seed
+
+# Uncomment this to deploy to production
+# at http://travelingchildrenproject.com/
+# after a successful build
+#
+# after_success:
+#   - git remote add production http://beta.travelingchildrenproject.com/
+#   - git push production master
