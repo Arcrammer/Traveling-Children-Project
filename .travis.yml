@@ -27,6 +27,6 @@ script:
 # at http://travelingchildrenproject.com/
 # after a successful build
 #
-# after_success:
-#   - git remote add production http://beta.travelingchildrenproject.com/
-#   - git push production master
+after_success:
+  - git remote add production http://travelingchildrenproject.com/
+  - git push production master
