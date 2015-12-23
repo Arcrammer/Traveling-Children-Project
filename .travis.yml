@@ -1,0 +1,15 @@
+language: php
+
+php:
+  - 5.5
+  - 5.6
+  - 7.0
+
+install:
+  - rm composer.lock
+  - composer self-update
+  - composer install
+  - npm install
+  - gulp
+
+script: php artisan -n migrate:refresh --seed
