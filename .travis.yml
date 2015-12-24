@@ -11,6 +11,7 @@ before_install:
   - rm composer.lock
   - composer self-update
   - npm -g install npm@3.5.1
+  - apt-get update
   - apt-get install libnotify-bin
 
 install:
