@@ -6,7 +6,7 @@ services:
 addons:
   apt:
     packages:
-      - libnotify-bin
+      - libnotify4
 
 php:
   - 5.5
