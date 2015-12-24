@@ -197,7 +197,7 @@
 
 <!-- Sign-in Modal -->
 <script>
-  @if (empty($errors->all()))
+  @unless (count($errors) > 0)
     var signinNeedsDisplay = false;
   @else
     var signinNeedsDisplay = true;
@@ -217,7 +217,7 @@
         <h4>Traveler Sign In</h4>
       </div> <!-- .modal-header -->
       <div class="modal-body">
-        @unless (empty($errors->all()))
+        @if (count($errors) > 0)
           <div class="probs">
             @foreach ($errors->all() as $error)
               <p class="prob">{{ $error }}</p>

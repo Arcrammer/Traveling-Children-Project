@@ -28,5 +28,7 @@ script:
 # after a successful build
 #
 after_success:
-  - git remote add production http://travelingchildrenproject.com/
+  - chmod 600 .travis/deploy_key.pem
+  - ssh-add .travis/deploy_key.pem
+  - git remote add production alexander@travelingchildrenproject.com:/var/www/Staging/.git
   - git push production master
