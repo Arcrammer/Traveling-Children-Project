@@ -197,7 +197,7 @@
 
 <!-- Sign-in Modal -->
 <script>
-  @unless (count($errors) > 0)
+  @unless (count($errors) > 0 || Session::has('signin_needs_display'))
     var signinNeedsDisplay = false;
   @else
     var signinNeedsDisplay = true;

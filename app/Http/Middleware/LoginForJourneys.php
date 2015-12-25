@@ -18,6 +18,7 @@ class LoginForJourneys {
     if (Auth::check()) {
       return $next($request);
     } else {
+      $request->session()->flash('signin_needs_display', true);
       return redirect('/');
     }
   }
