@@ -71,7 +71,7 @@ class Journeys extends Controller
    */
   protected function persist() {
     // Write the body to the filesystem
-    $bodyFilename = md5(uniqid(rand(), true)) . '.html';
+    $bodyFilename = md5(uniqid(rand(), true)).'.html';
     $bodyPath = base_path().'/public/assets/journeys/descriptions/'.$bodyFilename;
     $bodyFile = fopen($bodyPath, 'w+');
     fwrite($bodyFile, htmlspecialchars(Input::get('body')));
