@@ -16,16 +16,19 @@
       </div> <!-- .modal-header -->
 
       <div class="modal-body">
-        <div class="pp_pic">
-          {{-- <img src="/assets/uploads/<?//= $traveler->pic ?>"> --}}
-        </div>
-        <p><b>First Name:</b> <?//= $traveler->first_name ?></p>
-        <p><b>Last Name:</b> <?//= $traveler->last_name ?></p>
-        <p><b>Email:</b> <?//= $traveler->email ?></p>
-        <p><b>Street Address:</b> <?//= $traveler->street ?></p>
-        <p><b>City:</b> <?//= $traveler->city ?></p>
-        <p><b>State:</b> <?//= $traveler->state ?> <b>Zip:</b> <?//= $traveler->zip ?></p>
-        <p><b>Birthday:</b> <?//= $traveler->birthday ?></p>
+        <?php $traveler = Auth::user() ?>
+        @if ($traveler->selfie_filename != NULL)
+          <div class="pp_pic">
+            <img src="/assets/uploads/{{ $traveler->selfie_filename }}">
+          </div>
+        @endif
+        <p><b>First Name:</b> {{ $traveler->first_name }}</p>
+        <p><b>Last Name:</b> {{ $traveler->last_name }}</p>
+        <p><b>Email:</b> {{ $traveler->email }}</p>
+        <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
+        <p><b>City:</b> {{ $traveler->address->city }}</p>
+        <p><b>State:</b> {{ $traveler->address->get_state->state }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
       </div> <!-- .modal-body -->
 
       <div class="modal-footer">

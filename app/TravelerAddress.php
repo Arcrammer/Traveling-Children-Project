@@ -14,4 +14,13 @@ class TravelerAddress extends Model
   protected function traveler() {
     return $this->belongsTo('TravelingChildrenProject\Traveler');
   }
+
+  /**
+   * Each address has a state
+   *
+   * @return Illuminate\Database\Eloquent\Relations\BelongsTo
+   */
+  protected function get_state() {
+    return $this->hasOne('TravelingChildrenProject\State', 'id');
+  }
 }

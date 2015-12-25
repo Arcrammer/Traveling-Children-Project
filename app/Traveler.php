@@ -71,6 +71,6 @@ class Traveler
    * @return Illuminate\Database\Eloquent\Relations\HasOne
    */
   protected function address() {
-    return $this->hasOne('TravelingChildrenProject\TravelerAddress');
+    return $this->hasOne('TravelingChildrenProject\TravelerAddress', 'id');
   }
 }
