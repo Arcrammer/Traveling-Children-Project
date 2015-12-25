@@ -21,7 +21,7 @@ class TravelerSeeder extends Seeder
     }
     DB::table('travelers')->insert([[
       'email' => 'chris@cdtdesign.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Christina',
       'last_name' => 'Thorpe-Rogers',
       'gender' => 2,
@@ -30,7 +30,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'alexander2475914@gmail.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Alexander',
       'last_name' => 'Crammer',
       'gender' => 1,
@@ -39,7 +39,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'chris@christianpatrick.me',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Christian',
       'last_name' => 'Patrick',
       'gender' => 1,
@@ -48,7 +48,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'pat@cdtdesign.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Patrick',
       'last_name' => 'Rogers',
       'gender' => 1,
@@ -57,7 +57,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'johnny@me.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Johnny',
       'last_name' => 'Crawford',
       'gender' => 1,
@@ -66,7 +66,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'lucy@yahoo.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Lucy',
       'last_name' => 'Smith',
       'gender' => 1,
@@ -75,7 +75,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'mindy@me.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Mindy',
       'last_name' => 'Moore',
       'gender' => 1,
@@ -84,7 +84,7 @@ class TravelerSeeder extends Seeder
       'updated_at' => date('Y-m-d H:i:s', time())
     ], [
       'email' => 'tom@me.com',
-      'password' => $password ?: md5(uniqid(rand(), true)),
+      'password' => bcrypt($password ?: md5(uniqid(rand(), true))),
       'first_name' => 'Tommy',
       'last_name' => 'Thompson',
       'gender' => 1,
