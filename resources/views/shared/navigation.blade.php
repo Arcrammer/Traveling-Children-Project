@@ -359,10 +359,10 @@
               <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-              <li id="facebook-signup">
+              {{-- <li id="facebook-signup">
                 <a href="#">Sign up With Facebook</a></li>
               </li>
-              <li role="separator" class="divider"></li>
+              <li role="separator" class="divider"></li> --}}
               <li id="email-signup" data-toggle="modal" data-target="#signupModal">
                 <a href="#signupModal">Sign up with Email</a>
               </li>
