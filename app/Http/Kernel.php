@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \TravelingChildrenProject\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \TravelingChildrenProject\Http\Middleware\RedirectIfAuthenticated::class,
+        'journeys' => \TravelingChildrenProject\Http\Middleware\LoginForJourneys::class,
     ];
 }
