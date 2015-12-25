@@ -45,14 +45,17 @@ $(document).ready ->
           description: journey.body
         }
 
-  $.getScript 'https://assets.tumblr.com/share-button.js', ->
     $('.share-with-tumblr').click ->
-      postLink = 'https://www.tumblr.com/widgets/share/tool?'
+      postLink = 'https://www.tumblr.com/share?'
+      postLink += 'shareSource=legacy'
+      postLink += '&'
+      postLink += 'cononicalUrl=' + encodeURIComponent('http://travelingchildrenproject.com/journeys')
+      postLink += '&'
       postLink += 'posttype=link'
       postLink += '&'
       postLink += 'tags=TravelingChildrenProject,TCPJourneys'
       postLink += '&'
-      postLink += 'content='+encodeURIComponent('https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true')
+      postLink += 'content='+encodeURIComponent('http://beta.travelingchildrenproject.dev/')
       postLink += '&'
       postLink += 'caption=TCPJourneyBySomeone'
       postLink += '&'

@@ -1,9 +1,6 @@
 (function() {
   (function($) {
-    $('[data-toggle="tooltip"]').tooltip();
-    return $(function() {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
+    return $('[data-toggle="tooltip"]').tooltip();
   })(jQuery);
 
 }).call(this);
@@ -43,7 +40,7 @@
       });
     });
     $.getScript('//assets.pinterest.com/js/pinit.js', function() {
-      return $('.share-with-pinterest').click(function() {
+      $('.share-with-pinterest').click(function() {
         var journeyUUID;
         journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
         return $.get('/journeys/show/' + journeyUUID, function(journey) {
@@ -54,16 +51,18 @@
           });
         });
       });
-    });
-    $.getScript('https://assets.tumblr.com/share-button.js', function() {
       return $('.share-with-tumblr').click(function() {
         var postLink;
-        postLink = 'https://www.tumblr.com/widgets/share/tool?';
+        postLink = 'https://www.tumblr.com/share?';
+        postLink += 'shareSource=legacy';
+        postLink += '&';
+        postLink += 'cononicalUrl=' + encodeURIComponent('http://travelingchildrenproject.com/journeys');
+        postLink += '&';
         postLink += 'posttype=link';
         postLink += '&';
         postLink += 'tags=TravelingChildrenProject,TCPJourneys';
         postLink += '&';
-        postLink += 'content=' + encodeURIComponent('https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true');
+        postLink += 'content=' + encodeURIComponent('http://beta.travelingchildrenproject.dev/');
         postLink += '&';
         postLink += 'caption=TCPJourneyBySomeone';
         postLink += '&';
