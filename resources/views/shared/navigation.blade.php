@@ -347,26 +347,14 @@
           <li data-toggle="modal" data-target="#signinModal">
             <a href="#signinModal">Sign In</a>
           </li>
-          <li class="dropdown">
+          <li data-toggle="modal" data-target="#signupModal">
             <a
               href="#"
-              class="dropdown-toggle"
-              data-toggle="dropdown"
               role="button"
               aria-haspopup="true"
               aria-expanded="false">
               Sign Up
-              <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu">
-              {{-- <li id="facebook-signup">
-                <a href="#">Sign up With Facebook</a></li>
-              </li>
-              <li role="separator" class="divider"></li> --}}
-              <li id="email-signup" data-toggle="modal" data-target="#signupModal">
-                <a href="#signupModal">Sign up with Email</a>
-              </li>
-            </ul> <!-- .dropdown-menu -->
           </li> <!-- .dropdown -->
         @endif
       </ul> <!-- .nav .navbar-nav .navbar-right -->
