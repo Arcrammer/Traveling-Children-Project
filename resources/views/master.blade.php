@@ -19,6 +19,10 @@
     <link rel="stylesheet" href="{{ elixir('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ elixir('assets/css/Main.css') }}">
     @yield('extra_styles')
+
+    <!-- Scripts (These are only the scripts that need to come before the body) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   </head>
   <body>
     <!-- Navigation -->
@@ -31,9 +35,7 @@
     <!-- Footer -->
     @include('shared.footer')
 
-    <!-- Scripts -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Scripts (This is where scripts should go in most circumstances) -->
     <script src="{{ elixir('assets/scripts/Main.js') }}"></script>
     @yield('extra_scripts')
   </body>

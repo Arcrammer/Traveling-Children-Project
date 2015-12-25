@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Traveler
   extends Model
@@ -18,8 +19,9 @@ class Traveler
     CanResetPasswordContract
     {
   use Authenticatable,
-    Authorizable,
-    CanResetPassword;
+      Authorizable,
+      CanResetPassword,
+      SoftDeletes;
 
   /**
    * We're using the 'travelers' table

@@ -25,6 +25,7 @@ class CreateTravelerAddressesTable extends Migration
         ->on('states');
       $table->integer('zip');
       $table->bigInteger('phone')->nullable();
+      $table->softDeletes();
       $table->timestamps();
 
       // Foreign Keys

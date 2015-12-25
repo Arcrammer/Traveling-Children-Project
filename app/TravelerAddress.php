@@ -3,9 +3,12 @@
 namespace TravelingChildrenProject;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TravelerAddress extends Model
 {
+  use SoftDeletes;
+
   /**
    * Each address belongs to a traveler
    *

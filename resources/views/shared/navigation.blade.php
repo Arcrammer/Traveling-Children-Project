@@ -37,9 +37,8 @@
           data-toggle="modal"
           data-target="#signupModal">Edit</button>
         <a
-          href="/travelers/delete/<?//= $traveler->id ?>"
+          href="/traveler/delete/{{ $traveler->passport_id }}"
           class="btn btn-warning btn-lg deleteProfileButton"
-          data-dismiss="modal"
           role="button">Delete Passport</a>
       </div> <!-- .modal-footer -->
     </div> <!-- .modal-content travelerProfile -->
@@ -199,13 +198,6 @@
 </div> <!-- .modal .fade .bs-example-modal-sm -->
 
 <!-- Sign-in Modal -->
-<script>
-  @unless (count($errors) > 0 || Session::has('signin_needs_display'))
-    var signinNeedsDisplay = false;
-  @else
-    var signinNeedsDisplay = true;
-  @endif
-</script>
 <div class="modal fade bs-example-modal-sm" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -365,3 +357,9 @@
   </div> <!-- .container-fluid -->
  </nav> <!-- .navbar .navbar-inverse -->
 </div> <!-- .container -->
+
+@if (count($errors->all()) > 0 || Session::get('signin_needs_display') == true)
+  <script>
+    $('#signinModal').modal()
+  </script>
+@endif

@@ -14,13 +14,16 @@
 // Home
 Route::get('/', 'Welcome@home');
 
+// Passport Profiles
+Route::get('/traveler/delete/{passport_id}', 'Traveler@delete');
+
 // Journeys
 Route::group(['middleware' => 'journeys'], function () {
   Route::get('/journeys', 'Journeys@blog');
   Route::post('/journeys/edit', 'Journeys@update');
   Route::get('/journeys/show/{uuid}', 'Journeys@show');
   Route::get('/journeys/delete/{uuid}', 'Journeys@delete');
-  Route::post('/journeys', 'Journeys@persist');  
+  Route::post('/journeys', 'Journeys@persist');
 });
 
 // Controllers
