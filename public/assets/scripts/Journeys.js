@@ -33,7 +33,7 @@
               link: 'travelingchildrenproject.com/journeys',
               name: journey.creator + '\'s Journey to ' + journey.title,
               description: journey.body,
-              picture: 'http://travelingchildrenproject.com/assets/journeys/header_images/' + journey.image
+              picture: 'http://travelingchildrenproject.com' + journey.image
             });
           });
         });
@@ -45,7 +45,7 @@
         journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
         return $.get('/journeys/show/' + journeyUUID, function(journey) {
           return PinUtils.pinOne({
-            media: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true',
+            media: 'http://travelingchildrenproject.com' + journey.image,
             url: 'http://travelingchildrenproject.com/journeys/' + journey.id,
             description: journey.body
           });
