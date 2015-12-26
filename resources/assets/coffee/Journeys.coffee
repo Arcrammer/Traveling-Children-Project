@@ -23,11 +23,10 @@ $(document).ready ->
           # Let them share it
           FB.ui {
             method: 'feed'
-            link: 'travelingchildrenproject.dev/journeys'
+            link: 'travelingchildrenproject.com/journeys'
             name: journey.creator + '\'s Journey to ' + journey.title
             description: journey.body
-            # picture: 'http://travelingchildrenproject.dev/assets/journeys/header_images/' + journey.image
-            picture: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
+            picture: 'http://travelingchildrenproject.com' + journey.image
           }
 
   # Sharing through Pinterest
@@ -39,9 +38,9 @@ $(document).ready ->
       $.get '/journeys/show/' + journeyUUID, (journey) ->
         # The user clicked the 'Pinterest' button
         PinUtils.pinOne {
-          # media: 'http://travelingchildrenproject.dev/assets/journeys/header_images/' + journey.image
+          # media: 'http://travelingchildrenproject.com/assets/journeys/header_images/' + journey.image
           media: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
-          url: 'http://travelingchildrenproject.dev/journeys/' + journey.id
+          url: 'http://travelingchildrenproject.com/journeys/' + journey.id
           description: journey.body
         }
 
@@ -55,7 +54,7 @@ $(document).ready ->
       postLink += '&'
       postLink += 'tags=TravelingChildrenProject,TCPJourneys'
       postLink += '&'
-      postLink += 'content='+encodeURIComponent('http://beta.travelingchildrenproject.dev/')
+      postLink += 'content='+encodeURIComponent('http://beta.travelingchildrenproject.com/')
       postLink += '&'
       postLink += 'caption=TCPJourneyBySomeone'
       postLink += '&'

@@ -99,7 +99,7 @@
                     $twitter_url = 'https://twitter.com/share?';
                     $twitter_url .= 'text=Check+out+this+journey+at+TCP%21';
                     $twitter_url .= '&';
-                    $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.dev%2Fjourneys%2F'.$journey->id;
+                    $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.com%2Fjourneys%2F'.$journey->id;
                     $twitter_url .= '&';
                     $twitter_url .= 'hashtags=TravelingChildrenProject,TCPJourneys';
                     $twitter_url .= '&';
