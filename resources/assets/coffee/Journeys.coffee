@@ -38,8 +38,7 @@ $(document).ready ->
       $.get '/journeys/show/' + journeyUUID, (journey) ->
         # The user clicked the 'Pinterest' button
         PinUtils.pinOne {
-          # media: 'http://travelingchildrenproject.com/assets/journeys/header_images/' + journey.image
-          media: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
+          media: 'http://travelingchildrenproject.com' + journey.image
           url: 'http://travelingchildrenproject.com/journeys/' + journey.id
           description: journey.body
         }
