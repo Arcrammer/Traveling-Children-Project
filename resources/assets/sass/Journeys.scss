@@ -261,36 +261,38 @@ form.journey-form input[type="text"] {
   font-style: italic;
 }
 
+// Journey Sharing List
 div.fa_JourneyPost {
-  text-align: right;
-}
-
-div.fa_JourneyPost li {
   cursor: pointer;
-
-  a {
-   font-weight: normal;
- }
-}
-
-div.fa_JourneyPost a:hover {
-  color: #ee6730;
-  background: none;
-}
-
-div.fa_JourneyPost a:hover  i.fa {
-  color: #ee6730;
-}
-
-div.fa_JourneyPost i.fa {
-  color: #ffc233;
-  font-size: 1.5em;
   text-align: right;
-  padding: 6px;
-}
 
-div.fa_JourneyPost i.fa.fa-close {
-  font-size:1.875em;
+  li a {
+    font-weight: normal;
+
+    &:hover {
+      color: #ee6730;
+      background: none;
+    }
+
+    &:hover i.fa {
+      color: #ee6730;
+    }
+  }
+
+  li:last-of-type {
+    padding-bottom: 15px;
+  }
+
+  i.fa {
+    color: #ffc233;
+    font-size: 1.5em;
+    text-align: right;
+    padding: 6px;
+
+    &.fa-close {
+      font-size:1.875em;
+    }
+  }
 }
 
 .dropup {
@@ -306,6 +308,7 @@ div.dropup ul.dropdown-menu {
   padding: 8px;
 }
 
+// Menus
 ul.dropdown-menu a {
   text-align: left;
 }

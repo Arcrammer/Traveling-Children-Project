@@ -1093,28 +1093,24 @@ form.journey-form input[type="text"] {
   font-style: italic; }
 
 div.fa_JourneyPost {
+  cursor: pointer;
   text-align: right; }
-
-div.fa_JourneyPost li {
-  cursor: pointer; }
   div.fa_JourneyPost li a {
     font-weight: normal; }
-
-div.fa_JourneyPost a:hover {
-  color: #ee6730;
-  background: none; }
-
-div.fa_JourneyPost a:hover i.fa {
-  color: #ee6730; }
-
-div.fa_JourneyPost i.fa {
-  color: #ffc233;
-  font-size: 1.5em;
-  text-align: right;
-  padding: 6px; }
-
-div.fa_JourneyPost i.fa.fa-close {
-  font-size: 1.875em; }
+    div.fa_JourneyPost li a:hover {
+      color: #ee6730;
+      background: none; }
+    div.fa_JourneyPost li a:hover i.fa {
+      color: #ee6730; }
+  div.fa_JourneyPost li:last-of-type {
+    padding-bottom: 15px; }
+  div.fa_JourneyPost i.fa {
+    color: #ffc233;
+    font-size: 1.5em;
+    text-align: right;
+    padding: 6px; }
+    div.fa_JourneyPost i.fa.fa-close {
+      font-size: 1.875em; }
 
 .dropup {
   padding-top: 18px; }

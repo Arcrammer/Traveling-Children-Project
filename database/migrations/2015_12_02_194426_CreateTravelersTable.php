@@ -26,6 +26,7 @@ class CreateTravelersTable extends Migration
       $table->boolean('suspended')
         ->default(0);
       $table->rememberToken();
+      $table->softDeletes();
       $table->timestamps();
 
       // Foreign Keys

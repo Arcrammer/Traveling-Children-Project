@@ -1,18 +1,12 @@
 (function() {
   (function($) {
-    $('[data-toggle="tooltip"]').tooltip();
-    return $(function() {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
+    return $('[data-toggle="tooltip"]').tooltip();
   })(jQuery);
 
 }).call(this);
 
 (function() {
   (function($) {
-    if (typeof signinNeedsDisplay !== void 0) {
-      $('#signinModal').modal();
-    }
     return $('#destSearchBtn').click(function() {
       var local, type;
       type = $($('#type')[0]).val();

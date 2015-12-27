@@ -16,16 +16,19 @@
       </div> <!-- .modal-header -->
 
       <div class="modal-body">
-        <div class="pp_pic">
-          {{-- <img src="/assets/uploads/<?//= $traveler->pic ?>"> --}}
-        </div>
-        <p><b>First Name:</b> <?//= $traveler->first_name ?></p>
-        <p><b>Last Name:</b> <?//= $traveler->last_name ?></p>
-        <p><b>Email:</b> <?//= $traveler->email ?></p>
-        <p><b>Street Address:</b> <?//= $traveler->street ?></p>
-        <p><b>City:</b> <?//= $traveler->city ?></p>
-        <p><b>State:</b> <?//= $traveler->state ?> <b>Zip:</b> <?//= $traveler->zip ?></p>
-        <p><b>Birthday:</b> <?//= $traveler->birthday ?></p>
+        <?php $traveler = Auth::user() ?>
+        @if ($traveler->selfie_filename != NULL)
+          <div class="pp_pic">
+            <img src="/assets/uploads/{{ $traveler->selfie_filename }}">
+          </div>
+        @endif
+        <p><b>First Name:</b> {{ $traveler->first_name }}</p>
+        <p><b>Last Name:</b> {{ $traveler->last_name }}</p>
+        <p><b>Email:</b> {{ $traveler->email }}</p>
+        <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
+        <p><b>City:</b> {{ $traveler->address->city }}</p>
+        <p><b>State:</b> {{ $traveler->address->get_state->state }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
       </div> <!-- .modal-body -->
 
       <div class="modal-footer">
@@ -34,9 +37,8 @@
           data-toggle="modal"
           data-target="#signupModal">Edit</button>
         <a
-          href="/travelers/delete/<?//= $traveler->id ?>"
+          href="/traveler/delete/{{ $traveler->passport_id }}"
           class="btn btn-warning btn-lg deleteProfileButton"
-          data-dismiss="modal"
           role="button">Delete Passport</a>
       </div> <!-- .modal-footer -->
     </div> <!-- .modal-content travelerProfile -->
@@ -196,13 +198,6 @@
 </div> <!-- .modal .fade .bs-example-modal-sm -->
 
 <!-- Sign-in Modal -->
-<script>
-  @if (empty($errors->all()))
-    var signinNeedsDisplay = false;
-  @else
-    var signinNeedsDisplay = true;
-  @endif
-</script>
 <div class="modal fade bs-example-modal-sm" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinLabel">
   <div class="modal-dialog modal-sm" role="document">
     <div class="modal-content">
@@ -217,7 +212,7 @@
         <h4>Traveler Sign In</h4>
       </div> <!-- .modal-header -->
       <div class="modal-body">
-        @unless (empty($errors->all()))
+        @if (count($errors) > 0)
           <div class="probs">
             @foreach ($errors->all() as $error)
               <p class="prob">{{ $error }}</p>
@@ -347,26 +342,14 @@
           <li data-toggle="modal" data-target="#signinModal">
             <a href="#signinModal">Sign In</a>
           </li>
-          <li class="dropdown">
+          <li data-toggle="modal" data-target="#signupModal">
             <a
               href="#"
-              class="dropdown-toggle"
-              data-toggle="dropdown"
               role="button"
               aria-haspopup="true"
               aria-expanded="false">
               Sign Up
-              <span class="caret"></span>
             </a>
-            <ul class="dropdown-menu">
-              <li id="facebook-signup">
-                <a href="#">Sign up With Facebook</a></li>
-              </li>
-              <li role="separator" class="divider"></li>
-              <li id="email-signup" data-toggle="modal" data-target="#signupModal">
-                <a href="#signupModal">Sign up with Email</a>
-              </li>
-            </ul> <!-- .dropdown-menu -->
           </li> <!-- .dropdown -->
         @endif
       </ul> <!-- .nav .navbar-nav .navbar-right -->
@@ -374,3 +357,9 @@
   </div> <!-- .container-fluid -->
  </nav> <!-- .navbar .navbar-inverse -->
 </div> <!-- .container -->
+
+@if (count($errors->all()) > 0 || Session::get('signin_needs_display') == true)
+  <script>
+    $('#signinModal').modal()
+  </script>
+@endif

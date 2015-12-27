@@ -1,9 +1,6 @@
 (function() {
   (function($) {
-    $('[data-toggle="tooltip"]').tooltip();
-    return $(function() {
-      $('[data-toggle="tooltip"]').tooltip();
-    });
+    return $('[data-toggle="tooltip"]').tooltip();
   })(jQuery);
 
 }).call(this);
@@ -26,39 +23,52 @@
         version: 'v2.5'
       });
       $('#loginbutton,#feedbutton').removeAttr('disabled');
-      FB.getLoginStatus(function(response) {
+      return FB.getLoginStatus(function(response) {
         return $('.share-with-facebook').click(function() {
           var journeyUUID;
           journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
           return $.get('/journeys/show/' + journeyUUID, function(journey) {
             return FB.ui({
               method: 'feed',
-              link: 'travelingchildrenproject.dev/journeys',
+              link: 'travelingchildrenproject.com/journeys',
               name: journey.creator + '\'s Journey to ' + journey.title,
               description: journey.body,
-              picture: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
+              picture: 'http://travelingchildrenproject.com' + journey.image
             });
           });
         });
       });
-      return window.twttr = (function(d, s, id) {
-        var fjs, js, t;
-        js = void 0;
-        fjs = d.getElementsByTagName(s)[0];
-        t = window.twttr || {};
-        if (d.getElementById(id)) {
-          return t;
-        }
-        js = d.createElement(s);
-        js.id = id;
-        js.src = 'https://platform.twitter.com/widgets.js';
-        fjs.parentNode.insertBefore(js, fjs);
-        t._e = [];
-        t.ready = function(f) {
-          t._e.push(f);
-        };
-        return t;
-      })(document, 'script', 'twitter-wjs');
+    });
+    $.getScript('//assets.pinterest.com/js/pinit.js', function() {
+      $('.share-with-pinterest').click(function() {
+        var journeyUUID;
+        journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
+        return $.get('/journeys/show/' + journeyUUID, function(journey) {
+          return PinUtils.pinOne({
+            media: 'http://travelingchildrenproject.com' + journey.image,
+            url: 'http://travelingchildrenproject.com/journeys/' + journey.id,
+            description: journey.body
+          });
+        });
+      });
+      return $('.share-with-tumblr').click(function() {
+        var postLink;
+        postLink = 'https://www.tumblr.com/share?';
+        postLink += 'shareSource=legacy';
+        postLink += '&';
+        postLink += 'cononicalUrl=' + encodeURIComponent('http://travelingchildrenproject.com/journeys');
+        postLink += '&';
+        postLink += 'posttype=link';
+        postLink += '&';
+        postLink += 'tags=TravelingChildrenProject,TCPJourneys';
+        postLink += '&';
+        postLink += 'content=' + encodeURIComponent('http://beta.travelingchildrenproject.com/');
+        postLink += '&';
+        postLink += 'caption=TCPJourneyBySomeone';
+        postLink += '&';
+        postLink += 'show-via=travelingchildrenproject';
+        return window.open(postLink, null, 'height=540,width=600');
+      });
     });
     journeys = $('.journeyPost');
     editButtons = $('.journeyEditButton');

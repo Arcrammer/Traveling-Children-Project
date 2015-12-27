@@ -1,7 +1,4 @@
 (($) ->
-  if typeof signinNeedsDisplay != undefined
-    $('#signinModal').modal()
-
   $('#destSearchBtn').click ->
     # The user has chosen a destination
     # type and location and clicked the

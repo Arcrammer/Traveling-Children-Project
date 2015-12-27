@@ -23,30 +23,42 @@ $(document).ready ->
           # Let them share it
           FB.ui {
             method: 'feed'
-            link: 'travelingchildrenproject.dev/journeys'
+            link: 'travelingchildrenproject.com/journeys'
             name: journey.creator + '\'s Journey to ' + journey.title
             description: journey.body
-            picture: 'https://github.com/Arcrammer/Traveling-Children-Project/blob/master/public/assets/journey_defaults/header_images/3aa39decc5a01363489991f174176f31.jpg?raw=true'
+            picture: 'http://travelingchildrenproject.com' + journey.image
           }
 
-    # Sharing through Twitter
-    window.twttr = ((d, s, id) ->
-      js = undefined
-      fjs = d.getElementsByTagName(s)[0]
-      t = window.twttr or {}
-      if d.getElementById(id)
-        return t
-      js = d.createElement(s)
-      js.id = id
-      js.src = 'https://platform.twitter.com/widgets.js'
-      fjs.parentNode.insertBefore js, fjs
-      t._e = []
-      t.ready = (f) ->
-        t._e.push f
-        # Now everything has been initialised
-        return
-      t
-    )(document, 'script', 'twitter-wjs')
+  # Sharing through Pinterest
+  $.getScript '//assets.pinterest.com/js/pinit.js', ->
+    $('.share-with-pinterest').click ->
+      # Fetch the data for the journey
+      # they want to share on Pinterest
+      journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'
+      $.get '/journeys/show/' + journeyUUID, (journey) ->
+        # The user clicked the 'Pinterest' button
+        PinUtils.pinOne {
+          media: 'http://travelingchildrenproject.com' + journey.image
+          url: 'http://travelingchildrenproject.com/journeys/' + journey.id
+          description: journey.body
+        }
+
+    $('.share-with-tumblr').click ->
+      postLink = 'https://www.tumblr.com/share?'
+      postLink += 'shareSource=legacy'
+      postLink += '&'
+      postLink += 'cononicalUrl=' + encodeURIComponent('http://travelingchildrenproject.com/journeys')
+      postLink += '&'
+      postLink += 'posttype=link'
+      postLink += '&'
+      postLink += 'tags=TravelingChildrenProject,TCPJourneys'
+      postLink += '&'
+      postLink += 'content='+encodeURIComponent('http://beta.travelingchildrenproject.com/')
+      postLink += '&'
+      postLink += 'caption=TCPJourneyBySomeone'
+      postLink += '&'
+      postLink += 'show-via=travelingchildrenproject'
+      window.open postLink, null, 'height=540,width=600'
 
   # Handling journey post updates
   journeys = $('.journeyPost')
