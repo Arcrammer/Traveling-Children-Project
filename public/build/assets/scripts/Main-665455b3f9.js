@@ -4,14 +4,15 @@
     return $('.editProfileButton').click(function() {
       $.ajax('/traveler/show', {
         success: function(travelerData) {
+          console.log(travelerData);
           $('#first-name').val(travelerData.first_name);
           $('#last-name').val(travelerData.last_name);
           $('#email').val(travelerData.email);
+          $('#birthday').val(travelerData.birthday);
           $('#street').val(travelerData.address.street);
           $('#city').val(travelerData.address.city);
           $('#state').val(travelerData.address.get_state.abbreviation);
           $('#zip').val(travelerData.address.zip);
-          $('#birthday').val(travelerData.birthday);
           switch (travelerData.gender) {
             case 1:
               $('#gender-male').attr('checked', 'checked');

@@ -24,6 +24,6 @@ class TravelerAddress extends Model
    * @return Illuminate\Database\Eloquent\Relations\BelongsTo
    */
   public function get_state() {
-    return $this->hasOne('TravelingChildrenProject\State', 'id');
+    return $this->hasOne('TravelingChildrenProject\State', 'id', 'state');
   }
 }

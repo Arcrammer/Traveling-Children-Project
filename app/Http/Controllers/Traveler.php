@@ -10,6 +10,7 @@ use Redirect;
 use TravelingChildrenProject\Http\Requests;
 use TravelingChildrenProject\Http\Controllers\Controller;
 use TravelingChildrenProject\TravelerAddress;
+use TravelingChildrenProject\State;
 
 class Traveler extends Controller
 {
@@ -19,9 +20,9 @@ class Traveler extends Controller
    * @return Illuminate\Http\Response
    */
   protected function show() {
-    return \TravelingChildrenProject\Traveler::with('address.get_state')
-      ->where('passport_id', '=', Auth::user()->passport_id)
-      ->firstOrFail();
+    return \TravelingChildrenProject\Traveler::where('id', '=', Auth::id())
+      ->with('address', 'address.get_state')
+      ->first();
   }
 
   /**
@@ -46,7 +47,9 @@ class Traveler extends Controller
       // we can safely update it
       $address->street = Input::get('street');
       $address->city = Input::get('city');
-      $address->state = Input::get('state');
+      $address->state = State::where('abbreviation', '=', Input::get('state'))
+        ->first()
+        ->id;
       $address->zip = Input::get('zip');
       $address->save();
     }

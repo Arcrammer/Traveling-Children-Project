@@ -10,14 +10,16 @@
       success: (travelerData) ->
         # Populate the sign-up form fields
         # with the returned traveler data
+        console.log travelerData
+
         $('#first-name').val travelerData.first_name
         $('#last-name').val travelerData.last_name
         $('#email').val travelerData.email
+        $('#birthday').val travelerData.birthday
         $('#street').val travelerData.address.street
         $('#city').val travelerData.address.city
         $('#state').val travelerData.address.get_state.abbreviation
         $('#zip').val travelerData.address.zip
-        $('#birthday').val travelerData.birthday
         switch travelerData.gender
           when 1 then $('#gender-male').attr 'checked', 'checked'
           when 2 then $('#gender-female').attr 'checked', 'checked'
