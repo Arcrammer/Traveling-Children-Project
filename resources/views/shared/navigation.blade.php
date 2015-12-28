@@ -34,7 +34,6 @@
       <div class="modal-footer">
         <button
           class="btn btn-primary btn-lg editProfileButton"
-          data-toggle="modal"
           data-target="#signupModal">Edit</button>
         <a
           href="/traveler/delete/{{ $traveler->passport_id }}"
@@ -268,6 +267,7 @@
       <div class="modal-footer">
         <input
           form="signup-form"
+          id="submission-button"
           style="font-size:1.5em;border-radius:6px;"
           type="submit"
           class="btn btn-warning signupButton"

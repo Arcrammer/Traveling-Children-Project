@@ -23,13 +23,25 @@
           when 2 then $('#gender-female').attr 'checked', 'checked'
           when 3 then $('#gender-private').attr 'checked', 'checked'
 
+        # Send the form data to
+        # the appropriate method
+        $('#signup-form').attr 'action', '/traveler/update'
+
     # Change the header text
     # of the sign-up modal
     $('.modal-header h4').text 'Edit Passport'
 
+    # Change the submission button title
+    $('#submission-button').val 'Update'
+
     # Hide the first modal
-    # $('#profileModal').modal 'hide'
+    $('#profileModal').modal 'hide'
 
     # Show the sign-up modal
-    # $('#signupModal').modal 'show'
+    $('#signupModal').modal 'show'
+
+    # Show the profile passport modal when
+    # the user dismisses the sign-up modal
+    $('#signupModal').on 'hide.bs.modal', ->
+      $('#profileModal').modal 'show'
 ) jQuery

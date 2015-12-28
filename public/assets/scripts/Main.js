@@ -14,15 +14,24 @@
           $('#birthday').val(travelerData.birthday);
           switch (travelerData.gender) {
             case 1:
-              return $('#gender-male').attr('checked', 'checked');
+              $('#gender-male').attr('checked', 'checked');
+              break;
             case 2:
-              return $('#gender-female').attr('checked', 'checked');
+              $('#gender-female').attr('checked', 'checked');
+              break;
             case 3:
-              return $('#gender-private').attr('checked', 'checked');
+              $('#gender-private').attr('checked', 'checked');
           }
+          return $('#signup-form').attr('action', '/traveler/update');
         }
       });
-      return $('.modal-header h4').text('Edit Passport');
+      $('.modal-header h4').text('Edit Passport');
+      $('#submission-button').val('Update');
+      $('#profileModal').modal('hide');
+      $('#signupModal').modal('show');
+      return $('#signupModal').on('hide.bs.modal', function() {
+        return $('#profileModal').modal('show');
+      });
     });
   })(jQuery);
 

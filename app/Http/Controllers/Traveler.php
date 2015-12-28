@@ -4,9 +4,12 @@ namespace TravelingChildrenProject\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Auth;
+use Input;
+use Redirect;
 use TravelingChildrenProject\Http\Requests;
 use TravelingChildrenProject\Http\Controllers\Controller;
-use Auth;
+use TravelingChildrenProject\TravelerAddress;
 
 class Traveler extends Controller
 {
@@ -22,6 +25,36 @@ class Traveler extends Controller
   }
 
   /**
+   * Update a travelers' data
+   *
+   * @return Illuminate\Http\Response
+   */
+  protected function update() {
+    // Update the travelers' data
+    $traveler = Auth::user();
+    $traveler->first_name = Input::get('first_name');
+    $traveler->last_name = Input::get('last_name');
+    $traveler->email = Input::get('email');
+    $traveler->birthday = Input::get('birthday');
+    $traveler->gender = Input::get('gender');
+    $traveler->save();
+
+    // Update their address
+    $address = TravelerAddress::where('traveler', '=', Auth::id())->first();
+    if ($address) {
+      // The traveler has an address, so
+      // we can safely update it
+      $address->street = Input::get('street');
+      $address->city = Input::get('city');
+      $address->state = Input::get('state');
+      $address->zip = Input::get('zip');
+      $address->save();
+    }
+
+    return Redirect::back();
+  }
+
+  /**
    * Delete a travelers' passport profile
    *
    * @return Illuminate\Http\Response
@@ -34,7 +67,7 @@ class Traveler extends Controller
       // traveler they're trying to delete
       //
       $traveler->delete();
-      return redirect('/');
+      return Redirect::back();
     }
   }
 
