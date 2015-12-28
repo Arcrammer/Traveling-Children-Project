@@ -70,7 +70,7 @@
               <p class="prob">{{ $error }}</p>
             @endforeach
           </div> <!-- .probs -->
-        @endunless
+        @endif
         <form
           action="/auth/login"
           class="form-inline signin-form"
@@ -131,6 +131,13 @@
       </div> <!-- .modal-header -->
 
       <div class="modal-body">
+        @if (count($errors) > 0)
+          <div class="probs">
+            @foreach ($errors->all() as $error)
+              <p class="prob">{{ $error }}</p>
+            @endforeach
+          </div> <!-- .probs -->
+        @endif
         <form
           action="/auth/register"
           class="form-inline signup-form"
@@ -368,8 +375,13 @@
  </nav> <!-- .navbar .navbar-inverse -->
 </div> <!-- .container -->
 
-@if (count($errors->all()) > 0 || Session::get('signin_needs_display') == true)
+@if (Session::get('signin_needs_display'))
   <script>
     $('#signinModal').modal()
+  </script>
+@endif
+@if (Session::get('signup_needs_display'))
+  <script>
+    $('#signupModal').modal()
   </script>
 @endif
