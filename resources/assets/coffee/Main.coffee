@@ -8,7 +8,6 @@
     # Get the travelers' information
     $.ajax '/traveler/show',
       success: (travelerData) ->
-        console.log travelerData
         # Populate the sign-up form fields
         # with the returned traveler data
         $('#first-name').val travelerData.first_name

@@ -67,7 +67,7 @@ class StatesSeeder extends Seeder
 
     foreach ($states as $state) {
       DB::table('states')->insert([
-        'state' => $state[0],
+        'name' => $state[0],
         'abbreviation' => $state[1]
       ]);
     }

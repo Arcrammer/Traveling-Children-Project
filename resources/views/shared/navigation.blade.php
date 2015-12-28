@@ -27,7 +27,7 @@
         <p><b>Email:</b> {{ $traveler->email }}</p>
         <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
         <p><b>City:</b> {{ $traveler->address->city }}</p>
-        <p><b>State:</b> {{ $traveler->address->get_state->state }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        <p><b>State:</b> {{ $traveler->address->get_state->name }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
         <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
       </div> <!-- .modal-body -->
 
