@@ -2,9 +2,10 @@
 
 namespace TravelingChildrenProject\Http\Controllers\Auth;
 
-use TravelingChildrenProject\User;
-use Session;
+use TravelingChildrenProject\Traveler;
+use Input;
 use Request;
+use Session;
 use Validator;
 use TravelingChildrenProject\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -81,9 +82,22 @@ class AuthController extends Controller
    */
   protected function create(array $data)
   {
-    return User::create([
+    $traveler = Traveler::create([
+      'first_name' => $data['first_name'],
+      'last_name' => $data['last_name'],
       'email' => $data['email'],
       'password' => bcrypt($data['password']),
+      'gender' => intval($data['gender']),
+      'birthday' => $data['birthday']
     ]);
+
+    if ($traveler) {
+      // The traveler was created so
+      // we'll save their address if
+      // they've chosen to provide one
+      if (Input::has('street'))
+    }
+
+    return $traveler;
   }
 }

@@ -25,9 +25,11 @@
         <p><b>First Name:</b> {{ $traveler->first_name }}</p>
         <p><b>Last Name:</b> {{ $traveler->last_name }}</p>
         <p><b>Email:</b> {{ $traveler->email }}</p>
-        <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
-        <p><b>City:</b> {{ $traveler->address->city }}</p>
-        <p><b>State:</b> {{ $traveler->address->get_state->name }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        @if ($traveler->address)
+          <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
+          <p><b>City:</b> {{ $traveler->address->city }}</p>
+          <p><b>State:</b> {{ $traveler->address->get_state->name }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        @endif
         <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
       </div> <!-- .modal-body -->
 
@@ -158,6 +160,7 @@
           name="first_name"
           placeholder="Traveler's First Name"
           autocomplete="off"
+          value="{{ old('first_name') }}"
           required>
         <br />
         <input
@@ -168,6 +171,7 @@
           name="last_name"
           placeholder="Traveler's Last Name"
           autocomplete="off"
+          value="{{ old('last_name') }}"
           required>
         <br />
         <input
@@ -177,6 +181,7 @@
           type="email"
           name="email"
           placeholder="Email Address"
+          value="{{ old('email') }}"
           required>
         <br />
         <input
@@ -188,6 +193,14 @@
           required>
         <br />
         <input
+          form="signup-form"
+          class="form-control"
+          type="password"
+          name="password_confirmation"
+          placeholder="Password"
+          required>
+        <br />
+        <input
           id="street"
           form="signup-form"
           class="form-control"
@@ -195,6 +208,7 @@
           name="street"
           placeholder="Street Address, Apt #"
           autocomplete="off"
+          value="{{ old('street') }}"
           required>
         <br />
         <input
@@ -205,6 +219,7 @@
           name="city"
           placeholder="City"
           autocomplete="off"
+          value="{{ old('city') }}"
           required>
         <br />
         <div>
@@ -217,6 +232,7 @@
             name="state"
             placeholder="ST"
             autocomplete="off"
+            value="{{ old('state') }}"
             required>
           <input
             id="zip"
@@ -227,6 +243,7 @@
             name="zip"
             placeholder="Zip Code"
             autocomplete="off"
+            value="{{ old('zip') }}"
             required>
         </div>
         <br />
@@ -237,6 +254,7 @@
           type="date"
           name="birthday"
           autocomplete="off"
+          value="{{ old('birthday') }}"
           required >
         <div class="gender-choice">
           <input
@@ -244,6 +262,9 @@
             form="signup-form"
             type="radio"
             name="gender"
+            @if (old('gender') == 1)
+              checked="checked"
+            @endif
             value="1">
           <label for="gender">Male</label>
           <input
@@ -251,6 +272,9 @@
             form="signup-form"
             type="radio"
             name="gender"
+            @if (old('gender') == 2)
+              checked="checked"
+            @endif
             value="2">
           <label for="gender">Female</label>
           <input
@@ -258,6 +282,9 @@
             form="signup-form"
             type="radio"
             name="gender"
+            @if (old('gender') == 3)
+              checked="checked"
+            @endif
             value="3">
           <label for="gender">Decline</label>
           <br />
