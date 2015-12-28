@@ -21,7 +21,7 @@ class CreateTravelersTable extends Migration
       $table->string('first_name')->nullable();
       $table->string('last_name')->nullable();
       $table->integer('gender')->unsigned();
-      $table->timestamp('birthday')->nullable();
+      $table->date('birthday')->nullable();
       $table->string('selfie_filename')->nullable();
       $table->boolean('suspended')
         ->default(0);

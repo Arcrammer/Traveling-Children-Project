@@ -44,159 +44,12 @@
     </div> <!-- .modal-content travelerProfile -->
   </div> <!-- .modal-dialog -->
 </div> <!-- .modal .fade #profileModal -->
-
 @else
 <?php
   /**
    * The user hasn't yet authenticated
    */
 ?>
-<!-- Sign Up Modal -->
-<div class="modal fade bs-example-modal-sm" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4>Sign-up</h4>
-      </div> <!-- .modal-header -->
-
-      <div class="modal-body">
-        <form
-          action="/auth/register"
-          class="form-inline signup-form"
-          id="signup-form"
-          method="POST"
-          enctype="multipart/form-data">
-        </form>
-        <input
-          form="signup-form"
-          type="hidden"
-          name="_token"
-          value="{{ csrf_token() }}">
-        <input
-          form="signup-form"
-          class="form-control journeyPostTitle"
-          type="text"
-          name="first_name"
-          placeholder="Traveler's First Name"
-          autocomplete="off"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="text"
-          name="last_name"
-          placeholder="Traveler's Last Name"
-          autocomplete="off"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="text"
-          name="street"
-          placeholder="Street Address, Apt #"
-          autocomplete="off"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="text"
-          name="city"
-          placeholder="City"
-          autocomplete="off"
-          required>
-        <br />
-        <div>
-          <input
-            form="signup-form"
-            class="form-control"
-            type="text"
-            style="display:inline;width:30%;margin-right:5%;"
-            name="state"
-            placeholder="ST"
-            autocomplete="off"
-            required>
-          <input
-            form="signup-form"
-            class="form-control"
-            style="display:inline;float:right;width:65%;"
-            type="text"
-            name="zip"
-            placeholder="Zip Code"
-            autocomplete="off"
-            required>
-        </div>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="date"
-          name="birthday"
-          autocomplete="off"
-          required >
-        <div class="gender-choice">
-          <input
-            form="signup-form"
-            type="radio"
-            name="gender"
-            value="1">
-          <label for="gender">Male</label>
-          <input
-            form="signup-form"
-            type="radio"
-            name="gender"
-            value="2">
-          <label for="gender">Female</label>
-          <input
-            form="signup-form"
-            type="radio"
-            name="gender"
-            value="3">
-          <label for="gender">Decline</label>
-          <br />
-        </div>
-        <input
-          form="signup-form"
-          class="input-group"
-          type="file"
-          name="pic"
-          accept="image/*">
-        <br />
-      </div> <!-- .modal-body -->
-
-      <div class="modal-footer">
-        <input
-          form="signup-form"
-          style="font-size:1.5em;border-radius:6px;"
-          type="submit"
-          class="btn btn-warning signupButton"
-          value="Sign Up!">
-      </div> <!-- .modal-footer -->
-    </div> <!-- .modal-content -->
-  </div> <!-- .modal-dialog .modal-sm -->
-</div> <!-- .modal .fade .bs-example-modal-sm -->
-
 <!-- Sign-in Modal -->
 <div class="modal fade bs-example-modal-sm" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -267,6 +120,163 @@
    * to whether the user has authenticated
    */
 ?>
+<!-- Sign Up Modal -->
+<div class="modal fade bs-example-modal-sm" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>Sign-up</h4>
+      </div> <!-- .modal-header -->
+
+      <div class="modal-body">
+        <form
+          action="/auth/register"
+          class="form-inline signup-form"
+          id="signup-form"
+          method="POST"
+          enctype="multipart/form-data">
+        </form>
+        <input
+          form="signup-form"
+          type="hidden"
+          name="_token"
+          value="{{ csrf_token() }}">
+        <input
+          id="first-name"
+          form="signup-form"
+          class="form-control journeyPostTitle"
+          type="text"
+          name="first_name"
+          placeholder="Traveler's First Name"
+          autocomplete="off"
+          required>
+        <br />
+        <input
+          id="last-name"
+          form="signup-form"
+          class="form-control"
+          type="text"
+          name="last_name"
+          placeholder="Traveler's Last Name"
+          autocomplete="off"
+          required>
+        <br />
+        <input
+          id="email"
+          form="signup-form"
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          required>
+        <br />
+        <input
+          form="signup-form"
+          class="form-control"
+          type="password"
+          name="password"
+          placeholder="Password"
+          required>
+        <br />
+        <input
+          id="street"
+          form="signup-form"
+          class="form-control"
+          type="text"
+          name="street"
+          placeholder="Street Address, Apt #"
+          autocomplete="off"
+          required>
+        <br />
+        <input
+          id="city"
+          form="signup-form"
+          class="form-control"
+          type="text"
+          name="city"
+          placeholder="City"
+          autocomplete="off"
+          required>
+        <br />
+        <div>
+          <input
+            id="state"
+            form="signup-form"
+            class="form-control"
+            type="text"
+            style="display:inline;width:30%;margin-right:5%;"
+            name="state"
+            placeholder="ST"
+            autocomplete="off"
+            required>
+          <input
+            id="zip"
+            form="signup-form"
+            class="form-control"
+            style="display:inline;float:right;width:65%;"
+            type="text"
+            name="zip"
+            placeholder="Zip Code"
+            autocomplete="off"
+            required>
+        </div>
+        <br />
+        <input
+          id="birthday"
+          form="signup-form"
+          class="form-control"
+          type="date"
+          name="birthday"
+          autocomplete="off"
+          required >
+        <div class="gender-choice">
+          <input
+            id="gender-male"
+            form="signup-form"
+            type="radio"
+            name="gender"
+            value="1">
+          <label for="gender">Male</label>
+          <input
+            id="gender-female"
+            form="signup-form"
+            type="radio"
+            name="gender"
+            value="2">
+          <label for="gender">Female</label>
+          <input
+            id="gender-private"
+            form="signup-form"
+            type="radio"
+            name="gender"
+            value="3">
+          <label for="gender">Decline</label>
+          <br />
+        </div>
+        <input
+          form="signup-form"
+          class="input-group"
+          type="file"
+          name="pic"
+          accept="image/*">
+        <br />
+      </div> <!-- .modal-body -->
+
+      <div class="modal-footer">
+        <input
+          form="signup-form"
+          style="font-size:1.5em;border-radius:6px;"
+          type="submit"
+          class="btn btn-warning signupButton"
+          value="Sign Up!">
+      </div> <!-- .modal-footer -->
+    </div> <!-- .modal-content -->
+  </div> <!-- .modal-dialog .modal-sm -->
+</div> <!-- .modal .fade .bs-example-modal-sm -->
+
 <!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
   <div class="modal-dialog" role="document">

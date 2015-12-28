@@ -63,7 +63,7 @@ class Traveler
    *
    * @return Illuminate\Database\Eloquent\Relations\HasMany
    */
-  protected function journeys() {
+  public function journeys() {
     return $this->hasMany('TravelingChildrenProject\Journey', 'id');
   }
 
@@ -72,7 +72,7 @@ class Traveler
    *
    * @return Illuminate\Database\Eloquent\Relations\HasOne
    */
-  protected function address() {
+  public function address() {
     return $this->hasOne('TravelingChildrenProject\TravelerAddress', 'id');
   }
 }

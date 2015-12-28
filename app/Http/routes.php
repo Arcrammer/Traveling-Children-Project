@@ -15,6 +15,7 @@
 Route::get('/', 'Welcome@home');
 
 // Passport Profiles
+Route::get('/traveler/show', 'Traveler@show');
 Route::get('/traveler/delete/{passport_id}', 'Traveler@delete');
 
 // Journeys

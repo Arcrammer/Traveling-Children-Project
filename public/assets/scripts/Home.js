@@ -1,12 +1,5 @@
 (function() {
   (function($) {
-    return $('[data-toggle="tooltip"]').tooltip();
-  })(jQuery);
-
-}).call(this);
-
-(function() {
-  (function($) {
     return $('#destSearchBtn').click(function() {
       var local, type;
       type = $($('#type')[0]).val();

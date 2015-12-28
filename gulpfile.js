@@ -17,25 +17,23 @@ elixir(function(mix) {
   // Bootstrap
   mix.copy('resources/assets/css/bootstrap.css', 'public/assets/css/bootstrap.min.css');
 
+  // Main
+  mix.sass('Main.scss', 'public/assets/css/Main.css')
+  .coffee('Main.coffee', 'public/assets/scripts/Main.js');
+
   // Home
   mix.sass([
     'Main.scss',
     'Home.scss'
   ], 'public/assets/css/Home.css')
-  .coffee([
-    'Main.coffee',
-    'Home.coffee'
-  ], 'public/assets/scripts/Home.js');
+  .coffee('Home.coffee', 'public/assets/scripts/Home.js');
 
   // Journeys
   mix.sass([
     'Main.scss',
     'Journeys.scss'
   ], 'public/assets/css/Journeys.css')
-  .coffee([
-    'Main.coffee',
-    'Journeys.coffee'
-  ], 'public/assets/scripts/Journeys.js');
+  .coffee('Journeys.coffee', 'public/assets/scripts/Journeys.js');
 
   // Errors
   mix.sass('Errors.scss', 'public/assets/css/Errors.css');
