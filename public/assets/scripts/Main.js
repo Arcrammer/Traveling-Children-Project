@@ -4,7 +4,6 @@
     return $('.editProfileButton').click(function() {
       $.ajax('/traveler/show', {
         success: function(travelerData) {
-          console.log(travelerData);
           $('#first-name').val(travelerData.first_name);
           $('#last-name').val(travelerData.last_name);
           $('#email').val(travelerData.email);
@@ -26,6 +25,7 @@
           return $('#signup-form').attr('action', '/traveler/update');
         }
       });
+      $('.passwords').css('display', 'none');
       $('.modal-header h4').text('Edit Passport');
       $('#submission-button').val('Update');
       $('#profileModal').modal('hide');

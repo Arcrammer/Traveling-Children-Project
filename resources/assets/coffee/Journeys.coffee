@@ -4,6 +4,15 @@ $(document).ready ->
     itemSelector: '.grid-item',
     columnWidth: 200
 
+  # Sharing pop-up window preferences
+  popupPreferences = 'height=440'
+  popupPreferences += ','
+  popupPreferences += 'width=560'
+  popupPreferences += ','
+  popupPreferences += 'top=' + ((screen.height / 2) - (600 / 2))
+  popupPreferences += ','
+  popupPreferences += 'left=' + ((screen.width / 2) - (560 / 2))
+
   # Sharing through Facebook
   $.ajaxSetup cache: true
   $.getScript 'http://connect.facebook.net/en_US/sdk.js', ->
@@ -13,35 +22,85 @@ $(document).ready ->
     $('#loginbutton,#feedbutton').removeAttr 'disabled'
     FB.getLoginStatus (response) ->
       # Now everything has been initialised
-      $('.share-with-facebook').click () ->
-
+      $('.share-with-facebook').click ->
         # Fetch the data for the journey
         # they want to share on Facebook
-        journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'
+        journey_uuid = $(this)
+          .parents('.journeyPost')
+          .data 'journey-uuid'
+        title = $(this)
+          .parents('.journeyPost')
+          .children(':first-of-type')
+          .children('.jp_title')
+          .children('span')
+          .text()
+        creator = $(this)
+          .parents('.journeyPost')
+          .children(':last-of-type')
+          .children('.jp_fname_date')
+          .children('em')
+          .children('a')
+          .text()
+          .trim()
+        header_image = $(this)
+          .parents('.journeyPost')
+          .children('.jp_img')
+          .children('img')
+          .attr 'src'
+        description = $(this)
+          .parents('.journeyPost')
+          .children(':last-of-type')
+          .children('.jp_body')
+          .text()
+          .trim()
 
-        $.get '/journeys/show/' + journeyUUID, (journey) ->
-          # Let them share it
-          FB.ui {
-            method: 'feed'
-            link: 'travelingchildrenproject.com/journeys'
-            name: journey.creator + '\'s Journey to ' + journey.title
-            description: journey.body
-            picture: 'http://travelingchildrenproject.com' + journey.image
-          }
+        # Let them share the journey on Facebook
+        FB.ui
+          method: 'feed'
+          link: 'travelingchildrenproject.com/journeys/' + journey_uuid
+          name: creator + '\'s Journey to ' + title
+          description: description
+          picture: 'http://travelingchildrenproject.com' + header_image
+
+  # Sharing through Twitter
+  $('.share-with-twitter').click ->
+    sharingUrl = $(this).data 'sharing-url'
+    window.open sharingUrl, 'Tweet About This Journey', popupPreferences
 
   # Sharing through Pinterest
   $.getScript '//assets.pinterest.com/js/pinit.js', ->
+    # The script has loaded; Attach
+    # the 'click' event listener
     $('.share-with-pinterest').click ->
       # Fetch the data for the journey
       # they want to share on Pinterest
-      journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'
-      $.get '/journeys/show/' + journeyUUID, (journey) ->
-        # The user clicked the 'Pinterest' button
-        PinUtils.pinOne {
-          media: 'http://travelingchildrenproject.com' + journey.image
-          url: 'http://travelingchildrenproject.com/journeys/' + journey.id
-          description: journey.body
-        }
+      #
+      # This data comes from the DOM
+      # because pop-ups are blocked
+      # when they are triggered by
+      # asynchronous requests
+      #
+      window.that = this
+      journey_uuid = $(this)
+        .parents('.journeyPost')
+        .data 'journey-uuid'
+      header_image = $(this)
+        .parents('.journeyPost')
+        .children('.jp_img')
+        .children('img')
+        .attr 'src'
+      description = $(this)
+        .parents('.journeyPost')
+        .children(':last-of-type')
+        .children('.jp_body')
+        .text()
+        .trim()
+
+      # The user clicked the 'Pinterest' button
+      PinUtils.pinOne
+        media: 'http://travelingchildrenproject.com' + header_image
+        url: 'http://travelingchildrenproject.com/journeys/' + journey_uuid
+        description: description
 
     $('.share-with-tumblr').click ->
       postLink = 'https://www.tumblr.com/share?'
@@ -58,7 +117,7 @@ $(document).ready ->
       postLink += 'caption=TCPJourneyBySomeone'
       postLink += '&'
       postLink += 'show-via=travelingchildrenproject'
-      window.open postLink, null, 'height=540,width=600'
+      window.open postLink, 'Post This Journey to Tumblr', popupPreferences
 
   # Handling journey post updates
   journeys = $('.journeyPost')

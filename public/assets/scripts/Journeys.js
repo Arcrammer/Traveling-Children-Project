@@ -1,12 +1,19 @@
 (function() {
   $(document).ready(function() {
-    var bodyField, dateField, editButtons, journeys, submitButton, tagsField, titleField, uuidField;
+    var bodyField, dateField, editButtons, journeys, popupPreferences, submitButton, tagsField, titleField, uuidField;
     $('.grid').masonry(function() {
       return {
         itemSelector: '.grid-item',
         columnWidth: 200
       };
     });
+    popupPreferences = 'height=440';
+    popupPreferences += ',';
+    popupPreferences += 'width=560';
+    popupPreferences += ',';
+    popupPreferences += 'top=' + ((screen.height / 2) - (600 / 2));
+    popupPreferences += ',';
+    popupPreferences += 'left=' + ((screen.width / 2) - (560 / 2));
     $.ajaxSetup({
       cache: true
     });
@@ -18,30 +25,38 @@
       $('#loginbutton,#feedbutton').removeAttr('disabled');
       return FB.getLoginStatus(function(response) {
         return $('.share-with-facebook').click(function() {
-          var journeyUUID;
-          journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
-          return $.get('/journeys/show/' + journeyUUID, function(journey) {
-            return FB.ui({
-              method: 'feed',
-              link: 'travelingchildrenproject.com/journeys',
-              name: journey.creator + '\'s Journey to ' + journey.title,
-              description: journey.body,
-              picture: 'http://travelingchildrenproject.com' + journey.image
-            });
+          var creator, description, header_image, journey_uuid, title;
+          journey_uuid = $(this).parents('.journeyPost').data('journey-uuid');
+          title = $(this).parents('.journeyPost').children(':first-of-type').children('.jp_title').children('span').text();
+          creator = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_fname_date').children('em').children('a').text().trim();
+          header_image = $(this).parents('.journeyPost').children('.jp_img').children('img').attr('src');
+          description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();
+          return FB.ui({
+            method: 'feed',
+            link: 'travelingchildrenproject.com/journeys/' + journey_uuid,
+            name: creator + '\'s Journey to ' + title,
+            description: description,
+            picture: 'http://travelingchildrenproject.com' + header_image
           });
         });
       });
     });
+    $('.share-with-twitter').click(function() {
+      var sharingUrl;
+      sharingUrl = $(this).data('sharing-url');
+      return window.open(sharingUrl, 'Tweet About This Journey', popupPreferences);
+    });
     $.getScript('//assets.pinterest.com/js/pinit.js', function() {
       $('.share-with-pinterest').click(function() {
-        var journeyUUID;
-        journeyUUID = $(this).parents('.journeyPost').data('journey-uuid');
-        return $.get('/journeys/show/' + journeyUUID, function(journey) {
-          return PinUtils.pinOne({
-            media: 'http://travelingchildrenproject.com' + journey.image,
-            url: 'http://travelingchildrenproject.com/journeys/' + journey.id,
-            description: journey.body
-          });
+        var description, header_image, journey_uuid;
+        window.that = this;
+        journey_uuid = $(this).parents('.journeyPost').data('journey-uuid');
+        header_image = $(this).parents('.journeyPost').children('.jp_img').children('img').attr('src');
+        description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();
+        return PinUtils.pinOne({
+          media: 'http://travelingchildrenproject.com' + header_image,
+          url: 'http://travelingchildrenproject.com/journeys/' + journey_uuid,
+          description: description
         });
       });
       return $('.share-with-tumblr').click(function() {
@@ -60,7 +75,7 @@
         postLink += 'caption=TCPJourneyBySomeone';
         postLink += '&';
         postLink += 'show-via=travelingchildrenproject';
-        return window.open(postLink, null, 'height=540,width=600');
+        return window.open(postLink, 'Post This Journey to Tumblr', popupPreferences);
       });
     });
     journeys = $('.journeyPost');

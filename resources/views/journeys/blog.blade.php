@@ -61,7 +61,7 @@
     @foreach ($journeys->items() as $journey)
       <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}">
         <div class="jpPadding">
-          <p class="jp_title">TC Journey to {{ $journey->title }}</p>
+          <p class="jp_title">TC Journey to <span>{{ $journey->title }}</span></p>
         </div> <!-- .jpPadding -->
         @if ($journey->header_image_filename !== NULL)
           <div class="jp_img">
@@ -94,18 +94,18 @@
                 <li class="share-with-facebook share-button">
                   <a><i class="fa fa-facebook-square"></i> Facebook</a>
                 </li>
-                <li class="share-with-twitter share-button">
-                  <?php
-                    $twitter_url = 'https://twitter.com/share?';
-                    $twitter_url .= 'text=Check+out+this+journey+at+TCP%21';
-                    $twitter_url .= '&';
-                    $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.com%2Fjourneys%2F'.$journey->id;
-                    $twitter_url .= '&';
-                    $twitter_url .= 'hashtags=TravelingChildrenProject,TCPJourneys';
-                    $twitter_url .= '&';
-                    $twitter_url .= 'via=travelingchildrenproject';
-                  ?>
-                  <a href="{{ $twitter_url }}"><i class="fa fa-twitter"></i> Twitter</a>
+                <?php
+                  $twitter_url = 'https://twitter.com/share?';
+                  $twitter_url .= 'text=Check+out+this+journey+at+TCP%21';
+                  $twitter_url .= '&';
+                  $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.com%2Fjourneys%2F'.$journey->id;
+                  $twitter_url .= '&';
+                  $twitter_url .= 'hashtags=TravelingChildrenProject,TCPJourneys';
+                  $twitter_url .= '&';
+                  $twitter_url .= 'via=travelingchildrenproject';
+                ?>
+                <li class="share-with-twitter share-button" data-sharing-url="{{ $twitter_url }}">
+                  <a><i class="fa fa-twitter"></i> Twitter</a>
                 </li>
                 <li class="share-with-pinterest share-button">
                   <a><i class="fa fa-pinterest-square"></i> Pinterest</a>

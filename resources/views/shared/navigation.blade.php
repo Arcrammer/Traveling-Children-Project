@@ -184,22 +184,24 @@
           value="{{ old('email') }}"
           required>
         <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="password"
-          name="password_confirmation"
-          placeholder="Password"
-          required>
-        <br />
+        <span class="passwords">
+          <input
+            form="signup-form"
+            class="form-control"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+          <br />
+          <input
+            form="signup-form"
+            class="form-control"
+            type="password"
+            name="password_confirmation"
+            placeholder="Password"
+            required>
+          <br />
+        </span> <!-- .passwords -->
         <input
           id="street"
           form="signup-form"

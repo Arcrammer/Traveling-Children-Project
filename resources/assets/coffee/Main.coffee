@@ -10,8 +10,6 @@
       success: (travelerData) ->
         # Populate the sign-up form fields
         # with the returned traveler data
-        console.log travelerData
-
         $('#first-name').val travelerData.first_name
         $('#last-name').val travelerData.last_name
         $('#email').val travelerData.email
@@ -28,6 +26,9 @@
         # Send the form data to
         # the appropriate method
         $('#signup-form').attr 'action', '/traveler/update'
+
+    # Hide the password fields because they're irrelevant
+    $('.passwords').css 'display', 'none'
 
     # Change the header text
     # of the sign-up modal
