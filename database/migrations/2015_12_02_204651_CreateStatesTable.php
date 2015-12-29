@@ -12,6 +12,7 @@ class CreateStatesTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('states');
     Schema::create('states', function (Blueprint $table) {
       $table->increments('id');
       $table->string('name')->unique();

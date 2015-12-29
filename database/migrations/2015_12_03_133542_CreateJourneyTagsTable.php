@@ -12,6 +12,7 @@ class CreateJourneyTagsTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('journey_tags');
     Schema::create('journey_tags', function (Blueprint $table) {
       // Columns
       $table->increments('id');

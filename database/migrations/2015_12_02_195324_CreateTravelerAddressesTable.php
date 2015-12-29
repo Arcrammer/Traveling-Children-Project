@@ -12,6 +12,7 @@ class CreateTravelerAddressesTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('traveler_addresses');
     Schema::create('traveler_addresses', function (Blueprint $table) {
       // Columns
       $table->increments('id');

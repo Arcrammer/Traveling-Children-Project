@@ -12,6 +12,7 @@ class CreateTravelersTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('travelers');
     Schema::create('travelers', function (Blueprint $table) {
       // Columns
       $table->increments('id');
