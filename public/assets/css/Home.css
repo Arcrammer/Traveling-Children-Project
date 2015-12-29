@@ -460,11 +460,6 @@ img.socialBadges {
 .form-inline .center #destSearch {
   width: 100%; }
 
-#destSearchBtn {
-  display: block;
-  margin: 5% auto;
-  width: 30%; }
-
 .form-group {
   font-size: 1.25em; }
   .form-group select {
