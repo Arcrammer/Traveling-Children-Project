@@ -10,6 +10,22 @@ class TravelerAddress extends Model
   use SoftDeletes;
 
   /**
+   * The attributes that are mass assignable.
+   *
+   * @var array
+   */
+  protected $fillable = [
+    'traveler',
+    'street',
+    'city',
+    'state',
+    'zip',
+    'phone',
+    'created_at',
+    'updated_at'
+  ];
+
+  /**
    * Each address belongs to a traveler
    *
    * @return Illuminate\Database\Eloquent\Relations\BelongsTo

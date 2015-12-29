@@ -3,6 +3,8 @@
 namespace TravelingChildrenProject\Http\Controllers\Auth;
 
 use TravelingChildrenProject\Traveler;
+use TravelingChildrenProject\TravelerAddress;
+use TravelingChildrenProject\State;
 use Input;
 use Request;
 use Session;
@@ -57,8 +59,12 @@ class AuthController extends Controller
   protected function validator(array $data)
   {
     $validator = Validator::make($data, [
-      'email' => 'required|email|max:255|unique:travelers',
-      'password' => 'required|confirmed|min:6',
+      'email' => 'required|email|max:128|unique:travelers',
+      'password' => 'required|confirmed|min:8',
+      'street' => 'required_if:city,min:2|required_if:state,min:2|required_if:zip,min:2',
+      'city' => 'required_if:street,min:2|required_if:state,min:2|required_if:zip,min:2',
+      'state' => 'exists:states,abbreviation|required_if:street,min:2|required_if:city,min:2|required_if:zip,min:2',
+      'zip' => 'digits:5|required_if:street,min:2|required_if:city,min:2|required_if:state,min:2'
     ]);
     if ($validator->fails()) {
       // Check whether the sign-in modal or
@@ -87,7 +93,7 @@ class AuthController extends Controller
       'last_name' => $data['last_name'],
       'email' => $data['email'],
       'password' => bcrypt($data['password']),
-      'gender' => intval($data['gender']),
+      'gender' => (Input::has('gender')) ? intval($data['gender']) : 3,
       'birthday' => $data['birthday']
     ]);
 
@@ -95,9 +101,21 @@ class AuthController extends Controller
       // The traveler was created so
       // we'll save their address if
       // they've chosen to provide one
-      if (Input::has('street'))
-    }
+      $state = (Input::has('state'))
+        ? State::where('abbreviation', '=', Input::get('state'))->first()->id
+        : NULL;
 
+      $address = TravelerAddress::create([
+        'traveler' => $traveler->id,
+        'street' => (Input::has('street')) ? Input::get('street') : NULL,
+        'city' => (Input::has('city')) ? Input::get('city') : NULL,
+        'state' => $state,
+        'zip' => (Input::has('zip')) ? Input::get('zip') : NULL,
+        'phone' => (Input::has('phone')) ? Input::get('phone') : NULL,
+        'created_at' => gmdate('Y-m-d H:i:s'),
+        'updated_at' => gmdate('Y-m-d H:i:s')
+      ]);
+    }
     return $traveler;
   }
 }
