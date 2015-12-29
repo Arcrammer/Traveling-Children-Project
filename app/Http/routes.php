@@ -14,6 +14,9 @@
 // Home
 Route::get('/', 'Welcome@home');
 
+// Destinations
+Route::post('/destinations', 'Attraction@show');
+
 // Passport Profiles
 Route::get('/traveler/show', 'Traveler@show');
 Route::post('/traveler/update', 'Traveler@update');

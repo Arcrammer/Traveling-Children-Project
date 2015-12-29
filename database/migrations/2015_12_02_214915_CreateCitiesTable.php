@@ -15,7 +15,7 @@ class CreateCitiesTable extends Migration
     Schema::dropIfExists('cities');
     Schema::create('cities', function (Blueprint $table) {
       $table->increments('id');
-      $table->string('city')->unique();
+      $table->string('name')->unique();
     });
   }
 

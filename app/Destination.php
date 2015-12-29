@@ -11,8 +11,8 @@ class Destination extends Model
    *
    * @return Illuminate\Database\Eloquent\Relations\HasOne
    */
-  protected function city() {
-    return $this->hasOne('TravelingChildrenProject\City');
+  public function city() {
+    return $this->hasOne('TravelingChildrenProject\City', 'id', 'city');
   }
 
   /**
@@ -20,8 +20,8 @@ class Destination extends Model
    *
    * @return Illuminate\Database\Eloquent\Relations\HasOne
    */
-  protected function state() {
-    return $this->hasOne('TravelingChildrenProject\State');
+  public function state() {
+    return $this->hasOne('TravelingChildrenProject\State', 'id', 'state');
   }
 
   /**
@@ -29,7 +29,7 @@ class Destination extends Model
    *
    * @return Illuminate\Database\Eloquent\Relations\HasOne
    */
-  protected function type() {
-    return $this->hasOne('TravelingChildrenProject\Type');
+  public function type() {
+    return $this->hasOne('TravelingChildrenProject\DestinationType', 'id', 'type');
   }
 }

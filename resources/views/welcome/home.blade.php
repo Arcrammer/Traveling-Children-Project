@@ -21,6 +21,9 @@
         </button>
         <h3 class="modal-title jd_title" id="destModalLabel">Journey Destinations</h3>
       </div> <!-- .modal-header -->
+      <div class="modal-body journeyDestSearch">
+        
+      </div> <!-- .modal-body .journeyDestSearch -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div> <!-- .modal-footer -->
