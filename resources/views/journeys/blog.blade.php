@@ -87,7 +87,7 @@
           <hr class="jp_divider">
   			  <div class="fa_JourneyPost">
   				  <div class="dropup jp_dropup">
-    					<a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Share">
+    					<a class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="Share">
                 <i class="fa fa-send"></i>
               </a>
               <ul class="dropdown-menu">
@@ -114,7 +114,7 @@
                   <a><i class="fa fa-tumblr-square"></i> Tumblr</a>
                 </li>
                 <li class="share-with-envelope">
-                  <a><i class="fa fa-envelope-square"></i> Email</a>
+                  <a href="mailto:?subject={{ $journey->creator->first_name.'\'s Journey to '. $journey->title }}"><i class="fa fa-envelope-square"></i> Email</a>
                 </li>
   				    </ul>
   				  </div>
