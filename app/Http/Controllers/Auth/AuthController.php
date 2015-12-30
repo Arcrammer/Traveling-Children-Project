@@ -115,6 +115,17 @@ class AuthController extends Controller
         'created_at' => gmdate('Y-m-d H:i:s'),
         'updated_at' => gmdate('Y-m-d H:i:s')
       ]);
+
+      // We'll also store their profile
+      // photo and store its' filename
+      if (Input::hasFile('selfie')) {
+        $selfie_filename = md5(uniqid(rand(), true)).'.'.Input::file('selfie')->getClientOriginalExtension();
+        Input::file('selfie')->move(base_path().'/public/assets/selfies/', $selfie_filename);
+
+        // Store the filename
+        $traveler->selfie_filename = $selfie_filename;
+        $traveler->save();
+      }
     }
     return $traveler;
   }

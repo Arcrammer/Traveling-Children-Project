@@ -19,7 +19,7 @@
         <?php $traveler = Auth::user() ?>
         @if ($traveler->selfie_filename != NULL)
           <div class="pp_pic">
-            <img src="/assets/uploads/{{ $traveler->selfie_filename }}">
+            <img src="/assets/selfies/{{ $traveler->selfie_filename }}" alt="{{ $traveler->selfie_filename }}">
           </div>
         @endif
         <p><b>First Name:</b> {{ $traveler->first_name }}</p>
@@ -268,7 +268,7 @@
               checked="checked"
             @endif
             value="1">
-          <label for="gender">Male</label>
+          <label for="gender-male">Male</label>
           <input
             id="gender-female"
             form="signup-form"
@@ -278,7 +278,7 @@
               checked="checked"
             @endif
             value="2">
-          <label for="gender">Female</label>
+          <label for="gender-female">Female</label>
           <input
             id="gender-private"
             form="signup-form"
@@ -288,14 +288,16 @@
               checked="checked"
             @endif
             value="3">
-          <label for="gender">Decline</label>
+          <label for="gender-private">Decline</label>
           <br />
         </div>
+        <label for="selfie">Profile Photo:</label>
         <input
+          id="selfie"
           form="signup-form"
           class="input-group"
           type="file"
-          name="pic"
+          name="selfie"
           accept="image/*">
         <br />
       </div> <!-- .modal-body -->
@@ -352,7 +354,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+          <a data-toggle="modal" data-target="#aboutModal">About</a>
         </li>
         @if (Auth::check())
           {{-- The user has authenticated --}}
@@ -361,7 +363,6 @@
           </li>
           <li>
             <a
-              href="#"
               class="dropdown-toggle"
               data-toggle="dropdown"
               role="button"
@@ -390,7 +391,6 @@
           </li>
           <li data-toggle="modal" data-target="#signupModal">
             <a
-              href="#"
               role="button"
               aria-haspopup="true"
               aria-expanded="false">
