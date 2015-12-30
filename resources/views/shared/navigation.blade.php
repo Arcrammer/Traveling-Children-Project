@@ -19,22 +19,23 @@
         <?php $traveler = Auth::user() ?>
         @if ($traveler->selfie_filename != NULL)
           <div class="pp_pic">
-            <img src="/assets/uploads/{{ $traveler->selfie_filename }}">
+            <img src="/assets/selfies/{{ $traveler->selfie_filename }}" alt="{{ $traveler->selfie_filename }}">
           </div>
         @endif
         <p><b>First Name:</b> {{ $traveler->first_name }}</p>
         <p><b>Last Name:</b> {{ $traveler->last_name }}</p>
         <p><b>Email:</b> {{ $traveler->email }}</p>
-        <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
-        <p><b>City:</b> {{ $traveler->address->city }}</p>
-        <p><b>State:</b> {{ $traveler->address->get_state->state }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        @if ($traveler->address)
+          <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
+          <p><b>City:</b> {{ $traveler->address->city }}</p>
+          <p><b>State:</b> {{ $traveler->address->get_state->name }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+        @endif
         <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
       </div> <!-- .modal-body -->
 
       <div class="modal-footer">
         <button
           class="btn btn-primary btn-lg editProfileButton"
-          data-toggle="modal"
           data-target="#signupModal">Edit</button>
         <a
           href="/traveler/delete/{{ $traveler->passport_id }}"
@@ -44,159 +45,12 @@
     </div> <!-- .modal-content travelerProfile -->
   </div> <!-- .modal-dialog -->
 </div> <!-- .modal .fade #profileModal -->
-
 @else
 <?php
   /**
    * The user hasn't yet authenticated
    */
 ?>
-<!-- Sign Up Modal -->
-<div class="modal fade bs-example-modal-sm" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-        <h4>Sign-up</h4>
-      </div> <!-- .modal-header -->
-
-      <div class="modal-body">
-        <form
-          action="/auth/register"
-          class="form-inline signup-form"
-          id="signup-form"
-          method="POST"
-          enctype="multipart/form-data">
-        </form>
-        <input
-          form="signup-form"
-          type="hidden"
-          name="_token"
-          value="{{ csrf_token() }}">
-        <input
-          form="signup-form"
-          class="form-control journeyPostTitle"
-          type="text"
-          name="first_name"
-          placeholder="Traveler's First Name"
-          autocomplete="off"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="text"
-          name="last_name"
-          placeholder="Traveler's Last Name"
-          autocomplete="off"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="password"
-          name="password"
-          placeholder="Password"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="text"
-          name="street"
-          placeholder="Street Address, Apt #"
-          autocomplete="off"
-          required>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="text"
-          name="city"
-          placeholder="City"
-          autocomplete="off"
-          required>
-        <br />
-        <div>
-          <input
-            form="signup-form"
-            class="form-control"
-            type="text"
-            style="display:inline;width:30%;margin-right:5%;"
-            name="state"
-            placeholder="ST"
-            autocomplete="off"
-            required>
-          <input
-            form="signup-form"
-            class="form-control"
-            style="display:inline;float:right;width:65%;"
-            type="text"
-            name="zip"
-            placeholder="Zip Code"
-            autocomplete="off"
-            required>
-        </div>
-        <br />
-        <input
-          form="signup-form"
-          class="form-control"
-          type="date"
-          name="birthday"
-          autocomplete="off"
-          required >
-        <div class="gender-choice">
-          <input
-            form="signup-form"
-            type="radio"
-            name="gender"
-            value="1">
-          <label for="gender">Male</label>
-          <input
-            form="signup-form"
-            type="radio"
-            name="gender"
-            value="2">
-          <label for="gender">Female</label>
-          <input
-            form="signup-form"
-            type="radio"
-            name="gender"
-            value="3">
-          <label for="gender">Decline</label>
-          <br />
-        </div>
-        <input
-          form="signup-form"
-          class="input-group"
-          type="file"
-          name="pic"
-          accept="image/*">
-        <br />
-      </div> <!-- .modal-body -->
-
-      <div class="modal-footer">
-        <input
-          form="signup-form"
-          style="font-size:1.5em;border-radius:6px;"
-          type="submit"
-          class="btn btn-warning signupButton"
-          value="Sign Up!">
-      </div> <!-- .modal-footer -->
-    </div> <!-- .modal-content -->
-  </div> <!-- .modal-dialog .modal-sm -->
-</div> <!-- .modal .fade .bs-example-modal-sm -->
-
 <!-- Sign-in Modal -->
 <div class="modal fade bs-example-modal-sm" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="signinLabel">
   <div class="modal-dialog modal-sm" role="document">
@@ -218,7 +72,7 @@
               <p class="prob">{{ $error }}</p>
             @endforeach
           </div> <!-- .probs -->
-        @endunless
+        @endif
         <form
           action="/auth/login"
           class="form-inline signin-form"
@@ -267,6 +121,200 @@
    * to whether the user has authenticated
    */
 ?>
+<!-- Sign Up Modal -->
+<div class="modal fade bs-example-modal-sm" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupLabel">
+  <div class="modal-dialog modal-sm" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>Sign-up</h4>
+      </div> <!-- .modal-header -->
+
+      <div class="modal-body">
+        @if (count($errors) > 0)
+          <div class="probs">
+            @foreach ($errors->all() as $error)
+              <p class="prob">{{ $error }}</p>
+            @endforeach
+          </div> <!-- .probs -->
+        @endif
+        <form
+          action="/auth/register"
+          class="form-inline signup-form"
+          id="signup-form"
+          method="POST"
+          enctype="multipart/form-data">
+        </form>
+        <input
+          form="signup-form"
+          type="hidden"
+          name="_token"
+          value="{{ csrf_token() }}">
+        <input
+          id="first-name"
+          form="signup-form"
+          class="form-control journeyPostTitle"
+          type="text"
+          name="first_name"
+          placeholder="Traveler's First Name"
+          autocomplete="off"
+          value="{{ old('first_name') }}"
+          required>
+        <br />
+        <input
+          id="last-name"
+          form="signup-form"
+          class="form-control"
+          type="text"
+          name="last_name"
+          placeholder="Traveler's Last Name"
+          autocomplete="off"
+          value="{{ old('last_name') }}"
+          required>
+        <br />
+        <input
+          id="email"
+          form="signup-form"
+          class="form-control"
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          value="{{ old('email') }}"
+          required>
+        <br />
+        <span class="passwords">
+          <input
+            form="signup-form"
+            class="form-control"
+            type="password"
+            name="password"
+            placeholder="Password"
+            required>
+          <br />
+          <input
+            form="signup-form"
+            class="form-control"
+            type="password"
+            name="password_confirmation"
+            placeholder="Password"
+            required>
+          <br />
+        </span> <!-- .passwords -->
+        <input
+          id="street"
+          form="signup-form"
+          class="form-control"
+          type="text"
+          name="street"
+          placeholder="Street Address, Apt #"
+          autocomplete="off"
+          value="{{ old('street') }}"
+          required>
+        <br />
+        <input
+          id="city"
+          form="signup-form"
+          class="form-control"
+          type="text"
+          name="city"
+          placeholder="City"
+          autocomplete="off"
+          value="{{ old('city') }}"
+          required>
+        <br />
+        <div>
+          <input
+            id="state"
+            form="signup-form"
+            class="form-control"
+            type="text"
+            style="display:inline;width:30%;margin-right:5%;"
+            name="state"
+            placeholder="ST"
+            autocomplete="off"
+            value="{{ old('state') }}"
+            required>
+          <input
+            id="zip"
+            form="signup-form"
+            class="form-control"
+            style="display:inline;float:right;width:65%;"
+            type="text"
+            name="zip"
+            placeholder="Zip Code"
+            autocomplete="off"
+            value="{{ old('zip') }}"
+            required>
+        </div>
+        <br />
+        <input
+          id="birthday"
+          form="signup-form"
+          class="form-control"
+          type="date"
+          name="birthday"
+          autocomplete="off"
+          value="{{ old('birthday') }}"
+          required >
+        <div class="gender-choice">
+          <input
+            id="gender-male"
+            form="signup-form"
+            type="radio"
+            name="gender"
+            @if (old('gender') == 1)
+              checked="checked"
+            @endif
+            value="1">
+          <label for="gender-male">Male</label>
+          <input
+            id="gender-female"
+            form="signup-form"
+            type="radio"
+            name="gender"
+            @if (old('gender') == 2)
+              checked="checked"
+            @endif
+            value="2">
+          <label for="gender-female">Female</label>
+          <input
+            id="gender-private"
+            form="signup-form"
+            type="radio"
+            name="gender"
+            @if (old('gender') == 3)
+              checked="checked"
+            @endif
+            value="3">
+          <label for="gender-private">Decline</label>
+          <br />
+        </div>
+        <label for="selfie">Profile Photo:</label>
+        <input
+          id="selfie"
+          form="signup-form"
+          class="input-group"
+          type="file"
+          name="selfie"
+          accept="image/*">
+        <br />
+      </div> <!-- .modal-body -->
+
+      <div class="modal-footer">
+        <input
+          form="signup-form"
+          id="submission-button"
+          style="font-size:1.5em;border-radius:6px;"
+          type="submit"
+          class="btn btn-warning signupButton"
+          value="Sign Up!">
+      </div> <!-- .modal-footer -->
+    </div> <!-- .modal-content -->
+  </div> <!-- .modal-dialog .modal-sm -->
+</div> <!-- .modal .fade .bs-example-modal-sm -->
+
 <!-- About Modal -->
 <div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="aboutModalLabel">
   <div class="modal-dialog" role="document">
@@ -306,7 +354,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="#" data-toggle="modal" data-target="#aboutModal">About</a>
+          <a data-toggle="modal" data-target="#aboutModal">About</a>
         </li>
         @if (Auth::check())
           {{-- The user has authenticated --}}
@@ -315,7 +363,6 @@
           </li>
           <li>
             <a
-              href="#"
               class="dropdown-toggle"
               data-toggle="dropdown"
               role="button"
@@ -344,7 +391,6 @@
           </li>
           <li data-toggle="modal" data-target="#signupModal">
             <a
-              href="#"
               role="button"
               aria-haspopup="true"
               aria-expanded="false">
@@ -358,8 +404,13 @@
  </nav> <!-- .navbar .navbar-inverse -->
 </div> <!-- .container -->
 
-@if (count($errors->all()) > 0 || Session::get('signin_needs_display') == true)
+@if (Session::get('signin_needs_display'))
   <script>
     $('#signinModal').modal()
+  </script>
+@endif
+@if (Session::get('signup_needs_display'))
+  <script>
+    $('#signupModal').modal()
   </script>
 @endif

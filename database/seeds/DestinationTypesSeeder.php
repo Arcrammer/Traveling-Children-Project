@@ -23,7 +23,7 @@ class DestinationTypesSeeder extends Seeder
     	'Technology'
     ];
     foreach ($types as $type) {
-      DB::table('destination_types')->insert(['type' => $type]);
+      DB::table('destination_types')->insert(['name' => $type]);
     }
   }
 }

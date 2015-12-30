@@ -21,6 +21,9 @@
         </button>
         <h3 class="modal-title jd_title" id="destModalLabel">Journey Destinations</h3>
       </div> <!-- .modal-header -->
+      <div class="modal-body journeyDestSearch">
+
+      </div> <!-- .modal-body .journeyDestSearch -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div> <!-- .modal-footer -->
@@ -39,15 +42,15 @@
   <div class="form-group">
     <select id="type" class="form-control">
       <option name="all_types" value="">Choose destination type </option>
-        <option name="active" value="1">Active</option>
-        <option name="create" value="2">Creative</option>
-        <option name="fun" value="3">Fun</option>
-        <option name="learn" value="4">Learning</option>
-        <option name="outdoor" value="5">Outdoor</option>
-        <option name="perf" value="6">Performance</option>
-        <option name="read" value="7">Reading</option>
-        <option name="taste" value="8">Tasty</option>
-        <option name="tech" value="9">Technology</option>
+        <option name="active" value="active">Active</option>
+        <option name="creative" value="creative">Creative</option>
+        <option name="fun" value="fun">Fun</option>
+        <option name="learning" value="learning">Learning</option>
+        <option name="outdoor" value="outdoor">Outdoor</option>
+        <option name="performance" value="performance">Performance</option>
+        <option name="reading" value="reading">Reading</option>
+        <option name="tasty" value="tasty">Tasty</option>
+        <option name="technology" value="technology">Technology</option>
     </select>
     <select id="location" class="form-control">
       <option name="all_locations" value="">Choose destination location </option>
@@ -65,15 +68,15 @@
 <!-- Buttons -->
 <div class="center" id="destButtons">
   <div class="btn-group btn-group-lg center" role="group" aria-label="...">
-    <button type="button" class="btn btn-info"><a href="#">Active</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Creative</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Fun</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Learning</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Outdoor</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Performance</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Reading</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Tasty</a></button>
-    <button type="button" class="btn btn-info"><a href="#">Technology</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="active" data-toggle="modal" data-target="#destModal"><a data-destination-type="active">Active</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="creative" data-toggle="modal" data-target="#destModal"><a data-destination-type="creative">Creative</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="fun" data-toggle="modal" data-target="#destModal"><a data-destination-type="fun">Fun</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="learning" data-toggle="modal" data-target="#destModal"><a data-destination-type="learning">Learning</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="outdoor" data-toggle="modal" data-target="#destModal"><a data-destination-type="outdoor">Outdoor</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="performance" data-toggle="modal" data-target="#destModal"><a data-destination-type="performance">Performance</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="reading" data-toggle="modal" data-target="#destModal"><a data-destination-type="reading">Reading</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="tasty" data-toggle="modal" data-target="#destModal"><a data-destination-type="tasty">Tasty</a></button>
+    <button type="button" class="btn btn-info" data-destination-type="technology" data-toggle="modal" data-target="#destModal"><a data-destination-type="technology">Technology</a></button>
   </div> <!-- .btn-group .btn-group-lg .center -->
 </div> <!-- .center -->
 @endsection

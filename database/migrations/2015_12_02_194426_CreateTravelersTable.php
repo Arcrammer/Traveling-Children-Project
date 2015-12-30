@@ -12,6 +12,7 @@ class CreateTravelersTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('travelers');
     Schema::create('travelers', function (Blueprint $table) {
       // Columns
       $table->increments('id');
@@ -21,7 +22,7 @@ class CreateTravelersTable extends Migration
       $table->string('first_name')->nullable();
       $table->string('last_name')->nullable();
       $table->integer('gender')->unsigned();
-      $table->timestamp('birthday')->nullable();
+      $table->date('birthday')->nullable();
       $table->string('selfie_filename')->nullable();
       $table->boolean('suspended')
         ->default(0);

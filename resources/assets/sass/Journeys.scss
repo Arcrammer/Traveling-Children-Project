@@ -210,6 +210,10 @@ form.journey-form input[type="text"] {
   img {
     width: 100% !important;
   }
+
+  &:target {
+    background-color: #fedf8d * 1.1;
+  }
 }
 
 .jpPadding {
@@ -273,10 +277,6 @@ div.fa_JourneyPost {
       color: #ee6730;
       background: none;
     }
-
-    &:hover i.fa {
-      color: #ee6730;
-    }
   }
 
   li:last-of-type {
@@ -288,6 +288,14 @@ div.fa_JourneyPost {
     font-size: 1.5em;
     text-align: right;
     padding: 6px;
+
+    &:hover {
+      color: #ee6730;
+    }
+
+    &:active {
+      color: #903612;
+    }
 
     &.fa-close {
       font-size:1.875em;

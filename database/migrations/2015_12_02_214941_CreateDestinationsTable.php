@@ -12,6 +12,7 @@ class CreateDestinationsTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('destinations');
     Schema::create('destinations', function (Blueprint $table) {
       // Columns
       $table->increments('id');
@@ -19,6 +20,13 @@ class CreateDestinationsTable extends Migration
       $table->integer('city')->unsigned();
       $table->integer('state')->unsigned();
       $table->integer('type')->unsigned();
+      // Optional properties
+      $table->string('description')->nullable();
+      $table->string('street')->nullable();
+      $table->integer('zip')->nullable();
+      $table->double('adult_cost')->nullable();
+      $table->double('child_cost')->nullable();
+      $table->integer('discount_percentage')->nullable();
 
       // Foreign Keys
       $table->foreign('city')

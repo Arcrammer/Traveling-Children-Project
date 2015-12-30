@@ -12,9 +12,10 @@ class CreateDestinationTypesTable extends Migration
    */
   public function up()
   {
+    Schema::dropIfExists('destination_types');
     Schema::create('destination_types', function (Blueprint $table) {
       $table->increments('id');
-      $table->string('type')->unique();
+      $table->string('name')->unique();
     });
   }
 
