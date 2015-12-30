@@ -53,6 +53,8 @@ img#chrome {
   position: relative;
   top: 7.5px;
   width: 350px; }
+  .wordmark img {
+    width: 100%; }
 
 .dropdown-menu {
   border: none; }
@@ -197,20 +199,23 @@ button.close {
 #tcDownloads {
   text-align: center; }
   #tcDownloads a {
-    display: inline-block; }
+    display: inline-block;
+    width: 100%; }
 
-img.journeyKitDowload {
-  width: 365px;
+img.journeyKitDownload {
+  width: 25%;
   display: inline-block; }
 
 div#socialBadges {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 0;
-  margin-bottom: 40px; }
+  margin-bottom: 30px; }
 
 img.socialBadges {
   width: 55px;
-  margin: 5px;
+  margin: .375%;
   display: inline-block; }
 
 /* Icon Spin */
@@ -346,6 +351,8 @@ img.socialBadges {
   span.glyphicon.glyphicon-plus {
     margin-bottom: 5px;
     margin-left: 15px; }
+  img#tcpp {
+    width: 70%; }
   button.journeyModalButton {
     min-height: 75px;
     width: 75px !important;
@@ -390,7 +397,14 @@ img.socialBadges {
     text-align: center;
     padding: 0; }
   #footer p.center {
-    width: 90%; } }
+    width: 90%; }
+  img.socialBadges {
+    width: 40px;
+    margin: 1%;
+    display: inline-block; }
+  img.journeyKitDownload {
+    width: 90%;
+    display: inline-block; } }
 
 @media only screen and (max-width: 900px) {
   .navbar .navbar-toggle {
@@ -406,14 +420,14 @@ img.socialBadges {
     width: 30px; }
     .navbar .icon-bar + .icon-bar {
       margin-top: 10px; }
-  .navbar .wordmark {
+  .navbar #tcpp {
     height: 50px;
     position: relative;
     top: 10px;
     left: 15px;
     bottom: 15px;
     width: 100%; }
-    .navbar .wordmark img {
+    .navbar #tcpp img {
       height: inherit;
       width: 100%; }
   #signinModal input,
@@ -505,6 +519,8 @@ img#chrome {
   position: relative;
   top: 7.5px;
   width: 350px; }
+  .wordmark img {
+    width: 100%; }
 
 .dropdown-menu {
   border: none; }
@@ -649,20 +665,23 @@ button.close {
 #tcDownloads {
   text-align: center; }
   #tcDownloads a {
-    display: inline-block; }
+    display: inline-block;
+    width: 100%; }
 
-img.journeyKitDowload {
-  width: 365px;
+img.journeyKitDownload {
+  width: 25%;
   display: inline-block; }
 
 div#socialBadges {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 0;
-  margin-bottom: 40px; }
+  margin-bottom: 30px; }
 
 img.socialBadges {
   width: 55px;
-  margin: 5px;
+  margin: .375%;
   display: inline-block; }
 
 /* Icon Spin */
@@ -798,6 +817,8 @@ img.socialBadges {
   span.glyphicon.glyphicon-plus {
     margin-bottom: 5px;
     margin-left: 15px; }
+  img#tcpp {
+    width: 70%; }
   button.journeyModalButton {
     min-height: 75px;
     width: 75px !important;
@@ -842,7 +863,14 @@ img.socialBadges {
     text-align: center;
     padding: 0; }
   #footer p.center {
-    width: 90%; } }
+    width: 90%; }
+  img.socialBadges {
+    width: 40px;
+    margin: 1%;
+    display: inline-block; }
+  img.journeyKitDownload {
+    width: 90%;
+    display: inline-block; } }
 
 @media only screen and (max-width: 900px) {
   .navbar .navbar-toggle {
@@ -858,14 +886,14 @@ img.socialBadges {
     width: 30px; }
     .navbar .icon-bar + .icon-bar {
       margin-top: 10px; }
-  .navbar .wordmark {
+  .navbar #tcpp {
     height: 50px;
     position: relative;
     top: 10px;
     left: 15px;
     bottom: 15px;
     width: 100%; }
-    .navbar .wordmark img {
+    .navbar #tcpp img {
       height: inherit;
       width: 100%; }
   #signinModal input,

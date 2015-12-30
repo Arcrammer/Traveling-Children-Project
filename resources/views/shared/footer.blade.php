@@ -50,7 +50,7 @@
     <a href="/assets/downloadables/JourneyKit.pdf" target="_blank">
       <img
         src="/assets/images/JourneyKit.svg"
-        class="journeyKitDowload"
+        class="journeyKitDownload"
         alt="Download TC here!"
         data-toggle="tooltip"
         data-placement="right"

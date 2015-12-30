@@ -59,10 +59,29 @@ input#exampleInputPassword3 {
 @media only screen and (max-width: 900px) {
     // Navigation
     .navbar {
-      border-radius: 0;
+      border-radius: 8px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
 
       .navbar-toggle {
         padding: 30px;
+      }
+    }
+
+    // Form
+
+    .form-control {
+      width: 90%;
+      margin: 5%;
+    }
+
+    .form-group {
+      font-size: 1.25em;
+      select {
+        width: 90%;
+        height: 45px;
+        text-align: center;
+        margin: 2px 0;
       }
     }
 
@@ -70,7 +89,7 @@ input#exampleInputPassword3 {
     #destSearchBtn {
       margin: 2.5% auto;
       padding: 25px;
-      width: 33.3333333333%;
+      width: 90% !important ; // 33.3333333333%;
     }
 
     #destButtons {
@@ -79,4 +98,8 @@ input#exampleInputPassword3 {
         width: 195.198px / 597.594px * 100%;
       }
     }
+  }
+
+  @media only screen and (max-width: 700px) {
+
   }
