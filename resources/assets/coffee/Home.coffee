@@ -30,7 +30,7 @@
           dest += '<p><b>Description: </b>' + destination.description + '</p>'
           dest += '<p><b>Venue Address: </b>' + destination.street + ', ' + destination.city.name + ', ' + destination.state.name + ' ' + destination.zip + '</p>'
           dest += '<p><b>Adult Cost: </b> $' + destination.adult_cost + ' <b>Child Cost: </b> $' + destination.child_cost + ' <b>Discount Amount: </b>' + destination.discount + '</p>'
-          dest += '<br /><hr class="jp_divider">'
+          dest += '<hr class="jp_divider">'
           $('.journeyDestSearch').append dest
           return
         return

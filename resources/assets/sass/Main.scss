@@ -261,7 +261,28 @@ button.close {
 }
 
 // Passport Profile
-#profileModal {
+#destModal {
+  .modal-header {
+    padding: 15px;
+    text-indent: 35px;
+
+    .jd_title {
+      line-height: normal;
+    }
+
+    .close {
+      padding: 0 15px !important;
+    }
+  }
+
+  .modal-body {
+    padding: 35px;
+
+    .jp_divider:last-of-type {
+      display: none;
+    }
+  }
+
   img {
     margin: 5%;
     width: 90%;
