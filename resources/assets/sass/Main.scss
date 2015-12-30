@@ -81,6 +81,12 @@ img {
   border-top-right-radius: 0;
 }
 
+li #likesHeart {
+  color: #ffc233 !important;
+  font-size: 2em;
+  padding: 6px;
+}
+
 .wordmark {
   display: inline-block;
   height: inherit;
@@ -88,6 +94,9 @@ img {
   position: relative;
   top: 7.5px;
   width: 350px;
+  img {
+    width: 100%;
+  }
 }
 
 .dropdown-menu {
@@ -316,23 +325,26 @@ button.close {
 
   a {
     display: inline-block;
+    width: 100%;
   }
 }
 
-img.journeyKitDowload {
-  width: 365px;
+img.journeyKitDownload {
+  width: 25%; // 365px;
   display: inline-block;
 }
 
 div#socialBadges {
   text-align: center;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 0;
-  margin-bottom: 40px;
+  margin-bottom: 30px / 100% * 100%; // 40px;
 }
 
 img.socialBadges {
-  width: 55px;
-  margin: 5px;
+  width: 55px / 100% * 100%; // 55px;
+  margin: .375%; // 5px
   display: inline-block;
 }
 
@@ -515,6 +527,8 @@ img.socialBadges {
     margin-bottom: 5px;
     margin-left: 15px;
   }
+  // Navbar
+
   button.journeyModalButton {
     min-height: 75px;
     width: 75px !important;
@@ -581,14 +595,21 @@ img.socialBadges {
     }
   }
   #footer p.center {
-    width: 90%;
+    width: 100%;
   }
-}
+  img.socialBadges {
+    width: 75px / 100% * 100%; // 55px
+    margin: 1%; // 5px
+    display: inline-block;
+  }
+  img.journeyKitDownload {
+    width: 90%; // 365px;
+    display: inline-block;
+  }
 
 @media only screen
-and (max-width: 900px) {
-  .navbar {
-    .navbar-toggle {
+  and (max-width: 900px) {
+    .navbar, .navbar-toggle {
       margin: 10px;
       padding: 27.5px !important;
       width: 10%;
@@ -607,65 +628,64 @@ and (max-width: 900px) {
       }
     }
 
-    .wordmark {
-      height: 50px;
+    #tcpp { // .wordmark
+      height: 50px / 100% * 100%; // 50px;
       position: relative;
-      top: 10px;
-      left: 15px;
-      bottom: 15px;
+      top: 10px / 100% * 100%; // 10px;
+      left: 15px / 100% * 100%; // 15px;
+      bottom: 10px / 100% * 100%; // 15px;
       width: 100%;
-
       img {
         height: inherit;
-        width: 100%;
+        width: 50%;
       }
     }
-  }
 
-  #signinModal,
-  #signupModal {
-    input {
-      font-size: 1.25em;
-      height: 50px;
-      letter-spacing: 0.25px;
-      margin: 2.5% 0;
-      width: 100%;
-
-      &[type="submit"] {
+    #signinModal,
+    #signupModal {
+      input {
+        font-size: 1.25em;
         height: 50px;
-        margin: 0;
+        letter-spacing: 0.25px;
+        margin: 2.5% 0;
+        width: 100%;
+
+        &[type="submit"] {
+          height: 50px;
+          margin: 0;
+        }
       }
     }
-  }
 
-  .gender-choice {
-    label {
-      margin-right: 35px !important;
-      margin-left: 10px !important;
-      vertical-align: bottom !important;
+    .gender-choice {
+      label {
+        margin-right: 35px !important;
+        margin-left: 10px !important;
+        vertical-align: bottom !important;
+      }
+
+      input {
+        height: inherit !important;
+        width: inherit !important;
+      }
     }
 
-    input {
+    input[type="file"] {
       height: inherit !important;
-      width: inherit !important;
+      margin: 0 !important;
     }
-  }
 
-  input[type="file"] {
-    height: inherit !important;
-    margin: 0 !important;
-  }
+    .crest {
+      margin-bottom: 15px;
+    }
 
-  .crest {
-    margin-bottom: 15px;
-  }
+    #destSearchBtn {
+      padding: 15px 0 !important;
+      width: 70% !important;
+    }
 
-  #destSearchBtn {
-    padding: 15px 0 !important;
-    width: 90% !important;
-  }
-
-  .copyright {
-    margin-bottom: 15%;
+    .copyright {
+      margin-bottom: 15%;
+    }
   }
 }
