@@ -7,8 +7,15 @@
     # server in order to return the
     # results to them.
     #
-    type = $('#type').val() # Selected type
-    location = $('#location').val() # Selected location
+    fetch_journeys($('#type').val(), $('#location').val())
+
+  $('#destButtons ').click((event) ->
+    # The user has clicked a destination button
+    fetch_journeys($(event.target).data 'destination-type')
+  )
+
+  # Functions
+  fetch_journeys = (type, location) ->
     $.ajax '/destinations',
       method: 'post'
       data:
@@ -32,7 +39,5 @@
           dest += '<p><b>Adult Cost: </b> $' + destination.adult_cost + ' <b>Child Cost: </b> $' + destination.child_cost + ' <b>Discount Amount: </b>' + destination.discount + '</p>'
           dest += '<hr class="jp_divider">'
           $('.journeyDestSearch').append dest
-          return
-        return
-    return
+
 ) jQuery
