@@ -51,8 +51,11 @@ img#chrome {
 
 li #likesHeart {
   color: #ffc233 !important;
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 6px; }
+
+i#likesHeart.fa.fa-heart {
+  vertical-align: -.13em; }
 
 .wordmark {
   display: inline-block;
@@ -543,8 +546,11 @@ img#chrome {
 
 li #likesHeart {
   color: #ffc233 !important;
-  font-size: 2em;
+  font-size: 1.5em;
   padding: 6px; }
+
+i#likesHeart.fa.fa-heart {
+  vertical-align: -.13em; }
 
 .wordmark {
   display: inline-block;
