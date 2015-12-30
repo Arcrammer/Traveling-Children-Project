@@ -345,7 +345,7 @@
           <span class="icon-bar"></span>
         </button>
         <a href="/" class="wordmark hvr-grow">
-          <img
+          <img id="tcpp"
             src="/assets/images/Wordmark.svg"
             lowsrc="/assets/images/Wordmark.png"
             alt="Traveling Children Project Passport">
@@ -375,6 +375,7 @@
               <li data-toggle="modal" data-target="#profileModal">
                 <a href="#profileModal">View Passport Profile</a>
               </li>
+              <li class="center">My Likes<i class="fa fa-heart" id="likesHeart"></i>(##)</li>
               <li role="separator" class="divider"></li>
               <li>
                 <a href="/auth/logout" id="logoutLink">Sign Out</a>
