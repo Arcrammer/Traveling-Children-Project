@@ -4,6 +4,15 @@ $(document).ready ->
     itemSelector: '.grid-item',
     columnWidth: 200
 
+  # Send likes to the server
+  $('.like-button').click((event) ->
+    journey_uuid = $(event.target).parents('.journeyPost').data('journey-uuid')
+    $.ajax '/journeys/like/' + journey_uuid,
+      method: 'post'
+      success: ->
+        console.log 'Liked?'
+  )
+
   # Sharing pop-up window preferences
   popupPreferences = 'height=440'
   popupPreferences += ','
@@ -80,7 +89,6 @@ $(document).ready ->
       # when they are triggered by
       # asynchronous requests
       #
-      window.that = this
       journey_uuid = $(this)
         .parents('.journeyPost')
         .data 'journey-uuid'

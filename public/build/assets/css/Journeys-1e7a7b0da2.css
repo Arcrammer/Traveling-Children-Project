@@ -1100,8 +1100,6 @@ div.fa_JourneyPost {
     div.fa_JourneyPost li a:hover {
       color: #ee6730;
       background: none; }
-    div.fa_JourneyPost li a:hover i.fa {
-      color: #ee6730; }
   div.fa_JourneyPost li:last-of-type {
     padding-bottom: 15px; }
   div.fa_JourneyPost i.fa {
@@ -1109,6 +1107,10 @@ div.fa_JourneyPost {
     font-size: 1.5em;
     text-align: right;
     padding: 6px; }
+    div.fa_JourneyPost i.fa:hover {
+      color: #ee6730; }
+    div.fa_JourneyPost i.fa:active {
+      color: #903612; }
     div.fa_JourneyPost i.fa.fa-close {
       font-size: 1.875em; }
 

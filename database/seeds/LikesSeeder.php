@@ -13,12 +13,12 @@ class LikesSeeder extends Seeder
    */
   public function run()
   {
-    for ($i=0; $i <= 100; $i++) {
+    for ($i=0; $i < 100; $i++) {
       DB::table('likes')->insert([[
         'traveler' => rand(1, Traveler::count()),
         'likes_journey' => rand(1, Journey::count()),
         'created_at' => date('Y-m-d H:i:s', time()),
-        'updated_at' => date('Y-m-d H:i:s', time()),
+        'updated_at' => date('Y-m-d H:i:s', time())
       ]]);
     }
   }

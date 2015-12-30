@@ -7,13 +7,12 @@
         columnWidth: 200
       };
     });
-    $('.like-button').click(function(event) {
+    $('.heart-icon').click(function() {
       var journey_uuid;
-      journey_uuid = $(event.target).parents('.journeyPost').data('journey-uuid');
+      journey_uuid = $(this).parents('.journeyPost').data('journey-uuid');
       return $.ajax('/journeys/like/' + journey_uuid, {
-        method: 'post',
         success: function() {
-          return console.log('Liked?');
+          return console.log('liked?');
         }
       });
     });
@@ -59,6 +58,7 @@
     $.getScript('//assets.pinterest.com/js/pinit.js', function() {
       $('.share-with-pinterest').click(function() {
         var description, header_image, journey_uuid;
+        window.that = this;
         journey_uuid = $(this).parents('.journeyPost').data('journey-uuid');
         header_image = $(this).parents('.journeyPost').children('.jp_img').children('img').attr('src');
         description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();

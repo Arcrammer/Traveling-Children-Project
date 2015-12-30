@@ -118,7 +118,7 @@
                 </li>
   				    </ul>
   				  </div>
-  				  <a href="#" title="Like">
+  				  <a class="like-button" title="Like">
               <i class="fa fa-heart"></i>
             </a>
             @if ($journey->traveler == Auth::id())
