@@ -14,13 +14,19 @@
 // Home
 Route::get('/', 'Welcome@home');
 
+// Destinations
+Route::post('/destinations', 'Attraction@show');
+
 // Passport Profiles
+Route::get('/traveler/show', 'Traveler@show');
+Route::post('/traveler/update', 'Traveler@update');
 Route::get('/traveler/delete/{passport_id}', 'Traveler@delete');
 
 // Journeys
 Route::group(['middleware' => 'journeys'], function () {
   Route::get('/journeys', 'Journeys@blog');
   Route::post('/journeys/edit', 'Journeys@update');
+  Route::post('/journeys/like/{uuid}', 'Journeys@like');
   Route::get('/journeys/show/{uuid}', 'Journeys@show');
   Route::get('/journeys/delete/{uuid}', 'Journeys@delete');
   Route::post('/journeys', 'Journeys@persist');

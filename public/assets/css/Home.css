@@ -31,6 +31,9 @@ img.crest {
 img#chrome {
   width: 2%; }
 
+.nav a {
+  cursor: pointer; }
+
 .aboutModalButton {
   margin-top: 8px;
   background-color: #3a2417;
@@ -121,6 +124,9 @@ div#destButtons {
 .btn-group button {
   margin: 2px 5px; }
 
+label {
+  cursor: pointer; }
+
 .pp_title,
 .jd_title,
 .a_title {
@@ -177,6 +183,23 @@ button.close {
   .modal-header h4 {
     line-height: 225%;
     width: 75%; }
+
+#destModal .modal-header {
+  padding: 15px;
+  text-indent: 35px; }
+  #destModal .modal-header .jd_title {
+    line-height: normal; }
+  #destModal .modal-header .close {
+    padding: 0 15px !important; }
+
+#destModal .modal-body {
+  padding: 35px; }
+  #destModal .modal-body .jp_divider:last-of-type {
+    display: none; }
+
+#destModal img {
+  margin: 5%;
+  width: 90%; }
 
 #footer {
   background-color: #3a2417;
@@ -459,11 +482,6 @@ img.socialBadges {
 
 .form-inline .center #destSearch {
   width: 100%; }
-
-#destSearchBtn {
-  display: block;
-  margin: 5% auto;
-  width: 30%; }
 
 .form-group {
   font-size: 1.25em; }

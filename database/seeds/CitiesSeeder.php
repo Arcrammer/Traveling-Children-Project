@@ -21,7 +21,7 @@ class CitiesSeeder extends Seeder
     ];
 
     foreach ($cities as $city) {
-      DB::table('cities')->insert(['city' => $city]);
+      DB::table('cities')->insert(['name' => $city]);
     }
   }
 }

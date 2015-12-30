@@ -10,6 +10,7 @@ use TravelingChildrenProject\Http\Requests;
 use TravelingChildrenProject\Http\Controllers\Controller;
 use TravelingChildrenProject\Journey;
 use TravelingChildrenProject\JourneyTag;
+use TravelingChildrenProject\Like;
 use TravelingChildrenProject\Tag;
 
 class Journeys extends Controller
@@ -46,6 +47,23 @@ class Journeys extends Controller
       $journeyData['tags'] .= ' #'.$tag->tag;
     }
     return $journeyData;
+  }
+
+  /**
+   * Store a travelers' like
+   *
+   * @return Illuminate\Http\Response
+   */
+  protected function like($uuid) {
+    $like_details = [
+      'traveler' => Auth::id(),
+      'likes_journey' => Journey::where('uuid', '=', $uuid)->first()->id
+    ];
+    if (Like::where($like_details)->count() == 0) {
+      return Like::create($like_details);
+    } else {
+      return response('That post was probably liked already.');
+    }
   }
 
   /**
