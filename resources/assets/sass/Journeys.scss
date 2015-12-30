@@ -210,6 +210,10 @@ form.journey-form input[type="text"] {
   img {
     width: 100% !important;
   }
+
+  &:target {
+    background-color: #fedf8d * 1.1;
+  }
 }
 
 .jpPadding {

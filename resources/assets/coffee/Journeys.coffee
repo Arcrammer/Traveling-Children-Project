@@ -66,7 +66,7 @@ $(document).ready ->
         # Let them share the journey on Facebook
         FB.ui
           method: 'feed'
-          link: 'travelingchildrenproject.com/journeys/' + journey_uuid
+          link: 'travelingchildrenproject.com/journeys#' + journey_uuid
           name: creator + '\'s Journey to ' + title
           description: description
           picture: 'http://travelingchildrenproject.com' + header_image
@@ -107,7 +107,7 @@ $(document).ready ->
       # The user clicked the 'Pinterest' button
       PinUtils.pinOne
         media: 'http://travelingchildrenproject.com' + header_image
-        url: 'http://travelingchildrenproject.com/journeys/' + journey_uuid
+        url: 'http://travelingchildrenproject.com/journeys#' + journey_uuid
         description: description
 
     $('.share-with-tumblr').click ->
@@ -140,7 +140,7 @@ $(document).ready ->
   editButtons.click ->
     # The 'Edit' button was
     # clicked, so we'll get
-    # the 'ID' for the
+    # the 'UUID' for the
     # relative journey
     #
     journeyUUID = $(this).parents('.journeyPost').data 'journey-uuid'

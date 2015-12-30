@@ -59,7 +59,7 @@
   <!-- Journey Blog Posts -->
   <div class="jp_wrapper grid">
     @foreach ($journeys->items() as $journey)
-      <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}">
+      <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}" id="{{ $journey->uuid }}">
         <div class="jpPadding">
           <p class="jp_title">TC Journey to <span>{{ $journey->title }}</span></p>
         </div> <!-- .jpPadding -->
@@ -98,7 +98,7 @@
                   $twitter_url = 'https://twitter.com/share?';
                   $twitter_url .= 'text=Check+out+this+journey+at+TCP%21';
                   $twitter_url .= '&';
-                  $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.com%2Fjourneys%2F'.$journey->id;
+                  $twitter_url .= 'url=http%3A%2F%2Ftravelingchildrenproject.com%2Fjourneys%23'.$journey->uuid;
                   $twitter_url .= '&';
                   $twitter_url .= 'hashtags=TravelingChildrenProject,TCPJourneys';
                   $twitter_url .= '&';

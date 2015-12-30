@@ -1098,6 +1098,8 @@ form.journey-form input[type="text"] {
   width: 28.0141843968%; }
   .journeyPost img {
     width: 100% !important; }
+  .journeyPost:target {
+    background-color: #fff59b; }
 
 .jpPadding {
   padding: 15px; }

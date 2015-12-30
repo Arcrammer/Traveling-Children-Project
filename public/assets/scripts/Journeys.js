@@ -43,7 +43,7 @@
           description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();
           return FB.ui({
             method: 'feed',
-            link: 'travelingchildrenproject.com/journeys/' + journey_uuid,
+            link: 'travelingchildrenproject.com/journeys#' + journey_uuid,
             name: creator + '\'s Journey to ' + title,
             description: description,
             picture: 'http://travelingchildrenproject.com' + header_image
@@ -64,7 +64,7 @@
         description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();
         return PinUtils.pinOne({
           media: 'http://travelingchildrenproject.com' + header_image,
-          url: 'http://travelingchildrenproject.com/journeys/' + journey_uuid,
+          url: 'http://travelingchildrenproject.com/journeys#' + journey_uuid,
           description: description
         });
       });
