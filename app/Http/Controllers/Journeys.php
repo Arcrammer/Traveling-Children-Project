@@ -60,18 +60,24 @@ class Journeys extends Controller
       'likes_journey' => Journey::where('uuid', '=', $uuid)->first()->id
     ];
     if (Like::where($like_details)->count() == 0) {
+      // The traveler hasn't already
+      // liked this journey; Like it
       if (Like::create($like_details)) {
-        return response(200);
-      } else {
-        return response(500);
+        $status = 200;
       }
     } else {
+      // The traveler has already
+      // liked this journey; So
+      // we'll delete the like
       if (Like::where($like_details)->delete()) {
-        return response(204);
-      } else {
-        return response(500);
+        $status = 204;
       }
     }
+    $like_count = Like::where('traveler', '=', Auth::id())->count();
+    return json_encode([
+      'status' => $status,
+      'likeCount' => $like_count
+    ]);
   }
 
   /**

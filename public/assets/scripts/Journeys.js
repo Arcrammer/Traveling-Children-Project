@@ -12,12 +12,14 @@
       journey_uuid = $(event.target).parents('.journeyPost').data('journey-uuid');
       return $.ajax('/journeys/like/' + journey_uuid, {
         method: 'post',
-        success: function(status) {
-          if (status === '200') {
-            return $(event.target).addClass('liked');
-          } else if (status === '204') {
-            return $(event.target).removeClass('liked');
+        success: function(response) {
+          response = JSON.parse(response);
+          if (response.status === 200) {
+            $(event.target).addClass('liked');
+          } else if (response.status === 204) {
+            $(event.target).removeClass('liked');
           }
+          return $('#like-count').text(response.likeCount);
         }
       });
     });

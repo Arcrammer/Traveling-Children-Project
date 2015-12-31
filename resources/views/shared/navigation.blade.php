@@ -379,7 +379,7 @@
               <li data-toggle="modal" data-target="#profileModal">
                 <a href="#profileModal">View Passport Profile</a>
               </li>
-              <li class="center">My Likes<i class="fa fa-heart" id="likesHeart"></i>({{ Auth::user()->likes->count() }})</li>
+              <li class="center">My Likes<i class="fa fa-heart" id="likesHeart"></i>(<span id="like-count">{{ Auth::user()->likes->count() }}</span>)</li>
               <li role="separator" class="divider"></li>
               <li>
                 <a href="/auth/logout" id="logoutLink">Sign Out</a>
