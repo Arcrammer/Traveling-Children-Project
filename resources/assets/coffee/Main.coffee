@@ -28,7 +28,7 @@
         $('#signup-form').attr 'action', '/traveler/update'
 
     # Hide the password fields because they're irrelevant
-    $('.passwords').css 'display', 'none'
+    $('.passwords').remove()
 
     # Change the header text
     # of the sign-up modal

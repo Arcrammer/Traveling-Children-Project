@@ -25,7 +25,7 @@
           return $('#signup-form').attr('action', '/traveler/update');
         }
       });
-      $('.passwords').css('display', 'none');
+      $('.passwords').remove();
       $('.modal-header h4').text('Edit Passport');
       $('#submission-button').val('Update');
       $('#profileModal').modal('hide');
