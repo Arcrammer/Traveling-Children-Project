@@ -114,7 +114,7 @@
                   <a><i class="fa fa-tumblr-square"></i> Tumblr</a>
                 </li>
                 <li class="share-with-envelope">
-                  <a href="mailto:?subject={{ $journey->creator->first_name.'\'s Journey to '. $journey->title }}"><i class="fa fa-envelope-square"></i> Email</a>
+                  <a href="mailto:?subject={{ $journey->creator->first_name.'\'s Journey to '. $journey->title }}&body=%0D%0A%0D%0A{{ urlencode('http://travelingchildrenproject.com/journeys#'.$journey->uuid) }}"><i class="fa fa-envelope-square"></i> Email</a>
                 </li>
   				    </ul>
   				  </div>
