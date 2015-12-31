@@ -230,7 +230,7 @@
             form="signup-form"
             class="form-control"
             type="text"
-            style="display:inline;width:30%;margin-right:5%;"
+            style="display:inline;width:30%;margin-right:5%"
             name="state"
             placeholder="ST"
             autocomplete="off"

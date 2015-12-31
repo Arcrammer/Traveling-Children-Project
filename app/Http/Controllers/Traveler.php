@@ -54,6 +54,15 @@ class Traveler extends Controller
       $address->save();
     }
 
+    // Update their passport profile photo
+    if (Input::hasFile('selfie')) {
+      $extension = Input::file('selfie')->getClientOriginalExtension();
+      $filename = md5(uniqid(rand(), true)).'.'.$extension;
+      Input::file('selfie')->move(base_path().'/public/assets/selfies/', $filename);
+      $traveler->selfie_filename = $filename;
+      $traveler->save();
+    }
+
     return Redirect::back();
   }
 
