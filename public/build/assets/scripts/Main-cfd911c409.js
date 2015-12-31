@@ -1,5 +1,6 @@
 (function() {
   (function($) {
+    $('#profileModal').modal();
     $('[data-toggle="tooltip"]').tooltip();
     return $('.editProfileButton').click(function() {
       $.ajax('/traveler/show', {

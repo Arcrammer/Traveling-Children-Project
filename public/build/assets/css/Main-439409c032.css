@@ -121,6 +121,21 @@ div#destButtons {
 #signupModal input[type="file"] {
   line-height: 0; }
 
+#profileModal .left,
+#profileModal .right {
+  float: left;
+  padding: 5px;
+  width: 50%; }
+
+#profileModal .pp_pic img {
+  border: 5px solid #E8C874;
+  border-radius: 100%;
+  margin: 5% 15%;
+  width: 75%; }
+
+#profileModal .modal-footer {
+  clear: both; }
+
 .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-radius: 25px;
   border-top-right-radius: 0;
