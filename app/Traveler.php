@@ -75,4 +75,13 @@ class Traveler
   public function address() {
     return $this->hasOne('TravelingChildrenProject\TravelerAddress', 'traveler', 'id');
   }
+
+  /**
+   * Travelers can like multiple journeys
+   *
+   * @return Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function likes() {
+    return $this->hasMany('TravelingChildrenProject\Like', 'traveler');
+  }
 }
