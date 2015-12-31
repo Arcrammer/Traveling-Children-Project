@@ -9,10 +9,14 @@
     #
     fetch_journeys($('#type').val(), $('#location').val())
 
-  $('#destButtons ').click((event) ->
+  $('#destButtons ').click (event) ->
     # The user has clicked a destination button
     fetch_journeys($(event.target).data 'destination-type')
-  )
+
+  $('#destModal').on 'hide.bs.modal', ->
+    # Remove all of the results
+    # when the modal is dismissed
+    $('.journeyDestSearch').children().remove()
 
   # Functions
   fetch_journeys = (type, location) ->
@@ -32,12 +36,14 @@
           # For each of the results returned we'll create
           # a new node for the DOM and insert it
           #
-          dest = '<p class="dname">' + destination.name + '</p>'
+          dest = '<div class="destination">'
+          dest += '<p class="dname">' + destination.name + '</p>'
           dest += '<p><b>Destination Type: </b>' + destination.type.name + '</p>'
           dest += '<p><b>Description: </b>' + destination.description + '</p>'
           dest += '<p><b>Venue Address: </b>' + destination.street + ', ' + destination.city.name + ', ' + destination.state.name + ' ' + destination.zip + '</p>'
           dest += '<p><b>Adult Cost: </b> $' + destination.adult_cost + ' <b>Child Cost: </b> $' + destination.child_cost + ' <b>Discount Amount: </b>' + destination.discount + '</p>'
           dest += '<hr class="jp_divider">'
+          dest += '</div> <!-- .destination -->'
           $('.journeyDestSearch').append dest
 
 ) jQuery
