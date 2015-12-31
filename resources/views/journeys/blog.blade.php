@@ -119,7 +119,7 @@
   				    </ul>
   				  </div>
   				  <a class="like-button" title="Like">
-              <i class="fa fa-heart"></i>
+              <i class="fa fa-heart {{ (Auth::user()->likes_journey($journey->id)) ? 'liked' : ''}}"></i>
             </a>
             @if ($journey->traveler == Auth::id())
     				  <a href="#" title="Edit">

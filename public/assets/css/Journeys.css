@@ -1235,6 +1235,8 @@ div.fa_JourneyPost {
     padding: 6px; }
     div.fa_JourneyPost i.fa:hover {
       color: #ee6730; }
+    div.fa_JourneyPost i.fa.liked {
+      color: #e64040; }
     div.fa_JourneyPost i.fa:active {
       color: #903612; }
     div.fa_JourneyPost i.fa.fa-close {

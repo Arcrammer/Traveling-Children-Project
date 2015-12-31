@@ -18,6 +18,7 @@ class CreateLikesTable extends Migration
       $table->increments('id');
       $table->integer('traveler')->unsigned();
       $table->integer('likes_journey')->unsigned();
+      $table->softDeletes();
       $table->timestamps();
 
       // Foreign Keys

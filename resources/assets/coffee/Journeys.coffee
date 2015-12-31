@@ -9,8 +9,13 @@ $(document).ready ->
     journey_uuid = $(event.target).parents('.journeyPost').data('journey-uuid')
     $.ajax '/journeys/like/' + journey_uuid,
       method: 'post'
-      success: ->
-        console.log 'Liked?'
+      success: (status) ->
+        if status == '200'
+          # The post was successfully liked
+          $(event.target).addClass 'liked'
+        else if status == '204'
+          # The post was successfully unliked
+          $(event.target).removeClass 'liked'
   )
 
   # Sharing pop-up window preferences
