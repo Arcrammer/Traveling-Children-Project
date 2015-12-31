@@ -1,6 +1,4 @@
 (($) ->
-  $('#profileModal').modal()
-
   # The DOM has loaded
   $('[data-toggle="tooltip"]').tooltip()
 
