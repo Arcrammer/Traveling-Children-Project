@@ -19,17 +19,14 @@ class Attraction extends Controller
    */
   public function show()
   {
-    // Determine the types' id
-    $type_id = DestinationType::where('name', '=', Input::get('type'))->first()->id;
-
     // Fetch the appropriate destinations
     if (Input::has('location')) {
-      $destinations = Destination::where('type', '=', $type_id)
+      $destinations = Destination::where('type', '=', Input::get('type'))
         ->where('city', '=', Input::get('location'))
         ->with('city', 'state', 'type')
         ->get();
     } else {
-      $destinations = Destination::where('type', '=', $type_id)
+      $destinations = Destination::where('type', '=', Input::get('type'))
         ->with('city', 'state', 'type')
         ->get();
     }
