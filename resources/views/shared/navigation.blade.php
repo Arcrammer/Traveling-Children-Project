@@ -268,7 +268,7 @@
             form="signup-form"
             type="radio"
             name="gender"
-            @if (old('gender') == 1 || Auth::user()->gender == 1)
+            @if (old('gender') == 1 || Auth::check() && Auth::user()->gender == 1)
               checked="checked"
             @endif
             value="1">
@@ -278,7 +278,7 @@
             form="signup-form"
             type="radio"
             name="gender"
-            @if (old('gender') == 2 || Auth::user()->gender == 2)
+            @if (old('gender') == 2 || Auth::check() && Auth::user()->gender == 2)
               checked="checked"
             @endif
             value="2">
@@ -288,7 +288,7 @@
             form="signup-form"
             type="radio"
             name="gender"
-            @if (old('gender') == 3 || Auth::user()->gender == 3)
+            @if (old('gender') == 3 || Auth::check() && Auth::user()->gender == 3)
               checked="checked"
             @endif
             value="3">

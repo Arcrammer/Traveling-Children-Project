@@ -60,7 +60,7 @@
 <div class="center" id="destButtons">
   <div class="btn-group btn-group-lg center" role="group" aria-label="...">
     @foreach ($types as $type)
-      <button type="button" class="btn btn-info" data-destination-type="{{ $type->id }}" data-toggle="modal" data-target="#destModal"><a data-destination-type="active">{{ $type->name }}</a></button>
+      <button type="button" class="btn btn-info" data-destination-type="{{ $type->id }}" data-toggle="modal" data-target="#destModal"><a data-destination-type="{{ $type->id }}">{{ $type->name }}</a></button>
     @endforeach
   </div> <!-- .btn-group .btn-group-lg .center -->
 </div> <!-- .center -->

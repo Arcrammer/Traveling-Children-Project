@@ -152,6 +152,9 @@ div#destButtons {
 label {
   cursor: pointer; }
 
+.modal {
+  overflow: auto; }
+
 .pp_title,
 .jd_title,
 .a_title {
@@ -662,6 +665,9 @@ div#destButtons {
 
 label {
   cursor: pointer; }
+
+.modal {
+  overflow: auto; }
 
 .pp_title,
 .jd_title,
