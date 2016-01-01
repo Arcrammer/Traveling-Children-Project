@@ -24,7 +24,7 @@ class DatabaseSeeder extends Seeder
     $this->call(JourneysSeeder::class);
     $this->call(TagsSeeder::class);
     $this->call(JourneyTagsSeeder::class);
-    $this->call(LikesSeeder::class);
+    // $this->call(LikesSeeder::class);
 
     Model::reguard();
   }
