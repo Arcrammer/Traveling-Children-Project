@@ -9,8 +9,21 @@ $(document).ready ->
     journey_uuid = $(event.target).parents('.journeyPost').data('journey-uuid')
     $.ajax '/journeys/like/' + journey_uuid,
       method: 'post'
-      success: ->
-        console.log 'Liked?'
+      success: (response) ->
+        response = JSON.parse(response)
+        if response.status == 200
+          # The post was successfully
+          # liked; Make the heart red
+          $(event.target).addClass 'liked'
+        else if response.status == 204
+          # The post was successfully
+          # unliked; Don't make
+          # the heart red
+          $(event.target).removeClass 'liked'
+
+        # Update the like count in the
+        # 'My Passport' dropdown
+        $('#like-count').text response.likeCount
   )
 
   # Sharing pop-up window preferences

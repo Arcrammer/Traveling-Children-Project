@@ -8,7 +8,7 @@
 <div class="modal fade" id="profileModal">
   <div class="modal-dialog">
     <div class="modal-content travelerProfile">
-      <div class="modal-header"  data-traveler-id="<?//= $traveler->id ?>">
+      <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -17,20 +17,24 @@
 
       <div class="modal-body">
         <?php $traveler = Auth::user() ?>
+        {!! isset($traveler->selfie_filename) ? '<div class="left">' :  '' !!}
+          <p><b>First Name:</b> {{ $traveler->first_name }}</p>
+          <p><b>Last Name:</b> {{ $traveler->last_name }}</p>
+          <p><b>Email:</b> {{ $traveler->email }}</p>
+          @if ($traveler->address)
+            <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
+            <p><b>City:</b> {{ $traveler->address->city }}</p>
+            <p><b>State:</b> {{ $traveler->address->get_state->name }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
+          @endif
+          <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
+        {!! isset($traveler->selfie_filename) ? '</div> <!-- .left -->' :  '' !!}
+        {!! isset($traveler->selfie_filename) ? '<div class="right">' :  '' !!}
         @if ($traveler->selfie_filename != NULL)
           <div class="pp_pic">
             <img src="/assets/selfies/{{ $traveler->selfie_filename }}" alt="{{ $traveler->selfie_filename }}">
           </div>
         @endif
-        <p><b>First Name:</b> {{ $traveler->first_name }}</p>
-        <p><b>Last Name:</b> {{ $traveler->last_name }}</p>
-        <p><b>Email:</b> {{ $traveler->email }}</p>
-        @if ($traveler->address)
-          <p><b>Street Address:</b> {{ $traveler->address->street }}</p>
-          <p><b>City:</b> {{ $traveler->address->city }}</p>
-          <p><b>State:</b> {{ $traveler->address->get_state->name }} <b>Zip:</b> {{ $traveler->address->zip }}</p>
-        @endif
-        <p><b>Birthday:</b> {{ date('l, F d, Y', strtotime($traveler->birthday)) }}</p>
+        {!! isset($traveler->selfie_filename) ? '</div> <!-- .right -->' :  '' !!}
       </div> <!-- .modal-body -->
 
       <div class="modal-footer">
@@ -230,7 +234,7 @@
             form="signup-form"
             class="form-control"
             type="text"
-            style="display:inline;width:30%;margin-right:5%;"
+            style="display:inline;width:30%;margin-right:5%"
             name="state"
             placeholder="ST"
             autocomplete="off"
@@ -264,7 +268,7 @@
             form="signup-form"
             type="radio"
             name="gender"
-            @if (old('gender') == 1)
+            @if (old('gender') == 1 || Auth::check() && Auth::user()->gender == 1)
               checked="checked"
             @endif
             value="1">
@@ -274,7 +278,7 @@
             form="signup-form"
             type="radio"
             name="gender"
-            @if (old('gender') == 2)
+            @if (old('gender') == 2 || Auth::check() && Auth::user()->gender == 2)
               checked="checked"
             @endif
             value="2">
@@ -284,7 +288,7 @@
             form="signup-form"
             type="radio"
             name="gender"
-            @if (old('gender') == 3)
+            @if (old('gender') == 3 || Auth::check() && Auth::user()->gender == 3)
               checked="checked"
             @endif
             value="3">
@@ -375,7 +379,7 @@
               <li data-toggle="modal" data-target="#profileModal">
                 <a href="#profileModal">View Passport Profile</a>
               </li>
-              <li class="center">My Likes<i class="fa fa-heart" id="likesHeart"></i>(##)</li>
+              <li class="center">My Likes<i class="fa fa-heart" id="likesHeart"></i>(<span id="like-count">{{ Auth::user()->likes->count() }}</span>)</li>
               <li role="separator" class="divider"></li>
               <li>
                 <a href="/auth/logout" id="logoutLink">Sign Out</a>

@@ -4,8 +4,10 @@ namespace TravelingChildrenProject\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use TravelingChildrenProject\Http\Requests;
+use TravelingChildrenProject\Http\Reqwuests;
 use TravelingChildrenProject\Http\Controllers\Controller;
+use TravelingChildrenProject\DestinationType;
+use TravelingChildrenProject\City;
 
 class Welcome extends Controller
 {
@@ -15,6 +17,10 @@ class Welcome extends Controller
    * @return Illuminate\Http\Response
    */
   protected function home() {
-    return view('welcome.home');
+    $viewData = [
+      'types' => DestinationType::all(),
+      'cities' => City::all()
+    ];
+    return view('welcome.home', $viewData);
   }
 }

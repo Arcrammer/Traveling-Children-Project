@@ -7,12 +7,19 @@
         columnWidth: 200
       };
     });
-    $('.heart-icon').click(function() {
+    $('.like-button').click(function(event) {
       var journey_uuid;
-      journey_uuid = $(this).parents('.journeyPost').data('journey-uuid');
+      journey_uuid = $(event.target).parents('.journeyPost').data('journey-uuid');
       return $.ajax('/journeys/like/' + journey_uuid, {
-        success: function() {
-          return console.log('liked?');
+        method: 'post',
+        success: function(response) {
+          response = JSON.parse(response);
+          if (response.status === 200) {
+            $(event.target).addClass('liked');
+          } else if (response.status === 204) {
+            $(event.target).removeClass('liked');
+          }
+          return $('#like-count').text(response.likeCount);
         }
       });
     });
@@ -42,7 +49,7 @@
           description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();
           return FB.ui({
             method: 'feed',
-            link: 'travelingchildrenproject.com/journeys/' + journey_uuid,
+            link: 'travelingchildrenproject.com/journeys#' + journey_uuid,
             name: creator + '\'s Journey to ' + title,
             description: description,
             picture: 'http://travelingchildrenproject.com' + header_image
@@ -58,13 +65,12 @@
     $.getScript('//assets.pinterest.com/js/pinit.js', function() {
       $('.share-with-pinterest').click(function() {
         var description, header_image, journey_uuid;
-        window.that = this;
         journey_uuid = $(this).parents('.journeyPost').data('journey-uuid');
         header_image = $(this).parents('.journeyPost').children('.jp_img').children('img').attr('src');
         description = $(this).parents('.journeyPost').children(':last-of-type').children('.jp_body').text().trim();
         return PinUtils.pinOne({
           media: 'http://travelingchildrenproject.com' + header_image,
-          url: 'http://travelingchildrenproject.com/journeys/' + journey_uuid,
+          url: 'http://travelingchildrenproject.com/journeys#' + journey_uuid,
           description: description
         });
       });

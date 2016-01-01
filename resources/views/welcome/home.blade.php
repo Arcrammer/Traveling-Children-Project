@@ -42,24 +42,15 @@
   <div class="form-group">
     <select id="type" class="form-control">
       <option name="all_types" value="">Choose destination type </option>
-        <option name="active" value="active">Active</option>
-        <option name="creative" value="creative">Creative</option>
-        <option name="fun" value="fun">Fun</option>
-        <option name="learning" value="learning">Learning</option>
-        <option name="outdoor" value="outdoor">Outdoor</option>
-        <option name="performance" value="performance">Performance</option>
-        <option name="reading" value="reading">Reading</option>
-        <option name="tasty" value="tasty">Tasty</option>
-        <option name="technology" value="technology">Technology</option>
+      @foreach ($types as $type)
+        <option value="{{ $type->id }}">{{ $type->name }}</option>
+      @endforeach
     </select>
     <select id="location" class="form-control">
       <option name="all_locations" value="">Choose destination location </option>
-      <option name="daytona" value="5">Daytona</option>
-      <option name="kissimmee" value="1">Kissimmee</option>
-      <option name="orlando" value="2">Orlando</option>
-      <option name="sanford" value="3">Sanford</option>
-      <option name="tampa" value="4">Tampa</option>
-      <option name="wintergarden" value="5">Winter Garden</option>
+      @foreach ($cities as $city)
+        <option value="{{ $city->id }}">{{ $city->name }}</option>
+      @endforeach
     </select>
     <a class="btn btn-warning btn-lg" id="destSearchBtn" data-toggle="modal" data-target="#destModal">Search</a>
   </div> <!-- .form-group -->
@@ -68,15 +59,9 @@
 <!-- Buttons -->
 <div class="center" id="destButtons">
   <div class="btn-group btn-group-lg center" role="group" aria-label="...">
-    <button type="button" class="btn btn-info" data-destination-type="active" data-toggle="modal" data-target="#destModal"><a data-destination-type="active">Active</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="creative" data-toggle="modal" data-target="#destModal"><a data-destination-type="creative">Creative</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="fun" data-toggle="modal" data-target="#destModal"><a data-destination-type="fun">Fun</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="learning" data-toggle="modal" data-target="#destModal"><a data-destination-type="learning">Learning</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="outdoor" data-toggle="modal" data-target="#destModal"><a data-destination-type="outdoor">Outdoor</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="performance" data-toggle="modal" data-target="#destModal"><a data-destination-type="performance">Performance</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="reading" data-toggle="modal" data-target="#destModal"><a data-destination-type="reading">Reading</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="tasty" data-toggle="modal" data-target="#destModal"><a data-destination-type="tasty">Tasty</a></button>
-    <button type="button" class="btn btn-info" data-destination-type="technology" data-toggle="modal" data-target="#destModal"><a data-destination-type="technology">Technology</a></button>
+    @foreach ($types as $type)
+      <button type="button" class="btn btn-info" data-destination-type="{{ $type->id }}" data-toggle="modal" data-target="#destModal"><a data-destination-type="{{ $type->id }}">{{ $type->name }}</a></button>
+    @endforeach
   </div> <!-- .btn-group .btn-group-lg .center -->
 </div> <!-- .center -->
 @endsection

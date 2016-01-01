@@ -2,6 +2,7 @@
 
 namespace TravelingChildrenProject;
 
+use Auth;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -74,5 +75,27 @@ class Traveler
    */
   public function address() {
     return $this->hasOne('TravelingChildrenProject\TravelerAddress', 'traveler', 'id');
+  }
+
+  /**
+   * Travelers can like multiple journeys
+   *
+   * @return Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function likes() {
+    return $this->hasMany('TravelingChildrenProject\Like', 'traveler');
+  }
+
+  /**
+   * Travelers can like multiple journeys
+   *
+   * @return Illuminate\Database\Eloquent\Relations\HasMany
+   */
+  public function likes_journey($with_id) {
+    if (Like::where('traveler', '=', 2)->where('likes_journey', '=', $with_id)->first()) {
+      return TRUE;
+    } else {
+      return FALSE;
+    }
   }
 }

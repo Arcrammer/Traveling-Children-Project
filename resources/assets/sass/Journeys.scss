@@ -212,7 +212,7 @@ form.journey-form input[type="text"] {
   }
 
   &:target {
-    background-color: #fedf8d * 1.1;
+    box-shadow: 0px 0px 25px 10px white;
   }
 }
 
@@ -291,6 +291,10 @@ div.fa_JourneyPost {
 
     &:hover {
       color: #ee6730;
+    }
+
+    &.liked {
+      color: #e64040;
     }
 
     &:active {
