@@ -1,11 +1,11 @@
 (function() {
   $(document).ready(function() {
     var bodyField, dateField, editButtons, journeys, popupPreferences, submitButton, tagsField, titleField, uuidField;
-    $('.grid').masonry(function() {
-      return {
+    $(window).on('load resize', function() {
+      return $('.grid').masonry({
         itemSelector: '.grid-item',
-        columnWidth: 200
-      };
+        columnWidth: $('.grid').width() / 3
+      });
     });
     $('.like-button').click(function(event) {
       var journey_uuid;

@@ -1,8 +1,9 @@
 $(document).ready ->
   # Grid
-  $('.grid').masonry ->
-    itemSelector: '.grid-item',
-    columnWidth: 200
+  $(window).on 'load resize', ->
+    $('.grid').masonry
+      itemSelector: '.grid-item'
+      columnWidth: $('.grid').width() / 3
 
   # Send likes to the server
   $('.like-button').click((event) ->
