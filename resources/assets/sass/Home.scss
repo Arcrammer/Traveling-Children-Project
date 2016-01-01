@@ -51,16 +51,6 @@ input#exampleInputPassword3 {
 
 /* Media Queries */
 @media only screen and (max-width: 900px) {
-    // Navigation
-    .navbar {
-      border-radius: 8px;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-
-      .navbar-toggle {
-        padding: 30px;
-      }
-    }
 
     // Form
     .form-control {

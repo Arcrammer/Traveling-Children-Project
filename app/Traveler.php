@@ -92,7 +92,7 @@ class Traveler
    * @return Illuminate\Database\Eloquent\Relations\HasMany
    */
   public function likes_journey($with_id) {
-    if (Like::where('traveler', '=', 2)->where('likes_journey', '=', $with_id)->first()) {
+    if (Like::where('traveler', '=', Auth::id())->where('likes_journey', '=', $with_id)->first()) {
       return TRUE;
     } else {
       return FALSE;
