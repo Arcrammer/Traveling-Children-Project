@@ -105,6 +105,25 @@ div#destButtons {
 .prob {
   text-align: center; }
 
+.btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+  border-radius: 25px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+.btn-group .btn:last-child:not(:first-child) {
+  border-radius: 25px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
+.btn-group button {
+  margin: 2px 5px; }
+
+label {
+  cursor: pointer; }
+
+.modal {
+  overflow: auto; }
+
 #signinModal input {
   text-align: center; }
   #signinModal input[type="submit"] {
@@ -136,24 +155,22 @@ div#destButtons {
 #profileModal .modal-footer {
   clear: both; }
 
-.btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle) {
-  border-radius: 25px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0; }
+#destModal .modal-header {
+  padding: 15px;
+  text-indent: 20px; }
+  #destModal .modal-header .jd_title {
+    line-height: normal; }
+  #destModal .modal-header .close {
+    padding: 0 15px !important; }
 
-.btn-group .btn:last-child:not(:first-child) {
-  border-radius: 25px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0; }
+#destModal .modal-body {
+  padding: 35px; }
+  #destModal .modal-body .jp_divider:last-of-type {
+    display: none; }
 
-.btn-group button {
-  margin: 2px 5px; }
-
-label {
-  cursor: pointer; }
-
-.modal {
-  overflow: auto; }
+#destModal img {
+  margin: 5%;
+  width: 90%; }
 
 .pp_title,
 .jd_title,
@@ -212,23 +229,6 @@ button.close {
   .modal-header h4 {
     line-height: 225%;
     width: 75%; }
-
-#destModal .modal-header {
-  padding: 15px;
-  text-indent: 20px; }
-  #destModal .modal-header .jd_title {
-    line-height: normal; }
-  #destModal .modal-header .close {
-    padding: 0 15px !important; }
-
-#destModal .modal-body {
-  padding: 35px; }
-  #destModal .modal-body .jp_divider:last-of-type {
-    display: none; }
-
-#destModal img {
-  margin: 5%;
-  width: 90%; }
 
 #footer {
   background-color: #3a2417;
@@ -397,14 +397,66 @@ img.socialBadges {
     -webkit-animation-direction: normal,alternate;
     animation-direction: normal,alternate; }
 
+@media only screen and (max-width: 900px) {
+  .navbar {
+    padding: 1em !important;
+    margin: 0px !important;
+    width: 100% !important; }
+  img.tcpp {
+    width: 60% !important;
+    margin-top: 1em !important; }
+  .icon-bar {
+    margin-top: 10px;
+    position: relative;
+    top: -25px;
+    left: -15px;
+    height: 3px;
+    width: 30px; }
+    .icon-bar + .icon-bar {
+      margin-top: 10px; }
+  img.crest {
+    width: 50% !important;
+    margin-top: 5px;
+    margin-bottom: 5px; }
+  img#chrome {
+    width: 4%; }
+  #signinModal input,
+  #signupModal input {
+    font-size: 1.25em;
+    height: 50px;
+    letter-spacing: 0.25px;
+    margin: 2.5% 0;
+    width: 100%; }
+    #signinModal input[type="submit"],
+    #signupModal input[type="submit"] {
+      height: 50px;
+      margin: 0; }
+  .gender-choice label {
+    margin-right: 35px !important;
+    margin-left: 10px !important;
+    vertical-align: bottom !important; }
+  .gender-choice input {
+    height: inherit !important;
+    width: inherit !important; }
+  input[type="file"] {
+    height: inherit !important;
+    margin: 0 !important; }
+  #destSearchBtn {
+    padding: 15px 0 !important;
+    width: 70% !important; }
+  .copyright {
+    margin-bottom: 15%; } }
+
 @media only screen and (max-width: 500px) {
   .navbar {
+    border-radius: 0;
     width: 100% !important;
     padding: .5em !important; }
   button.navbar-toggle {
     max-height: 75% !important;
     max-width: 75% !important;
-    margin: .5em !important; }
+    margin: 0 !important;
+    margin-bottom: 15px !important; }
   .icon-bar {
     margin-top: 5px !important;
     position: relative !important;
@@ -412,10 +464,17 @@ img.socialBadges {
     left: 0px !important;
     height: 2px !important;
     width: 25px !important; }
+  .wordmark {
+    height: 35px; }
   img.tcpp {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    width: 100% !important;
     margin: 0px;
     margin-bottom: 25px;
-    width: 75% !important;
     float: left;
     vertical-align: middle !important; }
   span.glyphicon.glyphicon-plus {
@@ -432,8 +491,11 @@ img.socialBadges {
       width: 100%;
       font-size: 1.5em; }
   img.crest {
-    width: 90% !important;
+    width: 100%;
+    margin-top: 5px;
     margin-bottom: 5px; }
+  img#chrome {
+    width: 4%; }
   .container {
     padding: 0; }
   .btn {
@@ -465,58 +527,12 @@ img.socialBadges {
   #footer p.center {
     width: 100%; }
   img.socialBadges {
-    width: 75px;
+    width: 15%;
+    height: 15%;
     margin: 1%;
     display: inline-block; }
   img.journeyKitDownload {
     width: 90%;
     display: inline-block; } }
-
-@media only screen and (max-width: 500px) and (max-width: 900px) {
-  .navbar {
-    padding: 1em !important;
-    margin: 0px !important;
-    width: 100% !important; }
-  img.tcpp {
-    width: 60% !important;
-    margin-top: 1em !important; }
-  .icon-bar {
-    margin-top: 10px;
-    position: relative;
-    top: -25px;
-    left: -15px;
-    height: 3px;
-    width: 30px; }
-    .icon-bar + .icon-bar {
-      margin-top: 10px; }
-  #signinModal input,
-  #signupModal input {
-    font-size: 1.25em;
-    height: 50px;
-    letter-spacing: 0.25px;
-    margin: 2.5% 0;
-    width: 100%; }
-    #signinModal input[type="submit"],
-    #signupModal input[type="submit"] {
-      height: 50px;
-      margin: 0; }
-  .gender-choice label {
-    margin-right: 35px !important;
-    margin-left: 10px !important;
-    vertical-align: bottom !important; }
-  .gender-choice input {
-    height: inherit !important;
-    width: inherit !important; }
-  input[type="file"] {
-    height: inherit !important;
-    margin: 0 !important; }
-  img.crest {
-    margin-bottom: 15px;
-    width: 35% !important; }
-  #destSearchBtn {
-    padding: 15px 0 !important;
-    width: 70% !important; }
-  .copyright {
-    margin-bottom: 15%; } }
 
 /*# sourceMappingURL=Main.css.map */

@@ -149,6 +149,34 @@ div#destButtons {
   text-align: center;
 }
 
+.btn-group {
+  .btn {
+    &:first-child:not(:last-child):not(.dropdown-toggle) {
+      border-radius: 25px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:last-child:not(:first-child) {
+      border-radius: 25px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+  button {
+    margin: 2px 5px;
+  }
+}
+
+// Forms
+label {
+  cursor: pointer;
+}
+
+// Modals
+.modal {
+  overflow: auto;
+}
+
 #signinModal {
   input {
     text-align: center;
@@ -200,32 +228,32 @@ div#destButtons {
   }
 }
 
-.btn-group {
-  .btn {
-    &:first-child:not(:last-child):not(.dropdown-toggle) {
-      border-radius: 25px;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+#destModal {
+  .modal-header {
+    padding: 15px;
+    text-indent: 20px;
+
+    .jd_title {
+      line-height: normal;
     }
-    &:last-child:not(:first-child) {
-      border-radius: 25px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
+
+    .close {
+      padding: 0 15px !important;
     }
   }
-  button {
-    margin: 2px 5px;
+
+  .modal-body {
+    padding: 35px;
+
+    .jp_divider:last-of-type {
+      display: none;
+    }
   }
-}
 
-// Forms
-label {
-  cursor: pointer;
-}
-
-// Modals
-.modal {
-  overflow: auto;
+  img {
+    margin: 5%;
+    width: 90%;
+  }
 }
 
 .pp_title,
@@ -298,35 +326,6 @@ button.close {
   }
 }
 
-// Passport Profile
-#destModal {
-  .modal-header {
-    padding: 15px;
-    text-indent: 20px;
-
-    .jd_title {
-      line-height: normal;
-    }
-
-    .close {
-      padding: 0 15px !important;
-    }
-  }
-
-  .modal-body {
-    padding: 35px;
-
-    .jp_divider:last-of-type {
-      display: none;
-    }
-  }
-
-  img {
-    margin: 5%;
-    width: 90%;
-  }
-}
-
 // Footer
 #footer {
   background-color: $dark-brown;
@@ -372,7 +371,7 @@ div#socialBadges {
 }
 
 img.socialBadges {
-  width: 55px / 100% * 100%; // 55px;
+  width: 55px;
   margin: .375%; // 5px
   display: inline-block;
 }
@@ -551,9 +550,95 @@ img.socialBadges {
 }
 
 // Media Queries
+@media only screen and (max-width: 900px) {
+    // Navigation
+    .navbar {
+      padding: 1em !important;
+      margin: 0px !important;
+      width: 100% !important;
+      // height: 50px !important;
+    }
+
+    img.tcpp {
+      width: 60% !important;
+      margin-top: 1em !important;
+    }
+
+    .icon-bar {
+      margin-top: 10px;
+      position: relative;
+      top: -25px;
+      left: -15px;
+      height: 3px;
+      width: 30px;
+
+      & + .icon-bar {
+        margin-top: 10px;
+      }
+    }
+
+    img {
+      &.crest {
+        width: 50% !important;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      &#chrome {
+        width: 4%;
+      }
+    }
+
+    // Modals
+    #signinModal,
+    #signupModal {
+      input {
+        font-size: 1.25em;
+        height: 50px;
+        letter-spacing: 0.25px;
+        margin: 2.5% 0;
+        width: 100%;
+
+        &[type="submit"] {
+          height: 50px;
+          margin: 0;
+        }
+      }
+    }
+
+    .gender-choice {
+      label {
+        margin-right: 35px !important;
+        margin-left: 10px !important;
+        vertical-align: bottom !important;
+      }
+
+      input {
+        height: inherit !important;
+        width: inherit !important;
+      }
+    }
+
+    input[type="file"] {
+      height: inherit !important;
+      margin: 0 !important;
+    }
+
+    // Destination Searches
+    #destSearchBtn {
+      padding: 15px 0 !important;
+      width: 70% !important;
+    }
+
+    // Footer
+    .copyright {
+      margin-bottom: 15%;
+    }
+  }
+
 @media only screen and (max-width: 500px) {
   // Navbar
   .navbar {
+    border-radius: 0;
     width: 100% !important;
     padding: .5em !important;
   }
@@ -561,7 +646,8 @@ img.socialBadges {
   button.navbar-toggle {
     max-height: 75% !important;
     max-width: 75% !important;
-    margin: .5em !important;
+    margin: 0 !important;
+    margin-bottom: 15px !important;
   }
 
   .icon-bar {
@@ -573,10 +659,21 @@ img.socialBadges {
     width: 25px !important; // 30px;
   }
 
+  .wordmark {
+    height: 35px;
+  }
+
   img.tcpp {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    width: 100% !important;
+
     margin: 0px;
     margin-bottom: 25px;
-    width: 75% !important;
+    // width: 75% !important;
     float: left;
     vertical-align: middle !important;
   }
@@ -599,19 +696,16 @@ img.socialBadges {
       font-size: 1.5em;
     }
   }
-  img.crest {
-      width: 90% !important;
+  img {
+    &.crest {
+      width: 100%;
+      margin-top: 5px;
       margin-bottom: 5px;
     }
-  // img {
-  //   &.crest {
-  //     width: 100%;
-  //     margin-bottom: 5px;
-  //   }
-  //   &#chrome {
-  //     width: 4%;
-  //   }
-  // }
+    &#chrome {
+      width: 4%;
+    }
+  }
   .container {
     padding: 0;
   }
@@ -659,88 +753,13 @@ img.socialBadges {
     width: 100%;
   }
   img.socialBadges {
-    width: 75px / 100% * 100%; // 55px
+    width: 15%;
+    height: 15%;
     margin: 1%; // 5px
     display: inline-block;
   }
   img.journeyKitDownload {
     width: 90%; // 365px;
     display: inline-block;
-  }
-
-@media only screen
-  and (max-width: 900px) {
-    .navbar {
-      padding: 1em !important;
-      margin: 0px !important;
-      width: 100% !important;
-      // height: 50px !important;
-    }
-
-    img.tcpp {
-      width: 60% !important;
-      margin-top: 1em !important;
-    }
-
-    .icon-bar {
-      margin-top: 10px;
-      position: relative;
-      top: -25px;
-      left: -15px;
-      height: 3px;
-      width: 30px;
-
-      & + .icon-bar {
-        margin-top: 10px;
-      }
-    }
-
-    #signinModal,
-    #signupModal {
-      input {
-        font-size: 1.25em;
-        height: 50px;
-        letter-spacing: 0.25px;
-        margin: 2.5% 0;
-        width: 100%;
-
-        &[type="submit"] {
-          height: 50px;
-          margin: 0;
-        }
-      }
-    }
-
-    .gender-choice {
-      label {
-        margin-right: 35px !important;
-        margin-left: 10px !important;
-        vertical-align: bottom !important;
-      }
-
-      input {
-        height: inherit !important;
-        width: inherit !important;
-      }
-    }
-
-    input[type="file"] {
-      height: inherit !important;
-      margin: 0 !important;
-    }
-
-    img.crest {
-      margin-bottom: 15px;
-      width: 35% !important;
-    }
-
-    #destSearchBtn {
-      padding: 15px 0 !important;
-      width: 70% !important;
-    }
-
-    .copyright {
-      margin-bottom: 15%;
-    }
   }
 }
