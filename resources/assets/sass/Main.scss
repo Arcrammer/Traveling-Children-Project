@@ -561,7 +561,7 @@ img.socialBadges {
 
     img.tcpp {
       width: 60% !important;
-      margin-top: 1em !important;
+      margin-top: 0 !important;
     }
 
     .icon-bar {
@@ -579,7 +579,7 @@ img.socialBadges {
 
     img {
       &.crest {
-        width: 50% !important;
+        width: 50%;
         margin-top: 5px;
         margin-bottom: 5px;
       }
@@ -636,6 +636,7 @@ img.socialBadges {
   }
 
 @media only screen and (max-width: 500px) {
+
   // Navbar
   .navbar {
     border-radius: 0;
@@ -671,8 +672,8 @@ img.socialBadges {
     position: relative;
     width: 100% !important;
 
-    margin: 0px;
-    margin-bottom: 25px;
+    margin: 0;
+    // margin-bottom: 25px;
     // width: 75% !important;
     float: left;
     vertical-align: middle !important;
@@ -692,14 +693,14 @@ img.socialBadges {
   div.center.welcome {
     min-width: 300px / 100% * 100%;
     p {
-      width: 100%;
+      width: 105%;
       font-size: 1.5em;
     }
   }
   img {
     &.crest {
       width: 100%;
-      margin-top: 5px;
+      margin-top: 15px;
       margin-bottom: 5px;
     }
     &#chrome {

@@ -404,7 +404,7 @@ img.socialBadges {
     width: 100% !important; }
   img.tcpp {
     width: 60% !important;
-    margin-top: 1em !important; }
+    margin-top: 0 !important; }
   .icon-bar {
     margin-top: 10px;
     position: relative;
@@ -415,7 +415,7 @@ img.socialBadges {
     .icon-bar + .icon-bar {
       margin-top: 10px; }
   img.crest {
-    width: 50% !important;
+    width: 50%;
     margin-top: 5px;
     margin-bottom: 5px; }
   img#chrome {
@@ -473,8 +473,7 @@ img.socialBadges {
     right: 0;
     position: relative;
     width: 100% !important;
-    margin: 0px;
-    margin-bottom: 25px;
+    margin: 0;
     float: left;
     vertical-align: middle !important; }
   span.glyphicon.glyphicon-plus {
@@ -488,11 +487,11 @@ img.socialBadges {
   div.center.welcome {
     min-width: 300px; }
     div.center.welcome p {
-      width: 100%;
+      width: 105%;
       font-size: 1.5em; }
   img.crest {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 5px; }
   img#chrome {
     width: 4%; }
@@ -946,7 +945,7 @@ img.socialBadges {
     width: 100% !important; }
   img.tcpp {
     width: 60% !important;
-    margin-top: 1em !important; }
+    margin-top: 0 !important; }
   .icon-bar {
     margin-top: 10px;
     position: relative;
@@ -957,7 +956,7 @@ img.socialBadges {
     .icon-bar + .icon-bar {
       margin-top: 10px; }
   img.crest {
-    width: 50% !important;
+    width: 50%;
     margin-top: 5px;
     margin-bottom: 5px; }
   img#chrome {
@@ -1015,8 +1014,7 @@ img.socialBadges {
     right: 0;
     position: relative;
     width: 100% !important;
-    margin: 0px;
-    margin-bottom: 25px;
+    margin: 0;
     float: left;
     vertical-align: middle !important; }
   span.glyphicon.glyphicon-plus {
@@ -1030,11 +1028,11 @@ img.socialBadges {
   div.center.welcome {
     min-width: 300px; }
     div.center.welcome p {
-      width: 100%;
+      width: 105%;
       font-size: 1.5em; }
   img.crest {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 15px;
     margin-bottom: 5px; }
   img#chrome {
     width: 4%; }
