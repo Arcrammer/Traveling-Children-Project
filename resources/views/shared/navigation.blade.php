@@ -349,7 +349,7 @@
           <span class="icon-bar"></span>
         </button>
         <a href="/" class="wordmark hvr-grow">
-          <img id="tcpp"
+          <img class="tcpp"
             src="/assets/images/Wordmark.svg"
             lowsrc="/assets/images/Wordmark.png"
             alt="Traveling Children Project Passport">
