@@ -4,7 +4,7 @@
    * The user has authenticated
    */
 ?>
-<!-- Profile -->
+<!-- Passport Profile -->
 <div class="modal fade" id="profileModal">
   <div class="modal-dialog">
     <div class="modal-content travelerProfile">
@@ -67,7 +67,7 @@
           aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4>Traveler Sign In</h4>
+        <h2 class="misc_title">Sign In</h2>
       </div> <!-- .modal-header -->
       <div class="modal-body">
         @if (count($errors) > 0)
@@ -133,7 +133,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4>Sign-up</h4>
+        <h2 class="misc_title">Sign Up</h2>
       </div> <!-- .modal-header -->
 
       <div class="modal-body">

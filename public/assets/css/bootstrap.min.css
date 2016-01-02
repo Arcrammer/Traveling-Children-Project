@@ -6840,7 +6840,7 @@ form.journey-form input[type="text"] {
 
 /* ----------------------------- MODAL TITLES ----------------------------- */
 
-.pp_title, .jd_title, .a_title {
+.pp_title, .jd_title, .a_title, .misc_title {
  font-weight: 300;
  font-size: 2.5em;
  text-align: left;
