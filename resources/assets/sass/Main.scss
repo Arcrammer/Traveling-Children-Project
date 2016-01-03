@@ -192,11 +192,11 @@ label {
   .jp_divider:last-of-type {
     display: none;
   }
-}
 
-img {
-  margin: 5%;
-  width: 90%;
+  // img {
+  //   margin: 5%;
+  //   width: 90%;
+  // }
 }
 
 .modal-footer {
@@ -212,15 +212,14 @@ color: black;
 text-shadow: 0 1px 0 white;
 opacity: .2;
 filter: alpha(opacity = 20);
-&:hover,
-&:focus {
-color: black;
-text-decoration: none;
-cursor: pointer;
-opacity: .5;
-filter: alpha(opacity = 50);
-}
-
+  &:hover,
+  &:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  opacity: .5;
+  filter: alpha(opacity = 50);
+  }
 font-size: 2.5em;
 opacity: 1;
 padding: 3.5% !important;
@@ -236,21 +235,21 @@ border: 0;
 }
 
 .modal-backdrop {
-position: fixed;
-top: 0;
-right: 0;
-bottom: 0;
-left: 0;
-z-index: 1040;
-background-color: $muted-blue;
-&.fade {
-opacity: 0;
-filter: alpha(opacity = 0);
-}
-&.in {
-opacity: .875;
-filter: alpha(opacity = 50);
-}
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: $muted-blue;
+    &.fade {
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    }
+    &.in {
+    opacity: .875;
+    filter: alpha(opacity = 50);
+    }
 }
 // MODALS
   // Sign In Modal
@@ -291,6 +290,7 @@ filter: alpha(opacity = 50);
       padding: 5px;
       width: 50%;
     }
+  }
 
     .pp_pic {
       img {
@@ -339,24 +339,23 @@ filter: alpha(opacity = 50);
   }
 }
   // Footer Images
-  img {
-    &.journeyKitDownload {
+  .journeyKitDownload {
       width: 25%; // 365px;
       display: inline-block;
     }
-    &.socialBadges {
+
+    .socialBadges {
       width: 55px;
       margin: .375%; // 5px
       display: inline-block;
     }
-    &#chrome {
+
+    #chrome {
       width: 2%;
     }
-  }
 
 #tcDownloads {
   text-align: center;
-
   a {
     display: inline-block;
     width: 100%;
@@ -554,6 +553,11 @@ filter: alpha(opacity = 50);
       // height: 50px !important;
     }
 
+    .tcpp {
+      width: 60% !important;
+      margin-top: 0 !important;
+    }
+
     .icon-bar {
       margin-top: 10px;
       position: relative;
@@ -566,21 +570,15 @@ filter: alpha(opacity = 50);
         margin-top: 10px;
       }
     }
-
-    img {
-      &.crest {
-        width: 55%;
-        margin-top: 15px;
-        margin-bottom: 5px;
-      }
-      &#chrome {
-        width: 4%;
-      }
-      &.tcpp {
-        width: 60% !important;
-        margin-top: 0 !important;
-      }
-    }
+  // Footer Images
+  .crest {
+    width: 55%;
+    margin-top: 15px;
+    margin-bottom: 5px;
+  }
+  #chrome {
+    width: 4%;
+  }
 
     // Modals
     #signinModal,
@@ -710,9 +708,6 @@ filter: alpha(opacity = 50);
     width: 90%;
     text-align: center;
   }
-  // input#exampleInputPassword3 {
-  //   width: 90%;
-  // }
   .form-control input {
     width: 100%;
   }

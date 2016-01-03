@@ -28,11 +28,24 @@ img.crest {
   margin-left: auto;
   margin-right: auto; }
 
-img#chrome {
-  width: 2%; }
+.navbar {
+  font-weight: 700;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
 
 .nav a {
   cursor: pointer; }
+
+.wordmark {
+  display: inline-block;
+  height: inherit;
+  margin: 5px 10px;
+  position: relative;
+  top: 7.5px;
+  width: 350px; }
+  .wordmark img {
+    width: 100%; }
 
 .aboutModalButton {
   margin-top: 8px;
@@ -42,12 +55,6 @@ img#chrome {
     color: white; }
     .aboutModalButton a:hover {
       color: #ee6730; }
-
-.navbar {
-  font-weight: 700;
-  border-radius: 8px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0; }
 
 .dropdown-menu {
   border: none; }
@@ -71,16 +78,6 @@ li #likesHeart {
 
 i#likesHeart.fa.fa-heart {
   vertical-align: -.13em; }
-
-.wordmark {
-  display: inline-block;
-  height: inherit;
-  margin: 5px 10px;
-  position: relative;
-  top: 7.5px;
-  width: 350px; }
-  .wordmark img {
-    width: 100%; }
 
 li #facebook-signup a {
   text-align: center;
@@ -124,62 +121,20 @@ label {
 .modal {
   overflow: auto; }
 
-#signinModal input {
-  text-align: center; }
-  #signinModal input[type="submit"] {
-    font-size: 1.25em; }
+.modal-header {
+  padding: 0 15px;
+  text-indent: 5px; }
+  .modal-header h4 {
+    line-height: 225%;
+    width: 75%; }
 
-#signupModal .gender-choice {
-  margin: 15px 0; }
-  #signupModal .gender-choice label {
-    margin-right: 17.5px;
-    margin-left: 5px; }
-  #signupModal .gender-choice input {
-    vertical-align: top; }
-
-#signupModal input[type="file"] {
-  line-height: 0; }
-
-#profileModal .left,
-#profileModal .right {
-  float: left;
-  padding: 5px;
-  width: 50%; }
-
-#profileModal .pp_pic img {
-  border: 5px solid #E8C874;
-  border-radius: 100%;
-  margin: 5% 15%;
-  width: 75%; }
-
-#profileModal .modal-footer {
-  clear: both; }
-
-#destModal .modal-header {
-  padding: 15px;
-  text-indent: 20px; }
-  #destModal .modal-header .jd_title {
-    line-height: normal; }
-  #destModal .modal-header .close {
-    padding: 0 15px !important; }
-
-#destModal .modal-body {
+.modal-body {
   padding: 35px; }
-  #destModal .modal-body .jp_divider:last-of-type {
+  .modal-body .jp_divider:last-of-type {
     display: none; }
 
-#destModal img {
-  margin: 5%;
-  width: 90%; }
-
-.pp_title,
-.jd_title,
-.a_title {
-  font-weight: 300;
-  font-size: 2.5em;
-  text-align: left;
-  line-height: 1.125em;
-  color: #ee6730; }
+.modal-footer {
+  clear: both; }
 
 .close {
   float: right;
@@ -223,12 +178,41 @@ button.close {
     opacity: .875;
     filter: alpha(opacity=50); }
 
-.modal-header {
-  padding: 0 15px;
-  text-indent: 5px; }
-  .modal-header h4 {
-    line-height: 225%;
-    width: 75%; }
+#signinModal input {
+  text-align: center; }
+  #signinModal input[type="submit"] {
+    font-size: 1.25em; }
+
+#signupModal .gender-choice {
+  margin: 15px 0; }
+  #signupModal .gender-choice label {
+    margin-right: 17.5px;
+    margin-left: 5px; }
+  #signupModal .gender-choice input {
+    vertical-align: top; }
+
+#signupModal input[type="file"] {
+  line-height: 0; }
+
+#profileModal .left,
+#profileModal .right {
+  float: left;
+  padding: 5px;
+  width: 50%; }
+
+.pp_pic img {
+  border: 5px solid #E8C874;
+  border-radius: 100%;
+  margin: 5% 15%;
+  width: 75%; }
+
+#destModal .modal-header {
+  padding: 15px;
+  text-indent: 20px; }
+  #destModal .modal-header .jd_title {
+    line-height: normal; }
+  #destModal .modal-header .close {
+    padding: 0 15px !important; }
 
 #footer {
   background-color: #3a2417;
@@ -246,15 +230,23 @@ button.close {
     #footer a:hover {
       color: #2291c8; }
 
+.journeyKitDownload {
+  width: 25%;
+  display: inline-block; }
+
+.socialBadges {
+  width: 55px;
+  margin: .375%;
+  display: inline-block; }
+
+#chrome {
+  width: 2%; }
+
 #tcDownloads {
   text-align: center; }
   #tcDownloads a {
     display: inline-block;
     width: 100%; }
-
-img.journeyKitDownload {
-  width: 25%;
-  display: inline-block; }
 
 #socialBadges {
   text-align: center;
@@ -262,11 +254,6 @@ img.journeyKitDownload {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 30px; }
-
-img.socialBadges {
-  width: 55px;
-  margin: .375%;
-  display: inline-block; }
 
 /* Icon Spin */
 .hvr-icon-spin {
@@ -402,6 +389,9 @@ img.socialBadges {
     padding: 1em !important;
     margin: 0px !important;
     width: 100% !important; }
+  .tcpp {
+    width: 60% !important;
+    margin-top: 0 !important; }
   .icon-bar {
     margin-top: 10px;
     position: relative;
@@ -411,15 +401,12 @@ img.socialBadges {
     width: 30px; }
     .icon-bar + .icon-bar {
       margin-top: 10px; }
-  img.crest {
+  .crest {
     width: 55%;
     margin-top: 15px;
     margin-bottom: 5px; }
-  img#chrome {
+  #chrome {
     width: 4%; }
-  img.tcpp {
-    width: 60% !important;
-    margin-top: 0 !important; }
   #signinModal input,
   #signupModal input {
     font-size: 1.25em;
@@ -481,8 +468,8 @@ img.socialBadges {
       font-size: 1.5em; }
   img.crest {
     width: 100% !important;
-    margin-top: 15px;
-    margin-bottom: 5px; }
+    margin-top: 10px;
+    margin-bottom: 10px; }
   img#chrome {
     width: 4%; }
   img.tcpp {
@@ -567,11 +554,24 @@ img.crest {
   margin-left: auto;
   margin-right: auto; }
 
-img#chrome {
-  width: 2%; }
+.navbar {
+  font-weight: 700;
+  border-radius: 8px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0; }
 
 .nav a {
   cursor: pointer; }
+
+.wordmark {
+  display: inline-block;
+  height: inherit;
+  margin: 5px 10px;
+  position: relative;
+  top: 7.5px;
+  width: 350px; }
+  .wordmark img {
+    width: 100%; }
 
 .aboutModalButton {
   margin-top: 8px;
@@ -581,12 +581,6 @@ img#chrome {
     color: white; }
     .aboutModalButton a:hover {
       color: #ee6730; }
-
-.navbar {
-  font-weight: 700;
-  border-radius: 8px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0; }
 
 .dropdown-menu {
   border: none; }
@@ -610,16 +604,6 @@ li #likesHeart {
 
 i#likesHeart.fa.fa-heart {
   vertical-align: -.13em; }
-
-.wordmark {
-  display: inline-block;
-  height: inherit;
-  margin: 5px 10px;
-  position: relative;
-  top: 7.5px;
-  width: 350px; }
-  .wordmark img {
-    width: 100%; }
 
 li #facebook-signup a {
   text-align: center;
@@ -663,62 +647,20 @@ label {
 .modal {
   overflow: auto; }
 
-#signinModal input {
-  text-align: center; }
-  #signinModal input[type="submit"] {
-    font-size: 1.25em; }
+.modal-header {
+  padding: 0 15px;
+  text-indent: 5px; }
+  .modal-header h4 {
+    line-height: 225%;
+    width: 75%; }
 
-#signupModal .gender-choice {
-  margin: 15px 0; }
-  #signupModal .gender-choice label {
-    margin-right: 17.5px;
-    margin-left: 5px; }
-  #signupModal .gender-choice input {
-    vertical-align: top; }
-
-#signupModal input[type="file"] {
-  line-height: 0; }
-
-#profileModal .left,
-#profileModal .right {
-  float: left;
-  padding: 5px;
-  width: 50%; }
-
-#profileModal .pp_pic img {
-  border: 5px solid #E8C874;
-  border-radius: 100%;
-  margin: 5% 15%;
-  width: 75%; }
-
-#profileModal .modal-footer {
-  clear: both; }
-
-#destModal .modal-header {
-  padding: 15px;
-  text-indent: 20px; }
-  #destModal .modal-header .jd_title {
-    line-height: normal; }
-  #destModal .modal-header .close {
-    padding: 0 15px !important; }
-
-#destModal .modal-body {
+.modal-body {
   padding: 35px; }
-  #destModal .modal-body .jp_divider:last-of-type {
+  .modal-body .jp_divider:last-of-type {
     display: none; }
 
-#destModal img {
-  margin: 5%;
-  width: 90%; }
-
-.pp_title,
-.jd_title,
-.a_title {
-  font-weight: 300;
-  font-size: 2.5em;
-  text-align: left;
-  line-height: 1.125em;
-  color: #ee6730; }
+.modal-footer {
+  clear: both; }
 
 .close {
   float: right;
@@ -762,12 +704,41 @@ button.close {
     opacity: .875;
     filter: alpha(opacity=50); }
 
-.modal-header {
-  padding: 0 15px;
-  text-indent: 5px; }
-  .modal-header h4 {
-    line-height: 225%;
-    width: 75%; }
+#signinModal input {
+  text-align: center; }
+  #signinModal input[type="submit"] {
+    font-size: 1.25em; }
+
+#signupModal .gender-choice {
+  margin: 15px 0; }
+  #signupModal .gender-choice label {
+    margin-right: 17.5px;
+    margin-left: 5px; }
+  #signupModal .gender-choice input {
+    vertical-align: top; }
+
+#signupModal input[type="file"] {
+  line-height: 0; }
+
+#profileModal .left,
+#profileModal .right {
+  float: left;
+  padding: 5px;
+  width: 50%; }
+
+.pp_pic img {
+  border: 5px solid #E8C874;
+  border-radius: 100%;
+  margin: 5% 15%;
+  width: 75%; }
+
+#destModal .modal-header {
+  padding: 15px;
+  text-indent: 20px; }
+  #destModal .modal-header .jd_title {
+    line-height: normal; }
+  #destModal .modal-header .close {
+    padding: 0 15px !important; }
 
 #footer {
   background-color: #3a2417;
@@ -785,15 +756,23 @@ button.close {
     #footer a:hover {
       color: #2291c8; }
 
+.journeyKitDownload {
+  width: 25%;
+  display: inline-block; }
+
+.socialBadges {
+  width: 55px;
+  margin: .375%;
+  display: inline-block; }
+
+#chrome {
+  width: 2%; }
+
 #tcDownloads {
   text-align: center; }
   #tcDownloads a {
     display: inline-block;
     width: 100%; }
-
-img.journeyKitDownload {
-  width: 25%;
-  display: inline-block; }
 
 #socialBadges {
   text-align: center;
@@ -801,11 +780,6 @@ img.journeyKitDownload {
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 30px; }
-
-img.socialBadges {
-  width: 55px;
-  margin: .375%;
-  display: inline-block; }
 
 /* Icon Spin */
 .hvr-icon-spin {
@@ -941,6 +915,9 @@ img.socialBadges {
     padding: 1em !important;
     margin: 0px !important;
     width: 100% !important; }
+  .tcpp {
+    width: 60% !important;
+    margin-top: 0 !important; }
   .icon-bar {
     margin-top: 10px;
     position: relative;
@@ -950,15 +927,12 @@ img.socialBadges {
     width: 30px; }
     .icon-bar + .icon-bar {
       margin-top: 10px; }
-  img.crest {
+  .crest {
     width: 55%;
     margin-top: 15px;
     margin-bottom: 5px; }
-  img#chrome {
+  #chrome {
     width: 4%; }
-  img.tcpp {
-    width: 60% !important;
-    margin-top: 0 !important; }
   #signinModal input,
   #signupModal input {
     font-size: 1.25em;
@@ -1020,8 +994,8 @@ img.socialBadges {
       font-size: 1.5em; }
   img.crest {
     width: 100% !important;
-    margin-top: 15px;
-    margin-bottom: 5px; }
+    margin-top: 10px;
+    margin-bottom: 10px; }
   img#chrome {
     width: 4%; }
   img.tcpp {

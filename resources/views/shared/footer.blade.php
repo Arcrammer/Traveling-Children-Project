@@ -4,7 +4,7 @@
       &copy; 2015 Traveling Children Project, LLC. All rights reserved.
       <a href="/ChromeAdvert" alt="Google Chrome" target="_blank">
           <img id="chrome" src="/assets/images/Chrome.png" />
-      </a> Best viewed with <a href="/ChromeAdvert" alt="Google Chrome" target="_blank">Google Chrome</a>.
+      </a>Best viewed with <a href="/ChromeAdvert" alt="Google Chrome" target="_blank">Google Chrome</a>.
     </b>
   </p>
 
