@@ -63,6 +63,10 @@ img {
   cursor: pointer;
 }
 
+.pancake-button {
+  display: none;
+}
+
 .wordmark {
   display: inline-block;
   height: inherit;
@@ -553,15 +557,6 @@ border: 0;
       // height: 50px !important;
     }
 
-    // button.pancake-button.navbar-toggle {
-    //   background: none !important;
-    //     &:hover,
-    //     &:active,
-    //     &:visited {
-    //       background: none !important;
-    //     }
-    // }
-
     .tcpp {
       width: 60% !important;
       margin-top: 0 !important;
@@ -699,28 +694,28 @@ border: 0;
             transition-delay: 0s, 0.3s;
           }
 
-          .pancake-button.active .pancakes:before {
+          .pancake-button.active .pancakes::before {
             top: 0;
             transform: rotate(45deg);
           }
 
-          .pancake-button.active .pancakes:after {
+          .pancake-button.active .pancakes::after {
             bottom: 0;
             transform: rotate(-45deg);
           }
 
-    #pancakes span {
+    #pancakes {
       background-color: #fff;
       display: block;
       height: 3px;
       margin: 20.5% 0;
     }
 
-    #pancakes:hover span {
+    #pancakes:hover {
       background-color: #ee6730;
     }
 
-    #pancakes:active span {
+    #pancakes:active {
       background-color: #fedf8d;
     }
 

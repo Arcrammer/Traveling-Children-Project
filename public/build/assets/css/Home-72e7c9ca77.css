@@ -37,6 +37,9 @@ img.crest {
 .nav a {
   cursor: pointer; }
 
+.pancake-button {
+  display: none; }
+
 .wordmark {
   display: inline-block;
   height: inherit;
@@ -482,22 +485,22 @@ button.close {
   .pancake-button.active .pancakes {
     background: none;
     transition-delay: 0s, 0.3s; }
-  .pancake-button.active .pancakes:before {
+  .pancake-button.active .pancakes::before {
     top: 0;
     -webkit-transform: rotate(45deg);
     transform: rotate(45deg); }
-  .pancake-button.active .pancakes:after {
+  .pancake-button.active .pancakes::after {
     bottom: 0;
     -webkit-transform: rotate(-45deg);
     transform: rotate(-45deg); }
-  #pancakes span {
+  #pancakes {
     background-color: #fff;
     display: block;
     height: 3px;
     margin: 20.5% 0; }
-  #pancakes:hover span {
+  #pancakes:hover {
     background-color: #ee6730; }
-  #pancakes:active span {
+  #pancakes:active {
     background-color: #fedf8d; } }
 
 @media only screen and (max-width: 500px) {
@@ -593,4 +596,61 @@ button.close {
     width: 90%;
     display: inline-block; } }
 
-/*# sourceMappingURL=Main.css.map */
+/**
+ * These styles are applied to
+ * '/home' and it's child routes
+ */
+.journeyDestSearch .dname {
+  font-size: 1.75em; }
+
+.journeyDestSearch .modal-footer hr {
+  border-width: none;
+  border-top: 0;
+  border-color: #fbd163; }
+
+.form-inline .center #destSearch {
+  width: 100%; }
+
+.form-group {
+  font-size: 1.25em; }
+  .form-group select {
+    height: 45px;
+    text-align: center;
+    margin: 2px 0; }
+
+button {
+  height: 45px;
+  text-align: center;
+  margin: 2px 0; }
+
+input#exampleInputPassword3 {
+  width: 350px;
+  height: 45px;
+  text-align: right;
+  margin: 5px 0; }
+
+.signup-form input[type="radio"] {
+  margin: 5px !important;
+  vertical-align: top !important; }
+
+/* Media Queries */
+@media only screen and (max-width: 900px) {
+  .form-control {
+    width: 90%;
+    margin: 5%; }
+  .form-group {
+    font-size: 1.25em; }
+    .form-group select {
+      width: 90%;
+      height: 45px;
+      text-align: center;
+      margin: 2px 0; }
+  #destSearchBtn {
+    margin: 2.5% auto;
+    padding: 25px;
+    width: 90% !important; }
+  #destButtons button {
+    margin: 0.3346753816%;
+    width: 32.6639825701%; } }
+
+/*# sourceMappingURL=Home.css.map */

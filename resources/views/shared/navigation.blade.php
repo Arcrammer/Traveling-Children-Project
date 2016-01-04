@@ -349,7 +349,7 @@
           <span class="icon-bar"></span>
         </button> -->
         <button class="pancake-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="pancakes"></span>
+        <span id="pancakes" class="pancakes"></span>
         </button>
         <a href="/" class="wordmark hvr-grow">
           <img class="tcpp"
