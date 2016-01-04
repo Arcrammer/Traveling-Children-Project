@@ -389,6 +389,8 @@ button.close {
     padding: 1em !important;
     margin: 0px !important;
     width: 100% !important; }
+  button.pancake-button.navbar-toggle:hover, button.pancake-button.navbar-toggle:active, button.pancake-button.navbar-toggle:visited {
+    background: none !important; }
   .tcpp {
     width: 60% !important;
     margin-top: 0 !important; }
@@ -432,13 +434,83 @@ button.close {
     padding: 15px 0 !important;
     width: 70% !important; }
   .copyright {
-    margin-bottom: 15%; } }
+    margin-bottom: 15%; }
+  .pancake-button {
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 63px;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    top: 6.5%;
+    right: 3.5%;
+    transition: background 0.3s;
+    width: 70px;
+    z-index: 1; }
+  .pancake-button .pancakes {
+    background-color: #fff;
+    display: block;
+    height: 3px;
+    position: absolute;
+    top: 28px;
+    right: 18px;
+    left: 18px;
+    transition: background 300ms; }
+  .pancake-button .pancakes:before, .pancake-button .pancakes:after {
+    background-color: #fff;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    transition-duration: 300ms;
+    transition-delay: 125ms;
+    width: 100%; }
+  .pancake-button .pancakes:before {
+    top: -14px;
+    transition-property: top, -webkit-transform;
+    transition-property: top, transform; }
+  .pancake-button .pancakes:after {
+    bottom: -14px;
+    transition-property: bottom, -webkit-transform;
+    transition-property: bottom, transform; }
+  .pancake-button.active .pancakes {
+    background: none;
+    transition-delay: 0s, 0.3s; }
+  .pancake-button.active .pancakes:before {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .pancake-button.active .pancakes:after {
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  #pancakes span {
+    background-color: #fff;
+    display: block;
+    height: 3px;
+    margin: 20.5% 0; }
+  #pancakes:hover span {
+    background-color: #ee6730; }
+  #pancakes:active span {
+    background-color: #fedf8d; } }
 
 @media only screen and (max-width: 500px) {
+  .container-fluid {
+    padding-left: 0px;
+    padding-right: 0px;
+    min-height: 80px; }
+  .nav {
+    min-height: 90px; }
   .navbar {
     border-radius: 0;
     width: 100% !important;
-    padding: .5em !important; }
+    padding: .5em !important;
+    min-height: 90px; }
   button.navbar-toggle {
     max-height: 75% !important;
     max-width: 75% !important;
@@ -452,7 +524,9 @@ button.close {
     height: 2px !important;
     width: 25px !important; }
   .wordmark {
-    height: 35px; }
+    min-height: 70px;
+    max-width: 240px;
+    vertical-align: middle; }
   span.glyphicon.glyphicon-plus {
     margin-bottom: 5px;
     margin-left: 15px; }
@@ -480,7 +554,6 @@ button.close {
     position: relative;
     width: 100% !important;
     margin: 0;
-    float: left;
     vertical-align: middle !important; }
   .container {
     padding: 0; }
@@ -519,4 +592,61 @@ button.close {
     width: 90%;
     display: inline-block; } }
 
-/*# sourceMappingURL=Main.css.map */
+/**
+ * These styles are applied to
+ * '/home' and it's child routes
+ */
+.journeyDestSearch .dname {
+  font-size: 1.75em; }
+
+.journeyDestSearch .modal-footer hr {
+  border-width: none;
+  border-top: 0;
+  border-color: #fbd163; }
+
+.form-inline .center #destSearch {
+  width: 100%; }
+
+.form-group {
+  font-size: 1.25em; }
+  .form-group select {
+    height: 45px;
+    text-align: center;
+    margin: 2px 0; }
+
+button {
+  height: 45px;
+  text-align: center;
+  margin: 2px 0; }
+
+input#exampleInputPassword3 {
+  width: 350px;
+  height: 45px;
+  text-align: right;
+  margin: 5px 0; }
+
+.signup-form input[type="radio"] {
+  margin: 5px !important;
+  vertical-align: top !important; }
+
+/* Media Queries */
+@media only screen and (max-width: 900px) {
+  .form-control {
+    width: 90%;
+    margin: 5%; }
+  .form-group {
+    font-size: 1.25em; }
+    .form-group select {
+      width: 90%;
+      height: 45px;
+      text-align: center;
+      margin: 2px 0; }
+  #destSearchBtn {
+    margin: 2.5% auto;
+    padding: 25px;
+    width: 90% !important; }
+  #destButtons button {
+    margin: 0.3346753816%;
+    width: 32.6639825701%; } }
+
+/*# sourceMappingURL=Home.css.map */

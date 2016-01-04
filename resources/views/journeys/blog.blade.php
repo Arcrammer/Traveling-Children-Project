@@ -59,7 +59,7 @@
   <!-- Journey Blog Posts -->
   <div class="jp_wrapper grid">
     @foreach ($journeys->items() as $journey)
-      <div class="journeyPost" data-journey-uuid="{{ $journey->uuid }}" id="{{ $journey->uuid }}">
+      <div class="journeyPost grid-item" data-journey-uuid="{{ $journey->uuid }}" id="{{ $journey->uuid }}">
         <div class="jpPadding">
           <p class="jp_title">TC Journey to <span>{{ $journey->title }}</span></p>
         </div> <!-- .jpPadding -->
