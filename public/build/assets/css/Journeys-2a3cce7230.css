@@ -389,8 +389,6 @@ button.close {
     padding: 1em !important;
     margin: 0px !important;
     width: 100% !important; }
-  button.pancake-button.navbar-toggle:hover, button.pancake-button.navbar-toggle:active, button.pancake-button.navbar-toggle:visited {
-    background: none !important; }
   .tcpp {
     width: 60% !important;
     margin-top: 0 !important; }
@@ -436,29 +434,32 @@ button.close {
   .copyright {
     margin-bottom: 15%; }
   .pancake-button {
+    background: none;
     border: none;
     border-radius: none;
     box-shadow: none;
     cursor: pointer;
     display: block;
-    height: 63px;
+    height: 55px;
     margin: 0;
     outline: none;
     overflow: hidden;
     padding: 0;
+    position: relative;
+    float: right;
     top: 6.5%;
     right: 3.5%;
     transition: background 0.3s;
-    width: 70px;
+    width: 60px;
     z-index: 1; }
   .pancake-button .pancakes {
     background-color: #fff;
     display: block;
     height: 3px;
     position: absolute;
-    top: 28px;
-    right: 18px;
-    left: 18px;
+    top: 27px;
+    right: 12px;
+    left: 12px;
     transition: background 300ms; }
   .pancake-button .pancakes:before, .pancake-button .pancakes:after {
     background-color: #fff;
@@ -501,8 +502,8 @@ button.close {
 
 @media only screen and (max-width: 500px) {
   .container-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 8px;
+    padding-right: 5px;
     min-height: 80px; }
   .nav {
     min-height: 90px; }
@@ -552,7 +553,7 @@ button.close {
     bottom: 0;
     right: 0;
     position: relative;
-    width: 100% !important;
+    width: 95% !important;
     margin: 0;
     vertical-align: middle !important; }
   .container {
@@ -988,8 +989,6 @@ button.close {
     padding: 1em !important;
     margin: 0px !important;
     width: 100% !important; }
-  button.pancake-button.navbar-toggle:hover, button.pancake-button.navbar-toggle:active, button.pancake-button.navbar-toggle:visited {
-    background: none !important; }
   .tcpp {
     width: 60% !important;
     margin-top: 0 !important; }
@@ -1035,29 +1034,32 @@ button.close {
   .copyright {
     margin-bottom: 15%; }
   .pancake-button {
+    background: none;
     border: none;
     border-radius: none;
     box-shadow: none;
     cursor: pointer;
     display: block;
-    height: 63px;
+    height: 55px;
     margin: 0;
     outline: none;
     overflow: hidden;
     padding: 0;
+    position: relative;
+    float: right;
     top: 6.5%;
     right: 3.5%;
     transition: background 0.3s;
-    width: 70px;
+    width: 60px;
     z-index: 1; }
   .pancake-button .pancakes {
     background-color: #fff;
     display: block;
     height: 3px;
     position: absolute;
-    top: 28px;
-    right: 18px;
-    left: 18px;
+    top: 27px;
+    right: 12px;
+    left: 12px;
     transition: background 300ms; }
   .pancake-button .pancakes:before, .pancake-button .pancakes:after {
     background-color: #fff;
@@ -1100,8 +1102,8 @@ button.close {
 
 @media only screen and (max-width: 500px) {
   .container-fluid {
-    padding-left: 0px;
-    padding-right: 0px;
+    padding-left: 8px;
+    padding-right: 5px;
     min-height: 80px; }
   .nav {
     min-height: 90px; }
@@ -1151,7 +1153,7 @@ button.close {
     bottom: 0;
     right: 0;
     position: relative;
-    width: 100% !important;
+    width: 95% !important;
     margin: 0;
     vertical-align: middle !important; }
   .container {

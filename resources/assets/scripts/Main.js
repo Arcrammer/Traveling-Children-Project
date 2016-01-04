@@ -21,3 +21,4 @@ $(document).ready(function () {
       this.classList.add("active")
     }
   });
+});
