@@ -92,14 +92,14 @@ li #facebook-signup a {
     background-color: #2268aa;
     color: white; }
 
-div#destButtons {
+#destButtons {
   max-width: 90%; }
-  div#destButtons a {
+  #destButtons a {
     display: block;
     padding: 0;
     color: #9dddf9;
     font-size: .75em; }
-    div#destButtons a:hover {
+    #destButtons a:hover {
       color: white; }
 
 .prob {
@@ -695,14 +695,14 @@ li #facebook-signup a {
     background-color: #2268aa;
     color: white; }
 
-div#destButtons {
+#destButtons {
   max-width: 90%; }
-  div#destButtons a {
+  #destButtons a {
     display: block;
     padding: 0;
     color: #9dddf9;
     font-size: .75em; }
-    div#destButtons a:hover {
+    #destButtons a:hover {
       color: white; }
 
 .prob {

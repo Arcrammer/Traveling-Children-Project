@@ -135,8 +135,9 @@ li #facebook-signup a {
 }
 
 // Destination Search
-div#destButtons {
+#destButtons {
   max-width: 90%;
+
   a {
     display: block;
     padding: 0;
@@ -199,38 +200,38 @@ label {
 }
 
 .modal-footer {
-clear: both;
+  clear: both;
 }
 
 .close {
-float: right;
-font-size: 22.5px;
-font-weight: 700;
-line-height: 1;
-color: black;
-text-shadow: 0 1px 0 white;
-opacity: .2;
-filter: alpha(opacity = 20);
-  &:hover,
-  &:focus {
+  float: right;
+  font-size: 22.5px;
+  font-weight: 700;
+  line-height: 1;
   color: black;
-  text-decoration: none;
-  cursor: pointer;
-  opacity: .5;
-  filter: alpha(opacity = 50);
-  }
-font-size: 2.5em;
-opacity: 1;
-padding: 3.5% !important;
-margin-top: 0 !important;
+  text-shadow: 0 1px 0 white;
+  opacity: .2;
+  filter: alpha(opacity = 20);
+    &:hover,
+    &:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .5;
+    filter: alpha(opacity = 50);
+    }
+  font-size: 2.5em;
+  opacity: 1;
+  padding: 3.5% !important;
+  margin-top: 0 !important;
 }
 
 button.close {
-padding: 0;
-cursor: pointer;
-background: transparent;
-border: 0;
--webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  -webkit-appearance: none;
 }
 
 .modal-backdrop {
@@ -250,71 +251,73 @@ border: 0;
     filter: alpha(opacity = 50);
     }
 }
+
 // MODALS
   // Sign In Modal
-  #signinModal {
+#signinModal {
+  input {
+    text-align: center;
+
+    &[type="submit"] {
+      font-size: 1.25em;
+    }
+  }
+}
+
+// Sign Up Modal
+#signupModal {
+  .gender-choice {
+    margin: 15px 0;
+
+    label {
+      margin-right: 17.5px;
+      margin-left: 5px;
+    }
+
     input {
-      text-align: center;
-
-      &[type="submit"] {
-        font-size: 1.25em;
-      }
+      vertical-align: top;
     }
   }
 
-  // Sign Up Modal
-  #signupModal {
-    .gender-choice {
-      margin: 15px 0;
-
-      label {
-        margin-right: 17.5px;
-        margin-left: 5px;
-      }
-
-      input {
-        vertical-align: top;
-      }
-    }
-
-    input[type="file"] {
-      line-height: 0;
-    }
+  input[type="file"] {
+    line-height: 0;
   }
-  // Profile Modal
-  #profileModal {
-    .left,
-    .right {
-      float: left;
-      padding: 5px;
-      width: 50%;
+}
+
+// Profile Modal
+#profileModal {
+  .left,
+  .right {
+    float: left;
+    padding: 5px;
+    width: 50%;
+  }
+}
+
+  .pp_pic {
+    img {
+      border: 5px solid #E8C874;
+      border-radius: 100%;
+      margin: 5% 15%;
+      width: 75%;
     }
   }
 
-    .pp_pic {
-      img {
-        border: 5px solid #E8C874;
-        border-radius: 100%;
-        margin: 5% 15%;
-        width: 75%;
-      }
+// Destination Modal
+#destModal {
+  .modal-header {
+    padding: 15px;
+    text-indent: 20px;
+
+    .jd_title {
+      line-height: normal;
     }
 
-  // Destination Modal
-  #destModal {
-    .modal-header {
-      padding: 15px;
-      text-indent: 20px;
-
-      .jd_title {
-        line-height: normal;
-      }
-
-      .close {
-        padding: 0 15px !important;
-      }
+    .close {
+      padding: 0 15px !important;
     }
   }
+}
 
 // Footer
 #footer {
@@ -711,15 +714,15 @@ border: 0;
       background-color: #fedf8d;
     }
   }
-  }
+}
 
 @media only screen and (max-width: 500px) {
-
-.container-fluid {
-  padding-left: 8px;
-  padding-right: 5px;
-  min-height: 80px;
-}
+  // Structure
+  .container-fluid {
+    padding-left: 8px;
+    padding-right: 5px;
+    min-height: 80px;
+  }
 
   // Navbar
   .nav {
