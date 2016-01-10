@@ -28,34 +28,17 @@ img.crest {
   margin-left: auto;
   margin-right: auto; }
 
-img#chrome {
-  width: 2%; }
-
-.nav a {
-  cursor: pointer; }
-
-.aboutModalButton {
-  margin-top: 8px;
-  background-color: #3a2417;
-  color: white; }
-  .aboutModalButton a {
-    color: white; }
-    .aboutModalButton a:hover {
-      color: #ee6730; }
-
 .navbar {
   font-weight: 700;
   border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0; }
 
-li #likesHeart {
-  color: #ffc233 !important;
-  font-size: 1.5em;
-  padding: 6px; }
+.nav a {
+  cursor: pointer; }
 
-i#likesHeart.fa.fa-heart {
-  vertical-align: -.13em; }
+.pancake-button {
+  display: none; }
 
 .wordmark {
   display: inline-block;
@@ -66,6 +49,15 @@ i#likesHeart.fa.fa-heart {
   width: 350px; }
   .wordmark img {
     width: 100%; }
+
+.aboutModalButton {
+  margin-top: 8px;
+  background-color: #3a2417;
+  color: white; }
+  .aboutModalButton a {
+    color: white; }
+    .aboutModalButton a:hover {
+      color: #ee6730; }
 
 .dropdown-menu {
   border: none; }
@@ -81,6 +73,14 @@ i#likesHeart.fa.fa-heart {
       height: 40px;
       padding: 10px;
       color: white; }
+
+li #likesHeart {
+  color: #ffc233 !important;
+  font-size: 1.5em;
+  padding: 6px; }
+
+i#likesHeart.fa.fa-heart {
+  vertical-align: -.13em; }
 
 li #facebook-signup a {
   text-align: center;
@@ -105,37 +105,6 @@ div#destButtons {
 .prob {
   text-align: center; }
 
-#signinModal input {
-  text-align: center; }
-  #signinModal input[type="submit"] {
-    font-size: 1.25em; }
-
-#signupModal .gender-choice {
-  margin: 15px 0; }
-  #signupModal .gender-choice label {
-    margin-right: 17.5px;
-    margin-left: 5px; }
-  #signupModal .gender-choice input {
-    vertical-align: top; }
-
-#signupModal input[type="file"] {
-  line-height: 0; }
-
-#profileModal .left,
-#profileModal .right {
-  float: left;
-  padding: 5px;
-  width: 50%; }
-
-#profileModal .pp_pic img {
-  border: 5px solid #E8C874;
-  border-radius: 100%;
-  margin: 5% 15%;
-  width: 75%; }
-
-#profileModal .modal-footer {
-  clear: both; }
-
 .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle) {
   border-radius: 25px;
   border-top-right-radius: 0;
@@ -155,14 +124,20 @@ label {
 .modal {
   overflow: auto; }
 
-.pp_title,
-.jd_title,
-.a_title {
-  font-weight: 300;
-  font-size: 2.5em;
-  text-align: left;
-  line-height: 1.125em;
-  color: #ee6730; }
+.modal-header {
+  padding: 0 15px;
+  text-indent: 5px; }
+  .modal-header h4 {
+    line-height: 225%;
+    width: 75%; }
+
+.modal-body {
+  padding: 35px; }
+  .modal-body .jp_divider:last-of-type {
+    display: none; }
+
+.modal-footer {
+  clear: both; }
 
 .close {
   float: right;
@@ -206,12 +181,33 @@ button.close {
     opacity: .875;
     filter: alpha(opacity=50); }
 
-.modal-header {
-  padding: 0 15px;
-  text-indent: 5px; }
-  .modal-header h4 {
-    line-height: 225%;
-    width: 75%; }
+#signinModal input {
+  text-align: center; }
+  #signinModal input[type="submit"] {
+    font-size: 1.25em; }
+
+#signupModal .gender-choice {
+  margin: 15px 0; }
+  #signupModal .gender-choice label {
+    margin-right: 17.5px;
+    margin-left: 5px; }
+  #signupModal .gender-choice input {
+    vertical-align: top; }
+
+#signupModal input[type="file"] {
+  line-height: 0; }
+
+#profileModal .left,
+#profileModal .right {
+  float: left;
+  padding: 5px;
+  width: 50%; }
+
+.pp_pic img {
+  border: 5px solid #E8C874;
+  border-radius: 100%;
+  margin: 5% 15%;
+  width: 75%; }
 
 #destModal .modal-header {
   padding: 15px;
@@ -220,15 +216,6 @@ button.close {
     line-height: normal; }
   #destModal .modal-header .close {
     padding: 0 15px !important; }
-
-#destModal .modal-body {
-  padding: 35px; }
-  #destModal .modal-body .jp_divider:last-of-type {
-    display: none; }
-
-#destModal img {
-  margin: 5%;
-  width: 90%; }
 
 #footer {
   background-color: #3a2417;
@@ -246,27 +233,30 @@ button.close {
     #footer a:hover {
       color: #2291c8; }
 
+.journeyKitDownload {
+  width: 25%;
+  display: inline-block; }
+
+.socialBadges {
+  width: 55px;
+  margin: .375%;
+  display: inline-block; }
+
+#chrome {
+  width: 2%; }
+
 #tcDownloads {
   text-align: center; }
   #tcDownloads a {
     display: inline-block;
     width: 100%; }
 
-img.journeyKitDownload {
-  width: 25%;
-  display: inline-block; }
-
-div#socialBadges {
+#socialBadges {
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 0;
   margin-bottom: 30px; }
-
-img.socialBadges {
-  width: 55px;
-  margin: .375%;
-  display: inline-block; }
 
 /* Icon Spin */
 .hvr-icon-spin {
@@ -397,89 +387,14 @@ img.socialBadges {
     -webkit-animation-direction: normal,alternate;
     animation-direction: normal,alternate; }
 
-@media only screen and (max-width: 500px) {
-  .navbar {
-    width: 100% !important;
-    padding: .5em !important; }
-  button.navbar-toggle {
-    max-height: 75% !important;
-    max-width: 75% !important;
-    margin: .5em !important; }
-  .icon-bar {
-    margin-top: 5px !important;
-    position: relative !important;
-    top: 0px !important;
-    left: 0px !important;
-    height: 2px !important;
-    width: 25px !important; }
-  img.tcpp {
-    margin: 0px;
-    margin-bottom: 25px;
-    width: 75% !important;
-    float: left;
-    vertical-align: middle !important; }
-  span.glyphicon.glyphicon-plus {
-    margin-bottom: 5px;
-    margin-left: 15px; }
-  button.journeyModalButton {
-    min-height: 75px;
-    width: 75px !important;
-    border-radius: 50px;
-    font-size: 3em; }
-  div.center.welcome {
-    min-width: 300px; }
-    div.center.welcome p {
-      width: 100%;
-      font-size: 1.5em; }
-  img.crest {
-    width: 90% !important;
-    margin-bottom: 5px; }
-  .container {
-    padding: 0; }
-  .btn {
-    padding: 0;
-    width: 100px; }
-  .form-control {
-    display: inline-block;
-    margin: 50px;
-    width: 90%;
-    text-align: center; }
-  input#exampleInputPassword3 {
-    width: 90%; }
-  .form-control input {
-    width: 100%; }
-  div#destButtons {
-    max-width: 90%; }
-  .btn-group.btn-group-lg.center {
-    width: 100%;
-    margin: 0;
-    padding: 0; }
-  button.btn.btn-warning {
-    width: 90%; }
-  .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group .btn:last-child:not(:first-child) {
-    border-radius: 0; }
-  button.btn.btn-info:nth-of-type(9) {
-    width: 32%;
-    text-align: center;
-    padding: 0; }
-  #footer p.center {
-    width: 100%; }
-  img.socialBadges {
-    width: 75px;
-    margin: 1%;
-    display: inline-block; }
-  img.journeyKitDownload {
-    width: 90%;
-    display: inline-block; } }
-
-@media only screen and (max-width: 500px) and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
   .navbar {
     padding: 1em !important;
     margin: 0px !important;
     width: 100% !important; }
-  img.tcpp {
+  .tcpp {
     width: 60% !important;
-    margin-top: 1em !important; }
+    margin-top: 0 !important; }
   .icon-bar {
     margin-top: 10px;
     position: relative;
@@ -489,6 +404,12 @@ img.socialBadges {
     width: 30px; }
     .icon-bar + .icon-bar {
       margin-top: 10px; }
+  .crest {
+    width: 55%;
+    margin-top: 15px;
+    margin-bottom: 5px; }
+  #chrome {
+    width: 4%; }
   #signinModal input,
   #signupModal input {
     font-size: 1.25em;
@@ -510,13 +431,169 @@ img.socialBadges {
   input[type="file"] {
     height: inherit !important;
     margin: 0 !important; }
-  img.crest {
-    margin-bottom: 15px;
-    width: 35% !important; }
   #destSearchBtn {
     padding: 15px 0 !important;
     width: 70% !important; }
   .copyright {
-    margin-bottom: 15%; } }
+    margin-bottom: 15%; }
+  .pancake-button {
+    background: none;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 55px;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    float: right;
+    top: 6.5%;
+    right: 3.5%;
+    transition: background 0.3s;
+    width: 60px;
+    z-index: 1; }
+  .pancake-button .pancakes {
+    background-color: #fff;
+    display: block;
+    height: 3px;
+    position: absolute;
+    top: 27px;
+    right: 12px;
+    left: 12px;
+    transition: background 300ms; }
+  .pancake-button .pancakes:before, .pancake-button .pancakes:after {
+    background-color: #fff;
+    content: "";
+    display: block;
+    height: 3px;
+    position: absolute;
+    left: 0;
+    transition-duration: 300ms;
+    transition-delay: 125ms;
+    width: 100%; }
+  .pancake-button .pancakes:before {
+    top: -14px;
+    transition-property: top, -webkit-transform;
+    transition-property: top, transform; }
+  .pancake-button .pancakes:after {
+    bottom: -14px;
+    transition-property: bottom, -webkit-transform;
+    transition-property: bottom, transform; }
+  .pancake-button.active .pancakes {
+    background: none;
+    transition-delay: 0s, 0.3s; }
+  .pancake-button.active .pancakes::before {
+    top: 0;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg); }
+  .pancake-button.active .pancakes::after {
+    bottom: 0;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg); }
+  #pancakes {
+    background-color: #fff;
+    display: block;
+    height: 3px;
+    margin: 20.5% 0; }
+  #pancakes:hover {
+    background-color: #ee6730; }
+  #pancakes:active {
+    background-color: #fedf8d; } }
+
+@media only screen and (max-width: 500px) {
+  .container-fluid {
+    padding-left: 8px;
+    padding-right: 5px;
+    min-height: 80px; }
+  .nav {
+    min-height: 90px; }
+  .navbar {
+    border-radius: 0;
+    width: 100% !important;
+    padding: .5em !important;
+    min-height: 90px; }
+  button.navbar-toggle {
+    max-height: 75% !important;
+    max-width: 75% !important;
+    margin: 0 !important;
+    margin-bottom: 15px !important; }
+  .icon-bar {
+    margin-top: 5px !important;
+    position: relative !important;
+    top: 0px !important;
+    left: 0px !important;
+    height: 2px !important;
+    width: 25px !important; }
+  .wordmark {
+    min-height: 70px;
+    max-width: 240px;
+    vertical-align: middle; }
+  span.glyphicon.glyphicon-plus {
+    margin-bottom: 5px;
+    margin-left: 15px; }
+  button.journeyModalButton {
+    min-height: 75px;
+    width: 75px !important;
+    border-radius: 50px;
+    font-size: 3em; }
+  div.center.welcome {
+    min-width: 300px; }
+    div.center.welcome p {
+      width: 105%;
+      font-size: 1.5em; }
+  img.crest {
+    width: 100% !important;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  img#chrome {
+    width: 4%; }
+  img.tcpp {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: relative;
+    width: 95% !important;
+    margin: 0;
+    vertical-align: middle !important; }
+  .container {
+    padding: 0; }
+  .btn {
+    padding: 0;
+    width: 100px; }
+  .form-control {
+    display: inline-block;
+    margin: 50px;
+    width: 90%;
+    text-align: center; }
+  .form-control input {
+    width: 100%; }
+  #destButtons {
+    max-width: 90%; }
+  .btn-group.btn-group-lg.center {
+    width: 100%;
+    margin: 0;
+    padding: 0; }
+  button.btn.btn-warning {
+    width: 90%; }
+  .btn-group .btn:first-child:not(:last-child):not(.dropdown-toggle), .btn-group .btn:last-child:not(:first-child) {
+    border-radius: 0; }
+  button.btn.btn-info:nth-of-type(9) {
+    width: 32%;
+    text-align: center;
+    padding: 0; }
+  #footer p.center {
+    width: 100%; }
+  img.socialBadges {
+    width: 15%;
+    height: 15%;
+    margin: 1%;
+    display: inline-block; }
+  img.journeyKitDownload {
+    width: 90%;
+    display: inline-block; } }
 
 /*# sourceMappingURL=Main.css.map */

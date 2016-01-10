@@ -4,7 +4,7 @@
    * The user has authenticated
    */
 ?>
-<!-- Profile -->
+<!-- Passport Profile -->
 <div class="modal fade" id="profileModal">
   <div class="modal-dialog">
     <div class="modal-content travelerProfile">
@@ -67,7 +67,7 @@
           aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4>Traveler Sign In</h4>
+        <h2 class="misc_title">Sign In</h2>
       </div> <!-- .modal-header -->
       <div class="modal-body">
         @if (count($errors) > 0)
@@ -133,7 +133,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4>Sign-up</h4>
+        <h2 class="misc_title">Sign Up</h2>
       </div> <!-- .modal-header -->
 
       <div class="modal-body">
@@ -342,11 +342,14 @@
  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
+        </button> -->
+        <button class="pancake-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span id="pancakes" class="pancakes"></span>
         </button>
         <a href="/" class="wordmark hvr-grow">
           <img class="tcpp"
@@ -379,7 +382,7 @@
               <li data-toggle="modal" data-target="#profileModal">
                 <a href="#profileModal">View Passport Profile</a>
               </li>
-              <li class="center">My Likes<i class="fa fa-heart" id="likesHeart"></i>(<span id="like-count">{{ Auth::user()->likes->count() }}</span>)</li>
+              <li class="center"><a>My Likes<i class="fa fa-heart" id="likesHeart"></i>(<span id="like-count">{{ Auth::user()->likes->count() }}</span>)</a></li>
               <li role="separator" class="divider"></li>
               <li>
                 <a href="/auth/logout" id="logoutLink">Sign Out</a>
