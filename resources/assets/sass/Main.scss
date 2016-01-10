@@ -196,11 +196,6 @@ label {
   .jp_divider:last-of-type {
     display: none;
   }
-
-  // img {
-  //   margin: 5%;
-  //   width: 90%;
-  // }
 }
 
 .modal-footer {
@@ -584,141 +579,138 @@ border: 0;
     width: 4%;
   }
 
-    // Modals
-    #signinModal,
-    #signupModal {
-      input {
-        font-size: 1.25em;
+  // Modals
+  #signinModal,
+  #signupModal {
+    input {
+      font-size: 1.25em;
+      height: 50px;
+      letter-spacing: 0.25px;
+      margin: 2.5% 0;
+      width: 100%;
+
+      &[type="submit"] {
         height: 50px;
-        letter-spacing: 0.25px;
-        margin: 2.5% 0;
-        width: 100%;
-
-        &[type="submit"] {
-          height: 50px;
-          margin: 0;
-        }
+        margin: 0;
       }
     }
+  }
 
-    .gender-choice {
-      label {
-        margin-right: 35px !important;
-        margin-left: 10px !important;
-        vertical-align: bottom !important;
-      }
-
-      input {
-        height: inherit !important;
-        width: inherit !important;
-      }
+  .gender-choice {
+    label {
+      margin-right: 35px !important;
+      margin-left: 10px !important;
+      vertical-align: bottom !important;
     }
 
-    input[type="file"] {
+    input {
       height: inherit !important;
-      margin: 0 !important;
+      width: inherit !important;
     }
+  }
 
-    // Destination Searches
-    #destSearchBtn {
-      padding: 15px 0 !important;
-      width: 70% !important;
-    }
+  input[type="file"] {
+    height: inherit !important;
+    margin: 0 !important;
+  }
 
-    // Footer
-    .copyright {
-      margin-bottom: 15%;
-    }
+  // Destination Searches
+  #destSearchBtn {
+    padding: 15px 0 !important;
+    width: 70% !important;
+  }
 
-    // Pancake Button
-    .pancake-button {
-            background: none;
-            border: none;
-            border-radius: none;
-            box-shadow: none;
-            cursor: pointer;
-            display: block;
-            height: 55px;
-            margin: 0;
-            outline: none;
-            overflow: hidden;
-            padding: 0;
-            position: relative;
-            float: right;
-            top: 6.5%;
-            right: 3.5%;
-            transition: background 0.3s;
-            width: 60px;
-            z-index: 1;
-          }
+  // Footer
+  .copyright {
+    margin-bottom: 15%;
+  }
 
-          .pancake-button .pancakes {
-            background-color: #fff;
-            display: block;
-            height: 3px;
-            position: absolute;
-            top: 27px;
-            right: 12px;
-            left: 12px;
-            transition: background 300ms;
-          }
+  // Pancake Button
+  .pancake-button {
+    background: none;
+    border: none;
+    border-radius: none;
+    box-shadow: none;
+    cursor: pointer;
+    display: block;
+    height: 55px;
+    margin: 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    float: right;
+    top: 6.5%;
+    right: 3.5%;
+    transition: background 0.3s;
+    width: 60px;
+    z-index: 1;
 
-          .pancake-button .pancakes:before, .pancake-button .pancakes:after {
-            background-color: #fff;
-            content: "";
-            display: block;
-            height: 3px;
-            position: absolute;
-            left: 0;
-
-            transition-duration: 300ms;
-            transition-delay: 125ms;
-
-            width: 100%;
-          }
-
-          .pancake-button .pancakes:before {
-            top: -14px;
-
-            transition-property: top, transform;
-          }
-
-          .pancake-button .pancakes:after {
-            bottom: -14px;
-
-            transition-property: bottom, transform;
-          }
-
-          .pancake-button.active .pancakes {
-            background: none;
-            transition-delay: 0s, 0.3s;
-          }
-
-          .pancake-button.active .pancakes::before {
-            top: 0;
-            transform: rotate(45deg);
-          }
-
-          .pancake-button.active .pancakes::after {
-            bottom: 0;
-            transform: rotate(-45deg);
-          }
-
-    #pancakes {
+    .pancakes {
       background-color: #fff;
       display: block;
       height: 3px;
-      margin: 20.5% 0;
-    }
+      position: absolute;
+      top: 27px;
+      right: 12px;
+      left: 12px;
+      transition: background 300ms;
 
-    #pancakes:hover {
+      &::before,
+      &::after {
+        background-color: #fff;
+        content: "";
+        display: block;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        transition-duration: 300ms;
+        transition-delay: 125ms;
+        width: 100%;
+      }
+
+      &::before {
+        top: -14px;
+        transition-property: top, transform;
+      }
+
+      &::after {
+        bottom: -14px;
+
+        transition-property: bottom, transform;
+      }
+
+      &.active .pancakes {
+        background: none;
+        transition-delay: 0s, 0.3s;
+
+        &::before {
+          top: 0;
+          transform: rotate(45deg);
+        }
+
+        &::after {
+          bottom: 0;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+  }
+
+  #pancakes {
+    background-color: #fff;
+    display: block;
+    height: 3px;
+    margin: 20.5% 0;
+
+    &:hover {
       background-color: #ee6730;
     }
 
-    #pancakes:active {
+    &:active {
       background-color: #fedf8d;
     }
-
+  }
   }
 
 @media only screen and (max-width: 500px) {

@@ -455,53 +455,53 @@ button.close {
     transition: background 0.3s;
     width: 60px;
     z-index: 1; }
-  .pancake-button .pancakes {
-    background-color: #fff;
-    display: block;
-    height: 3px;
-    position: absolute;
-    top: 27px;
-    right: 12px;
-    left: 12px;
-    transition: background 300ms; }
-  .pancake-button .pancakes:before, .pancake-button .pancakes:after {
-    background-color: #fff;
-    content: "";
-    display: block;
-    height: 3px;
-    position: absolute;
-    left: 0;
-    transition-duration: 300ms;
-    transition-delay: 125ms;
-    width: 100%; }
-  .pancake-button .pancakes:before {
-    top: -14px;
-    transition-property: top, -webkit-transform;
-    transition-property: top, transform; }
-  .pancake-button .pancakes:after {
-    bottom: -14px;
-    transition-property: bottom, -webkit-transform;
-    transition-property: bottom, transform; }
-  .pancake-button.active .pancakes {
-    background: none;
-    transition-delay: 0s, 0.3s; }
-  .pancake-button.active .pancakes::before {
-    top: 0;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg); }
-  .pancake-button.active .pancakes::after {
-    bottom: 0;
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg); }
+    .pancake-button .pancakes {
+      background-color: #fff;
+      display: block;
+      height: 3px;
+      position: absolute;
+      top: 27px;
+      right: 12px;
+      left: 12px;
+      transition: background 300ms; }
+      .pancake-button .pancakes::before, .pancake-button .pancakes::after {
+        background-color: #fff;
+        content: "";
+        display: block;
+        height: 3px;
+        position: absolute;
+        left: 0;
+        transition-duration: 300ms;
+        transition-delay: 125ms;
+        width: 100%; }
+      .pancake-button .pancakes::before {
+        top: -14px;
+        transition-property: top, -webkit-transform;
+        transition-property: top, transform; }
+      .pancake-button .pancakes::after {
+        bottom: -14px;
+        transition-property: bottom, -webkit-transform;
+        transition-property: bottom, transform; }
+      .pancake-button .pancakes.active .pancakes {
+        background: none;
+        transition-delay: 0s, 0.3s; }
+        .pancake-button .pancakes.active .pancakes::before {
+          top: 0;
+          -webkit-transform: rotate(45deg);
+          transform: rotate(45deg); }
+        .pancake-button .pancakes.active .pancakes::after {
+          bottom: 0;
+          -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg); }
   #pancakes {
     background-color: #fff;
     display: block;
     height: 3px;
     margin: 20.5% 0; }
-  #pancakes:hover {
-    background-color: #ee6730; }
-  #pancakes:active {
-    background-color: #fedf8d; } }
+    #pancakes:hover {
+      background-color: #ee6730; }
+    #pancakes:active {
+      background-color: #fedf8d; } }
 
 @media only screen and (max-width: 500px) {
   .container-fluid {
