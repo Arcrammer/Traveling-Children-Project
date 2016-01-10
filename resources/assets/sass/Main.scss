@@ -769,6 +769,7 @@ button.close {
     border-radius: 50px;
     font-size: 3em;
   }
+
   div.center.welcome {
     min-width: 300px / 100% * 100%;
     p {
@@ -800,36 +801,44 @@ button.close {
   .container {
     padding: 0;
   }
+
   .btn {
     padding: 0;
     width: 100px;
   }
+
   .form-control {
     display: inline-block;
     margin: 50px;
     width: 90%;
     text-align: center;
   }
+
   .form-control input {
     width: 100%;
   }
+
   #destButtons {
     max-width: 90%;
   }
+
   .btn-group.btn-group-lg.center {
     width: 100%;
     margin: 0;
     padding: 0;
   }
+
   button.btn.btn-warning {
     width: 90%;
   }
+
   .btn-group .btn {
     &:first-child:not(:last-child):not(.dropdown-toggle),
     &:last-child:not(:first-child) {
       border-radius: 0;
     }
   }
+
   button.btn.btn-info {
     &:nth-of-type(9) {
       width: 32%;
@@ -837,15 +846,18 @@ button.close {
       padding: 0;
     }
   }
+
   #footer p.center {
     width: 100%;
   }
+
   img.socialBadges {
     width: 15%;
     height: 15%;
     margin: 1%; // 5px
     display: inline-block;
   }
+
   img.journeyKitDownload {
     width: 90%; // 365px;
     display: inline-block;
