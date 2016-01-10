@@ -1,6 +1,11 @@
 (function() {
   (function($) {
+    var pancakes;
     $('[data-toggle="tooltip"]').tooltip();
+    pancakes = $('.pancake-button');
+    pancakes.on('click', function() {
+      return pancakes.toggleClass('active');
+    });
     return $('.editProfileButton').click(function() {
       $.ajax('/traveler/show', {
         success: function(travelerData) {

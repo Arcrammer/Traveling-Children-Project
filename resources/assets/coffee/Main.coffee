@@ -2,6 +2,11 @@
   # The DOM has loaded
   $('[data-toggle="tooltip"]').tooltip()
 
+  # Pancake button
+  pancakes = $('.pancake-button')
+  pancakes.on 'click', ->
+    pancakes.toggleClass 'active'
+
   # The 'View Passport Profile'
   # button has been clicked
   $('.editProfileButton').click ->

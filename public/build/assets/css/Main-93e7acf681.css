@@ -28,26 +28,35 @@ img.crest {
   margin-left: auto;
   margin-right: auto; }
 
+.pancake-button {
+  display: none; }
+
 .navbar {
   font-weight: 700;
   border-radius: 8px;
   border-top-left-radius: 0;
-  border-top-right-radius: 0; }
+  border-top-right-radius: 0;
+  line-height: 100%;
+  margin: 0; }
+  .navbar .navbar-header {
+    height: 80px !important;
+    margin: 0 !important; }
 
 .nav a {
   cursor: pointer; }
 
-.pancake-button {
-  display: none; }
-
 .wordmark {
   display: inline-block;
-  height: inherit;
+  max-height: 50px !important;
   margin: 5px 10px;
-  position: relative;
-  top: 7.5px;
+  position: absolute;
   width: 350px; }
   .wordmark img {
+    position: absolute !important;
+    top: 30% !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
     width: 100%; }
 
 .aboutModalButton {
@@ -435,9 +444,14 @@ button.close {
     padding: 15px 0 !important;
     width: 70% !important; }
   .copyright {
-    margin-bottom: 15%; }
+    margin-bottom: 15%; } }
+
+@media only screen and (max-width: 500px) {
+  .container-fluid {
+    padding-left: 8px;
+    padding-right: 5px;
+    min-height: 80px; }
   .pancake-button {
-    background: none;
     border: none;
     border-radius: none;
     box-shadow: none;
@@ -448,7 +462,10 @@ button.close {
     outline: none;
     overflow: hidden;
     padding: 0;
-    position: relative;
+    position: absolute;
+    top: 25% !important;
+    right: 2.5% !important;
+    bottom: 0 !important;
     float: right;
     top: 6.5%;
     right: 3.5%;
@@ -460,10 +477,11 @@ button.close {
       display: block;
       height: 3px;
       position: absolute;
-      top: 27px;
-      right: 12px;
-      left: 12px;
-      transition: background 300ms; }
+      top: 7.5px;
+      right: 0;
+      left: 0;
+      transition: background 300ms;
+      width: 80%; }
       .pancake-button .pancakes::before, .pancake-button .pancakes::after {
         background-color: #fff;
         content: "";
@@ -472,42 +490,37 @@ button.close {
         position: absolute;
         left: 0;
         transition-duration: 300ms;
-        transition-delay: 125ms;
         width: 100%; }
       .pancake-button .pancakes::before {
-        top: -14px;
-        transition-property: top, -webkit-transform;
-        transition-property: top, transform; }
+        top: -17.5px; }
       .pancake-button .pancakes::after {
-        bottom: -14px;
-        transition-property: bottom, -webkit-transform;
-        transition-property: bottom, transform; }
-      .pancake-button .pancakes.active .pancakes {
-        background: none;
-        transition-delay: 0s, 0.3s; }
-        .pancake-button .pancakes.active .pancakes::before {
-          top: 0;
-          -webkit-transform: rotate(45deg);
-          transform: rotate(45deg); }
-        .pancake-button .pancakes.active .pancakes::after {
-          bottom: 0;
-          -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg); }
-  #pancakes {
-    background-color: #fff;
-    display: block;
-    height: 3px;
-    margin: 20.5% 0; }
-    #pancakes:hover {
+        bottom: -17.5px; }
+    .pancake-button.active #pancakes {
+      background-color: transparent;
+      transition-delay: 0s, 0.3s; }
+      .pancake-button.active #pancakes::before {
+        top: 0;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg); }
+      .pancake-button.active #pancakes::after {
+        bottom: 0;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg); }
+    .pancake-button #pancakes {
+      background-color: #fff;
+      display: block;
+      height: 3px;
+      margin: 20.5% 0; }
+    .pancake-button:hover #pancakes {
       background-color: #ee6730; }
-    #pancakes:active {
-      background-color: #fedf8d; } }
-
-@media only screen and (max-width: 500px) {
-  .container-fluid {
-    padding-left: 8px;
-    padding-right: 5px;
-    min-height: 80px; }
+      .pancake-button:hover #pancakes::before, .pancake-button:hover #pancakes::after {
+        background-color: #ee6730; }
+    .pancake-button:active #pancakes {
+      background-color: #fedf8d; }
+      .pancake-button:active #pancakes::before, .pancake-button:active #pancakes::after {
+        background-color: #fedf8d; }
+    .pancake-button.active:hover #pancakes, .pancake-button.active:active #pancakes {
+      background-color: transparent; }
   .nav {
     min-height: 90px; }
   .navbar {

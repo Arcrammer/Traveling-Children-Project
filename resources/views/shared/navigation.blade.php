@@ -342,15 +342,15 @@
  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
       <div class="navbar-header">
-        <button class="pancake-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span id="pancakes" class="pancakes"></span>
-        </button>
         <a href="/" class="wordmark hvr-grow">
           <img class="tcpp"
             src="/assets/images/Wordmark.svg"
             lowsrc="/assets/images/Wordmark.png"
             alt="Traveling Children Project Passport">
         </a>
+        <button class="pancake-button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span id="pancakes" class="pancakes"></span>
+        </button>
       </div> <!-- .navbar-header -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">

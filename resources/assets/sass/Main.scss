@@ -51,30 +51,43 @@ img {
   }
 }
 
+// Pancakes
+.pancake-button {
+  display: none;
+}
+
 // Navigation
 .navbar {
   font-weight: 700;
   border-radius: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  line-height: 100%;
+  margin: 0;
+
+  .navbar-header {
+    height: 80px !important;
+    margin: 0 !important;
+  }
 }
 
 .nav a {
   cursor: pointer;
 }
 
-.pancake-button {
-  display: none;
-}
-
 .wordmark {
   display: inline-block;
-  height: inherit;
+  max-height: 50px !important;
   margin: 5px 10px;
-  position: relative;
-  top: 7.5px;
+  position: absolute;
   width: 350px;
+
   img {
+    position: absolute !important;
+    top: 30% !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    left: 0 !important;
     width: 100%;
   }
 }
@@ -253,7 +266,7 @@ button.close {
 }
 
 // MODALS
-  // Sign In Modal
+// Sign In Modal
 #signinModal {
   input {
     text-align: center;
@@ -552,7 +565,6 @@ button.close {
       padding: 1em !important;
       margin: 0px !important;
       width: 100% !important;
-      // height: 50px !important;
     }
 
     .tcpp {
@@ -627,10 +639,21 @@ button.close {
   .copyright {
     margin-bottom: 15%;
   }
+}
+
+@media only screen and (max-width: 500px) {
+  // Structure
+  .container-fluid {
+    padding-left: 8px;
+    padding-right: 5px;
+    min-height: 80px;
+  }
 
   // Pancake Button
   .pancake-button {
-    background: none;
+    $hover-colour: #ee6730;
+    $active-colour: #fedf8d;
+
     border: none;
     border-radius: none;
     box-shadow: none;
@@ -641,7 +664,10 @@ button.close {
     outline: none;
     overflow: hidden;
     padding: 0;
-    position: relative;
+    position: absolute;
+    top: 25% !important;
+    right: 2.5% !important;
+    bottom: 0 !important;
     float: right;
     top: 6.5%;
     right: 3.5%;
@@ -654,10 +680,11 @@ button.close {
       display: block;
       height: 3px;
       position: absolute;
-      top: 27px;
-      right: 12px;
-      left: 12px;
+      top: 7.5px;
+      right: 0;
+      left: 0;
       transition: background 300ms;
+      width: 80%;
 
       &::before,
       &::after {
@@ -668,60 +695,66 @@ button.close {
         position: absolute;
         left: 0;
         transition-duration: 300ms;
-        transition-delay: 125ms;
         width: 100%;
       }
 
       &::before {
-        top: -14px;
-        transition-property: top, transform;
+        top: -17.5px;
       }
 
       &::after {
-        bottom: -14px;
-
-        transition-property: bottom, transform;
-      }
-
-      &.active .pancakes {
-        background: none;
-        transition-delay: 0s, 0.3s;
-
-        &::before {
-          top: 0;
-          transform: rotate(45deg);
-        }
-
-        &::after {
-          bottom: 0;
-          transform: rotate(-45deg);
-        }
+        bottom: -17.5px;
       }
     }
-  }
 
-  #pancakes {
-    background-color: #fff;
-    display: block;
-    height: 3px;
-    margin: 20.5% 0;
+    &.active #pancakes {
+      background-color: transparent;
+      transition-delay: 0s, 0.3s;
 
-    &:hover {
-      background-color: #ee6730;
+      &::before {
+        top: 0;
+        // left: 5px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        // left: 5px;
+        transform: rotate(-45deg);
+      }
     }
 
-    &:active {
-      background-color: #fedf8d;
+    #pancakes {
+      background-color: #fff;
+      display: block;
+      height: 3px;
+      margin: 20.5% 0;
     }
-  }
-}
 
-@media only screen and (max-width: 500px) {
-  // Structure
-  .container-fluid {
-    padding-left: 8px;
-    padding-right: 5px;
-    min-height: 80px;
+    &:hover #pancakes {
+      background-color: $hover-colour;
+
+      &::before,
+      &::after {
+        background-color: $hover-colour;
+      }
+    }
+
+    &:active #pancakes {
+      background-color: $active-colour;
+
+      &::before,
+      &::after {
+        background-color: $active-colour;
+      }
+    }
+
+    &.active:hover,
+    &.active:active {
+      #pancakes {
+        background-color: transparent;
+      }
+    }
   }
 
   // Navbar
@@ -777,6 +810,7 @@ button.close {
       font-size: 1.5em;
     }
   }
+
   img {
     &.crest {
       width: 100% !important;
