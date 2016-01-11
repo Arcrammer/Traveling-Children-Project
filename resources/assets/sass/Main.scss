@@ -53,6 +53,7 @@ img {
 
 // Pancakes
 .pancake-button {
+  background-color: transparent;
   display: none;
 }
 
@@ -664,13 +665,11 @@ button.close {
     outline: none;
     overflow: hidden;
     padding: 0;
-    position: absolute;
-    top: 25% !important;
+    position: relative;
+    top: 22.5% !important;
     right: 2.5% !important;
     bottom: 0 !important;
     float: right;
-    top: 6.5%;
-    right: 3.5%;
     transition: background 0.3s;
     width: 60px;
     z-index: 1;
@@ -707,23 +706,6 @@ button.close {
       }
     }
 
-    &.active #pancakes {
-      background-color: transparent;
-      transition-delay: 0s, 0.3s;
-
-      &::before {
-        top: 0;
-        // left: 5px;
-        transform: rotate(45deg);
-      }
-
-      &::after {
-        bottom: 0;
-        // left: 5px;
-        transform: rotate(-45deg);
-      }
-    }
-
     #pancakes {
       background-color: #fff;
       display: block;
@@ -753,6 +735,23 @@ button.close {
     &.active:active {
       #pancakes {
         background-color: transparent;
+      }
+    }
+
+    &.active #pancakes {
+      background-color: transparent;
+      transition-delay: 0s, 0.3s;
+
+      &::before {
+        top: 0;
+        // left: 5px;
+        transform: rotate(45deg);
+      }
+
+      &::after {
+        bottom: 0;
+        // left: 5px;
+        transform: rotate(-45deg);
       }
     }
   }
